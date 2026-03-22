@@ -23,13 +23,13 @@ export default function Experience() {
 
             <ScrollReveal delay={0.2} className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-border rounded-3xl overflow-hidden bg-bg3">
                 {/* Sidebar */}
-                <div className="border-r border-border p-2 bg-bg3 flex flex-col gap-0.5">
+                <div className="border-b md:border-b-0 md:border-r border-border p-2 bg-bg3 flex flex-row overflow-x-auto md:flex-col gap-2 md:gap-0.5 no-scrollbar snap-x relative z-10 w-full">
                     {DATA.experience.map((job) => (
                         <button
                             key={job.id}
                             onClick={() => setActiveJobId(job.id)}
                             className={cn(
-                                "text-left p-4 md:p-5 rounded-2xl transition-colors duration-300",
+                                "text-left p-4 md:p-5 rounded-2xl transition-colors duration-300 min-w-[240px] md:min-w-0 snap-start shrink-0 flex flex-col justify-center",
                                 activeJobId === job.id ? "bg-purple/10" : "hover:bg-purple/5"
                             )}
                         >

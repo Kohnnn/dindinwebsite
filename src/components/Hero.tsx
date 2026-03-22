@@ -27,31 +27,31 @@ export default function Hero() {
             <OrbBackground size={400} color="rgba(150,110,161,0.14)" className="-bottom-10 -left-24" />
             <OrbBackground size={300} color="rgba(89,88,154,0.1)" className="top-1/2 left-[40%]" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-20 items-center max-w-[1100px] mx-auto relative z-10 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-center max-w-[1100px] mx-auto relative z-10 w-full">
 
                 {/* Left Content */}
                 <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col">
 
 
-                    <motion.h1 variants={item} className="text-[44px] md:text-[68px] font-extrabold text-white leading-[1.05] tracking-tight mb-5">
+                    <motion.h1 variants={item} className="text-[36px] md:text-[68px] font-extrabold text-white leading-[1.05] tracking-tight mb-5">
                         Media <br className="hidden md:block" /> That Moves <em className="italic font-light text-gradient">Markets.</em>
                     </motion.h1>
 
-                    <motion.p variants={item} className="text-[17px] text-slate max-w-[480px] mb-10 font-normal leading-[1.8]">
+                    <motion.p variants={item} className="text-[15px] md:text-[17px] text-slate max-w-[480px] mb-8 font-normal leading-[1.8]">
                         {DATA.summary}
                     </motion.p>
 
-                    <motion.div variants={item} className="flex items-center gap-5 mb-14">
-                        <a href="#contact" className="btn-glow bg-purple text-white px-9 py-4 rounded-full text-[15px] font-bold inline-block">
+                    <motion.div variants={item} className="flex items-center gap-4 mb-10 md:mb-14">
+                        <a href="#contact" className="btn-glow bg-purple text-white px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold inline-block">
                             Get in Touch
                         </a>
-                        <a href="#work" className="text-muted text-[15px] font-medium flex items-center gap-2 hover:text-white transition-colors group">
+                        <a href="#work" className="text-muted text-[14px] md:text-[15px] font-medium flex items-center gap-2 hover:text-white transition-colors group">
                             View Work <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </a>
                     </motion.div>
 
                     {/* Stats Row */}
-                    <motion.div variants={item} className="flex gap-10 pt-9 border-t border-border">
+                    <motion.div variants={item} className="flex gap-8 md:gap-10 pt-7 md:pt-9 border-t border-border">
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
                                 3.5<sup className="text-[20px] text-purple align-super">+</sup>
@@ -68,8 +68,8 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Right Image Card */}
-                <ScrollReveal yOffset={40} delay={0.4} className="hidden lg:flex flex-col gap-5 relative">
-                    <div className="rounded-[24px] overflow-hidden relative aspect-[4/5] bg-bg3 border border-border">
+                <ScrollReveal yOffset={40} delay={0.4} className="flex flex-col gap-5 relative mt-8 lg:mt-0 w-full max-w-[420px] mx-auto lg:max-w-none">
+                    <div className="rounded-[24px] overflow-hidden relative aspect-square md:aspect-[4/5] bg-bg3 border border-border">
                         <Image
                             src="/HoHaoDuyen_Portrait.jpeg"
                             alt="Hồ Hao Duyên"

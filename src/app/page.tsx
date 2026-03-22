@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import SkillMarquee from "@/components/SkillMarquee";
 import Experience from "@/components/Experience";
 import Metrics from "@/components/Metrics";
 import Skills from "@/components/Skills";
@@ -14,6 +15,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <Marquee />
+      <SkillMarquee />
       <Experience />
       <Metrics />
       <Awards />

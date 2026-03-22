@@ -69,3 +69,13 @@ body::before {
     transform: translateX(-50%);
   }
 }
+
+/* Hide scrollbar but keep element scrollable */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
