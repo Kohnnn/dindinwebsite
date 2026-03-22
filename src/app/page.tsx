@@ -15,10 +15,10 @@ export default function Home() {
       <Nav />
       <Hero />
       <Marquee />
-      <SkillMarquee />
       <Experience />
       <Metrics />
       <Awards />
+      <SkillMarquee />
       <Skills />
       <Education />
       <Contact />
