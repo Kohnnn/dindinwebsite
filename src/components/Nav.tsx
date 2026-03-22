@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import Marquee from "./Marquee";
 
 export default function Nav() {
     const [scrolled, setScrolled] = useState(false);
@@ -40,11 +39,6 @@ export default function Nav() {
                         : "bg-[#090507]/60 backdrop-blur-md border-transparent"
                 )}
             >
-                {/* Brand marquee — hidden on mobile to keep nav compact */}
-                <div className="hidden md:block">
-                    <Marquee />
-                </div>
-
                 <div className="px-6 md:px-16 py-4 flex justify-between items-center w-full">
                     <div className="text-[20px] font-extrabold text-white tracking-tight z-50">
                         Hazel<span className="text-gradient">.</span>
