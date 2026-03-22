@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import SkillMarquee from "@/components/SkillMarquee";
 import Experience from "@/components/Experience";
 import Metrics from "@/components/Metrics";
@@ -14,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen">
       <Nav />
       <Hero />
-      <Marquee />
       <SkillMarquee />
       <Experience />
       <Metrics />
