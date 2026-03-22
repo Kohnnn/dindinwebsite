@@ -3,25 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:        #090507;
+  --bg-2:      #100d12;
+  --bg-3:      #16101a;
+  --purple:    #6565FD;
+  --purple-lt: #9293FA;
+  --mauve:     #966EA1;
+  --dark-pur:  #453049;
+  --muted:     #CCC8D3;
+  --slate:     #738AB3;
+  --mid-pur:   #59589A;
+  --border:    rgba(255,255,255,0.07);
+  --card:      rgba(255,255,255,0.04);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--muted);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--purple-lt), var(--mauve));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glowing button effect used globally */
+.btn-glow {
+  box-shadow: 0 0 0 rgba(101,101,253,0);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 40px rgba(101,101,253,0.45);
 }

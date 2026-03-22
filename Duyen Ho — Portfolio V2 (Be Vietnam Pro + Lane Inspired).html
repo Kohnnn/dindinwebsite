@@ -1,0 +1,1282 @@
+<html data-type="html" data-identifier="bf864018-76ca-4b41-84f8-d548fd25e1da" data-title="Duyen Ho — Portfolio V2 (Be Vietnam Pro + Lane Inspired)" data-version="2" width="1200" height="3200" imagemodel="imagen-4"><head>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg:       #090507;
+    --bg2:      #100d12;
+    --bg3:      #16101a;
+    --purple:   #6565FD;
+    --purple-lt:#9293FA;
+    --mauve:    #966EA1;
+    --dark-pur: #453049;
+    --muted:    #CCC8D3;
+    --slate:    #738AB3;
+    --mid-pur:  #59589A;
+    --white:    #FFFFFF;
+    --border:   rgba(255,255,255,0.07);
+    --card-bg:  rgba(255,255,255,0.04);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--bg);
+    color: var(--muted);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 1000;
+    padding: 20px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9,5,7,0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span {
+    background: linear-gradient(135deg, var(--purple), var(--mauve));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--purple);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background 0.3s, transform 0.3s !important;
+  }
+  .nav-cta:hover {
+    background: var(--purple-lt) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 64px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+  .orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(101,101,253,0.18), transparent 70%);
+    top: -100px; right: 100px;
+  }
+  .orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(150,110,161,0.14), transparent 70%);
+    bottom: 0; left: -100px;
+  }
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(89,88,154,0.1), transparent 70%);
+    top: 50%; left: 40%;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(101,101,253,0.1);
+    border: 1px solid rgba(101,101,253,0.25);
+    color: var(--purple-lt);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-size: 68px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    background: linear-gradient(135deg, var(--purple-lt), var(--mauve));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--slate);
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+
+  .btn-glow {
+    background: var(--purple);
+    color: var(--white);
+    padding: 15px 36px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 0 rgba(101,101,253,0);
+  }
+
+  .btn-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 40px rgba(101,101,253,0.45);
+  }
+
+  .btn-ghost {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { color: var(--white); }
+  .btn-ghost::after {
+    content: '→';
+    transition: transform 0.3s;
+  }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item h3 {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .stat-item h3 sup {
+    font-size: 20px;
+    color: var(--purple);
+    vertical-align: super;
+  }
+
+  .stat-item p {
+    font-size: 12px;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+  }
+
+  /* Hero Image Card */
+  .hero-image-wrap {
+    position: relative;
+  }
+
+  .hero-img-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+
+  .hero-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(9,5,7,0.7) 0%, transparent 60%);
+  }
+
+  /* Floating badge on image */
+  .hero-float-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    background: rgba(9,5,7,0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .badge-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--purple), var(--dark-pur));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .badge-text h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .badge-text p {
+    font-size: 11px;
+    color: var(--slate);
+  }
+
+  /* Floating top-right tag */
+  .hero-float-award {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    background: linear-gradient(135deg, #6565FD, #966EA1);
+    border-radius: 14px;
+    padding: 12px 16px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(101,101,253,0.4);
+  }
+
+  .hero-float-award .award-emoji { font-size: 22px; }
+  .hero-float-award p {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-section {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--bg2);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    animation: marquee-scroll 18s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .marquee-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--purple);
+  }
+
+  /* ── SECTION COMMONS ── */
+  .section {
+    padding: 100px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .s-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--purple-lt);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .s-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--purple);
+    border-radius: 2px;
+  }
+
+  .s-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .s-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--purple-lt);
+  }
+
+  .s-desc {
+    font-size: 16px;
+    color: var(--slate);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+  }
+
+  /* ── WORK/EXPERIENCE ── */
+  .exp-wrap {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .exp-sidebar {
+    background: var(--bg3);
+    border-right: 1px solid var(--border);
+    padding: 8px;
+  }
+
+  .exp-tab {
+    padding: 16px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 2px;
+  }
+
+  .exp-tab:hover,
+  .exp-tab.active {
+    background: rgba(101,101,253,0.1);
+  }
+
+  .exp-tab.active .exp-tab-title { color: var(--white); }
+
+  .exp-tab-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  .exp-tab-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .exp-tab-company {
+    font-size: 12px;
+    color: var(--slate);
+  }
+
+  .exp-content {
+    padding: 40px;
+    display: none;
+  }
+
+  .exp-content.active { display: block; }
+
+  .exp-header {
+    margin-bottom: 28px;
+  }
+
+  .exp-header h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .exp-client-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(150,110,161,0.12);
+    border: 1px solid rgba(150,110,161,0.2);
+    color: var(--mauve);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .exp-list li {
+    display: flex;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .exp-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .exp-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(101,101,253,0.08);
+    border: 1px solid rgba(101,101,253,0.15);
+    color: var(--purple-lt);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ── METRICS GRID ── */
+  .metrics-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .metrics-section .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .metric-card {
+    background: var(--bg2);
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .metric-card:hover { background: var(--bg3); }
+
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0 0, rgba(101,101,253,0.06), transparent 60%);
+  }
+
+  .metric-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .metric-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .metric-num span {
+    background: linear-gradient(135deg, var(--purple), var(--mauve));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .metric-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .metric-desc {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(101,101,253,0.06), transparent);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(101,101,253,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  }
+
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .skill-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .skill-card p {
+    font-size: 12px;
+    color: var(--slate);
+  }
+
+  /* ── AWARDS ── */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .award-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: all 0.3s;
+  }
+
+  .award-card:hover {
+    border-color: rgba(101,101,253,0.3);
+    background: rgba(101,101,253,0.04);
+    transform: translateX(4px);
+  }
+
+  .award-icon-wrap {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .award-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .award-card p {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .edu-left h3 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .edu-left .school {
+    font-size: 14px;
+    color: var(--purple-lt);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .edu-left p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.8;
+  }
+
+  .edu-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .edu-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    transition: all 0.3s;
+  }
+
+  .edu-badge-row:hover {
+    border-color: rgba(101,101,253,0.25);
+    background: rgba(101,101,253,0.04);
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-section .orb-bg {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(101,101,253,0.1), transparent 70%);
+    filter: blur(60px);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .contact-section .s-title {
+    font-size: 60px;
+    letter-spacing: -2px;
+  }
+
+  .contact-cards {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 14px 28px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .contact-pill:hover {
+    background: rgba(101,101,253,0.08);
+    border-color: rgba(101,101,253,0.3);
+    transform: translateY(-3px);
+  }
+
+  .contact-pill .ci { font-size: 20px; }
+
+  .contact-pill-text h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .contact-pill-text p {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--slate);
+  }
+
+  footer span { color: var(--purple-lt); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <span class="nav-logo">Duyên<span>.</span></span>
+  <ul class="nav-links">
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#metrics">Impact</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Say Hello</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Available for New Opportunities</div>
+      <h1 id="hero-h1">Media That<br>Moves <em>Markets.</em></h1>
+      <p class="hero-sub" id="hero-p">Associate Manager @ WPP Media · Driving omnichannel campaigns across Beauty, FMCG &amp; Real Estate in Vietnam and beyond.</p>
+      <div class="hero-actions">
+        <a class="btn-glow" href="#contact">Let's Connect</a>
+        <a class="btn-ghost" href="#experience">See My Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3>3.5<sup>+</sup></h3>
+          <p>Years in Media</p>
+        </div>
+        <div class="stat-item">
+          <h3>287<sup>%</sup></h3>
+          <p>Peak GMV Growth</p>
+        </div>
+        <div class="stat-item">
+          <h3>10<sup>+</sup></h3>
+          <p>Brands Led</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-float-award">
+        <div class="award-emoji">🏆</div>
+        <p>MMA Gold<br>APAC 2024</p>
+      </div>
+      <div class="hero-img-card">
+        <img data-src="Professional portrait of a young Vietnamese woman in her mid-20s with sleek shoulder-length dark hair, wearing a minimalist dark blazer. She has a confident, warm smile and stands in a softly lit editorial studio with deep purple and charcoal tones in the background. The lighting is dramatic and moody with a rim light highlighting her silhouette. The image captures authenticity and authority. Moody editorial style." alt="Hồ Hao Duyên portrait">
+        <div class="hero-img-overlay"></div>
+        <div class="hero-float-badge">
+          <div class="badge-icon">📍</div>
+          <div class="badge-text">
+            <h4>WPP Media, Ho Chi Minh City</h4>
+            <p>Associate Manager, Media Planning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item"><span class="marquee-dot"></span>TikTok Commerce</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Integrated Media Planning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Omnichannel Campaigns</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Performance Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>FMCG · Beauty · Real Estate</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>MMA Gold Award Winner</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Data &amp; BI Reporting</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>WPP Open AI Tools</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>TikTok Commerce</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Integrated Media Planning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Omnichannel Campaigns</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Performance Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>FMCG · Beauty · Real Estate</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>MMA Gold Award Winner</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Data &amp; BI Reporting</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>WPP Open AI Tools</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+  <div class="section reveal">
+    <div class="s-eyebrow">Career</div>
+    <h2 class="s-title">Work <em>Experience</em></h2>
+    <p class="s-desc">A progressive journey across global agency networks — from performance to integrated planning to media leadership.</p>
+
+    <div class="exp-wrap">
+      <div class="exp-sidebar">
+        <div class="exp-tab active" data-target="job1">
+          <div class="exp-tab-date">Jan 2026 — Present</div>
+          <div class="exp-tab-title">Assoc. Manager</div>
+          <div class="exp-tab-company">WPP Media</div>
+        </div>
+        <div class="exp-tab" data-target="job2">
+          <div class="exp-tab-date">Jun 2023 — Dec 2025</div>
+          <div class="exp-tab-title">Integrated Planner</div>
+          <div class="exp-tab-company">WPP Media</div>
+        </div>
+        <div class="exp-tab" data-target="job3">
+          <div class="exp-tab-date">Sep 2022 — Apr 2023</div>
+          <div class="exp-tab-title">Performance Exec.</div>
+          <div class="exp-tab-company">Publicis Media</div>
+        </div>
+      </div>
+
+      <!-- JOB 1 -->
+      <div class="exp-content active" id="job1">
+        <div class="exp-header">
+          <h3>Associate Manager, Media Planning</h3>
+          <div>WPP Media Vietnam</div>
+          <span class="exp-client-chip">✦ Client: Shiseido Vietnam — 7 Brands</span>
+        </div>
+        <ul class="exp-list">
+          <li>Lead media branding campaigns &amp; proposals across 7 luxury beauty brands in Shiseido Vietnam's portfolio</li>
+          <li>Manage holistic budget &amp; KPI phasing aligned with seasonal marketing and media objectives</li>
+          <li>Pioneer adoption of WPP Open AI tools within the team to streamline planning &amp; operational workflows</li>
+        </ul>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="exp-content" id="job2">
+        <div class="exp-header">
+          <h3>Integrated Media Planner</h3>
+          <div>WPP Media Vietnam</div>
+          <span class="exp-client-chip">✦ Masterise Homes · Kotex · Huggies</span>
+        </div>
+        <ul class="exp-list">
+          <li>Drove <strong style="color:#fff">+287% GMV growth</strong> for Huggies on TikTok Shop (Apr–Dec 2024), becoming #1 best-seller in multiple peak months</li>
+          <li>Grew Kotex TikTok Shop MoM GMV consistently within 6 months of launch from Jun 2024</li>
+          <li>Increased qualified traffic to Masterise Homes project websites by <strong style="color:#fff">15%</strong> via targeted media strategies</li>
+          <li>Built interactive Google Report dashboards + Excel/BI tools, reducing task duplication across teams</li>
+          <li>Collaborated with WPP regional buying team (India) for Kotex new product launch campaigns</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="chip">🏆 Gold — APAC MMA Smarties 2024</span>
+          <span class="chip">⭐ Employee of the Month — Sep 2024</span>
+          <span class="chip">🎓 WPP Media Master Training 2023</span>
+        </div>
+      </div>
+
+      <!-- JOB 3 -->
+      <div class="exp-content" id="job3">
+        <div class="exp-header">
+          <h3>Performance Executive</h3>
+          <div>Publicis Media Vietnam</div>
+          <span class="exp-client-chip">✦ L'Oréal Luxury: Lancôme · Kiehl's · Shu Uemura · YSL</span>
+        </div>
+        <ul class="exp-list">
+          <li>Surpassed GMV targets during Mega Sale 10.10 — <strong style="color:#fff">115% target achieved</strong>, ROAS 125% vs KPI</li>
+          <li>Launched Lancôme &amp; Kiehl's D2C campaigns on brand-owned websites, exceeding business targets by <strong style="color:#fff">130%</strong> within 5 months</li>
+          <li>Conducted user journey analysis to improve UX and conversion rates across luxury brand websites</li>
+          <li>Optimized checkout flow based on behavioral insights, enhancing overall digital performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-section" id="metrics">
+  <div class="section reveal">
+    <div class="s-eyebrow">Impact</div>
+    <h2 class="s-title">Results That <em>Speak</em></h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon">🚀</div>
+        <div class="metric-num"><span>+287%</span></div>
+        <div class="metric-label">GMV Growth on TikTok Shop</div>
+        <div class="metric-desc">Huggies, Apr–Dec 2024. Became #1 best-selling brand in multiple peak months.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🎯</div>
+        <div class="metric-num"><span>130%</span></div>
+        <div class="metric-label">D2C Targets Exceeded</div>
+        <div class="metric-desc">Lancôme &amp; Kiehl's brand-owned website campaign within just 5 months.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">📈</div>
+        <div class="metric-num"><span>+15%</span></div>
+        <div class="metric-label">Qualified Traffic Increase</div>
+        <div class="metric-desc">Real estate campaign driving high-intent visitors to Masterise Homes projects.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🏆</div>
+        <div class="metric-num"><span>Gold</span></div>
+        <div class="metric-label">APAC MMA Smarties 2024</div>
+        <div class="metric-desc">Brand Purpose Category — recognized across Asia Pacific for campaign excellence.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">💰</div>
+        <div class="metric-num"><span>115%</span></div>
+        <div class="metric-label">GMV vs Target — 10.10 Sale</div>
+        <div class="metric-desc">L'Oréal Luxury mega sale with ROAS 125% vs KPI across performance campaigns.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🌐</div>
+        <div class="metric-num"><span>7<span style="font-size:28px;letter-spacing:0">+</span></span></div>
+        <div class="metric-label">Brands Led Concurrently</div>
+        <div class="metric-desc">Managing Shiseido Vietnam's full brand portfolio in current Associate Manager role.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills">
+  <div class="section reveal">
+    <div class="s-eyebrow">Toolkit</div>
+    <h2 class="s-title">Skills &amp; <em>Expertise</em></h2>
+    <p class="s-desc">A powerful blend of strategic media thinking and hands-on technical proficiency.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">📊</div><h4>Media Planning</h4><p>Strategic &amp; Integrated Omnichannel</p></div>
+      <div class="skill-card"><div class="skill-icon">💰</div><h4>Media Buying</h4><p>Performance &amp; Branding Campaigns</p></div>
+      <div class="skill-card"><div class="skill-icon">🛒</div><h4>Social Commerce</h4><p>TikTok Shop · D2C Campaigns</p></div>
+      <div class="skill-card"><div class="skill-icon">📈</div><h4>Google Analytics</h4><p>Data, UX &amp; Conversion Insights</p></div>
+      <div class="skill-card"><div class="skill-icon">📋</div><h4>Looker Studio</h4><p>Interactive Dashboards &amp; Reports</p></div>
+      <div class="skill-card"><div class="skill-icon">🔌</div><h4>Power BI</h4><p>In-depth Campaign Analytics</p></div>
+      <div class="skill-card"><div class="skill-icon">🎯</div><h4>Google Ads Certified</h4><p>Search · Video · Display</p></div>
+      <div class="skill-card"><div class="skill-icon">🤖</div><h4>AI Tools (WPP Open)</h4><p>Workflow Automation &amp; Efficiency</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div id="awards">
+  <div class="section reveal">
+    <div class="s-eyebrow">Recognition</div>
+    <h2 class="s-title">Awards &amp; <em>Honors</em></h2>
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-icon-wrap" style="background: rgba(255,200,50,0.1);">🏆</div>
+        <div>
+          <h3>Gold — APAC MMA Smarties 2024</h3>
+          <p>Brand Purpose Category. Recognized across Asia Pacific for campaign excellence and brand impact.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon-wrap" style="background: rgba(101,101,253,0.1);">⭐</div>
+        <div>
+          <h3>Employee of the Month — Sep 2024</h3>
+          <p>Recognized at WPP Media Vietnam for outstanding contribution, client performance, and team leadership.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon-wrap" style="background: rgba(150,110,161,0.1);">🎓</div>
+        <div>
+          <h3>WPP Media Master Training 2023</h3>
+          <p>Selected participant in the exclusive WPP Media Master Training Program — competitive internal recognition.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon-wrap" style="background: rgba(115,138,179,0.1);">🥉</div>
+        <div>
+          <h3>2nd Runner Up — Company Insider 2021</h3>
+          <p>Business Case Competition winner, UEH-ISB. Top 8/742 teams — Marketing on Air (NEU, 2021).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div id="education">
+  <div class="section reveal">
+    <div class="s-eyebrow">Education</div>
+    <h2 class="s-title">Academic <em>Foundation</em></h2>
+    <div class="edu-card">
+      <div class="edu-left">
+        <h3>Bachelor of Business Administration</h3>
+        <p class="school">University of Economics HCMC — International School of Business (UEH-ISB)</p>
+        <p>Built a strong foundation in business strategy, marketing, and analytical thinking — reinforced through competitive case studies and leadership programs that shaped my approach to media and brand strategy.</p>
+      </div>
+      <div class="edu-badges">
+        <div class="edu-badge-row">🌟 Top 30% — ISB Leadership Program (2023)</div>
+        <div class="edu-badge-row">🥉 2nd Runner Up — Company Insider Case Competition</div>
+        <div class="edu-badge-row">🏅 Top 4 — The Colorful Mind by UEH-ISB (2021)</div>
+        <div class="edu-badge-row">🎖 Top 8/742 — Marketing on Air, NEU (2021)</div>
+        <div class="edu-badge-row">🎖 Top 20/600+ — Marketing Arena, FTU2 (2021)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="orb-bg"></div>
+  <div class="section reveal">
+    <div class="s-eyebrow">Contact</div>
+    <h2 class="s-title" style="font-size:56px">Let's Build<br><em>Something Great</em></h2>
+    <p class="s-desc" style="text-align:center; max-width:440px">Open to new opportunities, collaborations, and conversations about media, growth, and impact.</p>
+    <a class="btn-glow" href="mailto:duyenhoforwork@gmail.com" style="margin-bottom:48px; font-size:16px; padding:16px 48px">Send a Message →</a>
+    <div class="contact-cards">
+      <div class="contact-pill">
+        <span class="ci">📞</span>
+        <div class="contact-pill-text">
+          <h4>Phone</h4>
+          <p>(+84) 947 892 845</p>
+        </div>
+      </div>
+      <div class="contact-pill">
+        <span class="ci">✉️</span>
+        <div class="contact-pill-text">
+          <h4>Email</h4>
+          <p>duyenhoforwork@gmail.com</p>
+        </div>
+      </div>
+      <div class="contact-pill">
+        <span class="ci">📍</span>
+        <div class="contact-pill-text">
+          <h4>Location</h4>
+          <p>Ho Chi Minh City, Vietnam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Hồ Hao Duyên</span>
+  <span>Built with <span style="color:#6565FD">♥</span> in Ho Chi Minh City</span>
+</footer>
+
+<script>
+  // Experience tab switcher
+  document.querySelectorAll('.exp-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = this.getAttribute('data-target');
+      document.querySelectorAll('.exp-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.exp-content').forEach(function(c) { c.classList.remove('active'); });
+      this.classList.add('active');
+      var targetEl = document.getElementById(target);
+      if (targetEl) targetEl.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(function(r) { observer.observe(r); });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-nav');
+    if (window.scrollY > 50) {
+      nav.style.padding = '14px 64px';
+    } else {
+      nav.style.padding = '20px 64px';
+    }
+  });
+
+  // Smooth nav links
+  document.querySelectorAll('.nav-links a, .btn-glow, .btn-ghost').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body></html>
