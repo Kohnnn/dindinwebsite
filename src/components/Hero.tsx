@@ -74,7 +74,7 @@ export default function Hero() {
                             src="/HoHaoDuyen_Portrait.jpeg"
                             alt="Hồ Hao Duyên"
                             fill
-                            className="object-cover block"
+                            className="object-cover object-top block"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(9,5,7,0.7)] to-[transparent_60%]" />
 
