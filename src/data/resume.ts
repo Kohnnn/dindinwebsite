@@ -87,7 +87,7 @@ export const DATA = {
         { value: 125, unit: "%", label: "ROAS vs KPI", desc: "During L'Oréal Mega Sale events (10.10)." },
         { value: 15, unit: "%", label: "Traffic Inc.", desc: "Increased qualified traffic to Masterise Homes projects." },
         { value: "Gold", unit: "", label: "APAC MMA Smarties Awards 2024", desc: "Winner in Brand Purpose Category" },
-        { value: "+30", unit: "%", label: "Exceeded Target", desc: "Trial rate for Kotex new product in 2024." }
+        { value: 30, unit: "%", label: "Exceeded Target", desc: "Trial rate for Kotex new product in 2024." }
     ],
     skills: [
         { icon: "📊", title: "Media Planning & Buying", desc: "End-to-end strategic proposals and execution" },
