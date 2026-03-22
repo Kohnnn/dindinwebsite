@@ -33,6 +33,14 @@ export default function Metrics() {
     return (
         <section id="impact" className="bg-bg2 py-20 border-y border-border">
             <ScrollReveal>
+                <div className="max-w-[1200px] mx-auto px-6 md:px-16 mb-12">
+                    <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
+                        Impact
+                    </div>
+                    <h2 className="text-[48px] font-extrabold text-white tracking-tight leading-[1.1]">
+                        Results That <em className="italic font-light text-gradient">Speak.</em>
+                    </h2>
+                </div>
                 <div className="max-w-[1200px] mx-auto px-6 md:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-[20px] overflow-hidden">
                         {DATA.metrics.map((metric, i) => (
@@ -41,9 +49,13 @@ export default function Metrics() {
 
                                 <div className="text-[52px] font-black text-white tracking-[-2px] leading-none mb-2 relative z-10">
                                     <span className="text-gradient">
-                                        <AnimatedCounter target={metric.value} />
+                                        {typeof metric.value === 'number' ? (
+                                            <AnimatedCounter target={metric.value} />
+                                        ) : (
+                                            <span className="text-[44px] leading-tight">{metric.value}</span>
+                                        )}
                                     </span>
-                                    <span className="text-purple-lt text-[32px] align-baseline ml-1">{metric.unit}</span>
+                                    {metric.unit && <span className="text-purple-lt text-[32px] align-baseline ml-1">{metric.unit}</span>}
                                 </div>
 
                                 <div className="text-[14px] font-semibold text-muted mb-1.5 relative z-10">{metric.label}</div>

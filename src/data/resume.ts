@@ -10,7 +10,7 @@ export interface Job {
 
 export const DATA = {
     name: "Duyen Ho",
-    fullName: "Hồ Hao Duyên (Ms.)",
+    fullName: "Hồ Hào Duyên (Ms.)",
     role: "Media Planner & Strategist",
     contact: {
         email: "duyenhoforwork@gmail.com",
@@ -22,6 +22,22 @@ export const DATA = {
         'Omnichannel Campaigns', 'Performance Marketing',
         'FMCG · Beauty · Real Estate', 'MMA Gold Award',
         'Data & BI Reporting', 'WPP Open AI Tools'
+    ],
+    brands: [
+        "/brands/Kiehl's_logo.svg",
+        "/brands/Kimberly-Clark_logo.svg",
+        "/brands/Kotex_Logo.png",
+        "/brands/L'Oréal_logo.svg",
+        "/brands/Lancôme_logo.svg",
+        "/brands/Masterise_hom.png",
+        "/brands/Shiseido_logo.svg",
+        "/brands/anessa_logo.webp",
+        "/brands/cle-de-peau-beaute-logo-svg-vector.svg",
+        "/brands/dprogram_logo.png",
+        "/brands/elixir_logo.webp",
+        "/brands/huggies-2.svg",
+        "/brands/nars-seeklogo.svg",
+        "/brands/shu-uemura-logo.svg"
     ],
     experience: [
         {
@@ -70,8 +86,8 @@ export const DATA = {
         { value: 130, unit: "%", label: "Over Target", desc: "For Lancôme & Kiehl's D2C campaign on brand websites." },
         { value: 125, unit: "%", label: "ROAS vs KPI", desc: "During L'Oréal Mega Sale events (10.10)." },
         { value: 15, unit: "%", label: "Traffic Inc.", desc: "Increased qualified traffic to Masterise Homes projects." },
-        { value: 7, unit: "", label: "Brands Managed", desc: "Led branding campaigns across the Shiseido portfolio." },
-        { value: 100, unit: "%", label: "Omnichannel", desc: "Integration across TV, OOH, and advanced digital." }
+        { value: "Gold", unit: "", label: "APAC MMA Smarties Awards 2024", desc: "Winner in Brand Purpose Category" },
+        { value: "+30", unit: "%", label: "Exceeded Target", desc: "Trial rate for Kotex new product in 2024." }
     ],
     skills: [
         { icon: "📊", title: "Media Planning & Buying", desc: "End-to-end strategic proposals and execution" },

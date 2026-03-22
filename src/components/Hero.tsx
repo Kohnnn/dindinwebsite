@@ -31,10 +31,7 @@ export default function Hero() {
 
                 {/* Left Content */}
                 <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col">
-                    <motion.div variants={item} className="inline-flex items-center gap-2 bg-purple/10 border border-purple/25 text-purple-lt px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase mb-7 w-fit">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple animate-pulse-dot" />
-                        Media Planning Expert
-                    </motion.div>
+
 
                     <motion.h1 variants={item} className="text-[44px] md:text-[68px] font-extrabold text-white leading-[1.05] tracking-tight mb-5">
                         Media <br className="hidden md:block" /> That Moves <em className="italic font-light text-gradient">Markets.</em>
@@ -57,27 +54,21 @@ export default function Hero() {
                     <motion.div variants={item} className="flex gap-10 pt-9 border-t border-border">
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                287<sup className="text-[20px] text-purple align-super">%</sup>
+                                3.5<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">GMV Growth</p>
+                            <p className="text-xs text-slate uppercase tracking-wider">Years of experience</p>
                         </div>
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                130<sup className="text-[20px] text-purple align-super">%</sup>
+                                10<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">Over Target</p>
-                        </div>
-                        <div className="stat-item">
-                            <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                1<sup className="text-[20px] text-purple align-super">st</sup>
-                            </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">MMA Gold Award</p>
+                            <p className="text-xs text-slate uppercase tracking-wider">Brands portfolio</p>
                         </div>
                     </motion.div>
                 </motion.div>
 
                 {/* Right Image Card */}
-                <ScrollReveal yOffset={40} delay={0.4} className="hidden lg:block relative">
+                <ScrollReveal yOffset={40} delay={0.4} className="hidden lg:flex flex-col gap-5 relative">
                     <div className="rounded-[24px] overflow-hidden relative aspect-[4/5] bg-bg3 border border-border">
                         <Image
                             src="/HoHaoDuyen_Portrait.jpeg"
@@ -93,7 +84,7 @@ export default function Hero() {
                                 👩‍💻
                             </div>
                             <div>
-                                <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">{DATA.role || "Associate Manager"}</h4>
+                                <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">Digital marketing Enthusiast</h4>
                                 <p className="text-[11px] text-slate">WPP Media Vietnam</p>
                             </div>
                         </div>
@@ -104,6 +95,11 @@ export default function Hero() {
                             <p className="text-[10px] font-bold text-white/90 uppercase tracking-[0.5px]">MMA Gold</p>
                         </div>
                     </div>
+
+                    <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                        Download Full Resume
+                    </a>
                 </ScrollReveal>
             </div>
         </section>

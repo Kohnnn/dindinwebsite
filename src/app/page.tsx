@@ -13,17 +13,17 @@ export default function Home() {
     <main className="min-h-screen">
       <Nav />
       <Hero />
-      <Marquee />
       <Experience />
       <Metrics />
-      <Skills />
       <Awards />
+      <Skills />
+      <Marquee />
       <Education />
       <Contact />
 
       <footer className="py-8 text-center border-t border-border mt-10">
         <p className="text-[12px] text-slate font-medium">
-          © {new Date().getFullYear()} Hồ Hao Duyên. All Rights Reserved.
+          © {new Date().getFullYear()} Hồ Hào Duyên. All Rights Reserved.
         </p>
       </footer>
     </main>

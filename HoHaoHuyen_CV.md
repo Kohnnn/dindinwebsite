@@ -1,4 +1,4 @@
-HỌ HAO DUYEN (Ms.)
+HỒ HÀO DUYÊN (Ms.)
 
 **Contact:** (+84) 947 892 845 | duyenhoforwork@gmail.com
 
