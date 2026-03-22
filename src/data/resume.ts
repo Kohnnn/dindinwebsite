@@ -24,20 +24,20 @@ export const DATA = {
         'Data & BI Reporting', 'WPP Open AI Tools'
     ],
     brands: [
-        "/brands/Kiehl's_logo.svg",
-        "/brands/Kimberly-Clark_logo.svg",
-        "/brands/Kotex_Logo.png",
-        "/brands/L'Oréal_logo.svg",
-        "/brands/Lancôme_logo.svg",
-        "/brands/Masterise_hom.png",
-        "/brands/Shiseido_logo.svg",
-        "/brands/anessa_logo.webp",
-        "/brands/cle-de-peau-beaute-logo-svg-vector.svg",
-        "/brands/dprogram_logo.png",
-        "/brands/elixir_logo.webp",
-        "/brands/huggies-2.svg",
-        "/brands/nars-seeklogo.svg",
-        "/brands/shu-uemura-logo.svg"
+        "/brands/kiehls.svg",
+        "/brands/kimberly.svg",
+        "/brands/kotex.png",
+        "/brands/loreal.svg",
+        "/brands/lancome.svg",
+        "/brands/masterise.png",
+        "/brands/shiseido.svg",
+        "/brands/anessa.webp",
+        "/brands/cledepeau.svg",
+        "/brands/dprogram.png",
+        "/brands/elixir.webp",
+        "/brands/huggies.svg",
+        "/brands/nars.svg",
+        "/brands/shuuemura.svg"
     ],
     experience: [
         {
