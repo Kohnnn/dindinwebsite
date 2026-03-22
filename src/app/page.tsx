@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import Experience from "@/components/Experience";
 import Metrics from "@/components/Metrics";
 import Skills from "@/components/Skills";
@@ -10,14 +9,13 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-12">
       <Nav />
       <Hero />
       <Experience />
       <Metrics />
       <Awards />
       <Skills />
-      <Marquee />
       <Education />
       <Contact />
 

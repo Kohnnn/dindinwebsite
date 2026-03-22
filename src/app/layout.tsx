@@ -11,10 +11,13 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Hồ Hao Duyên — Media Planner & Strategist",
+  title: "Hazel Ho's Portfolio",
   description: "Award-winning media strategist at WPP Media Vietnam. MMA Gold 2024. Specializing in FMCG, Beauty & Real Estate.",
+  icons: {
+    icon: "/HoHaoDuyen_Portrait.jpeg",
+  },
   openGraph: {
-    title: "Hồ Hao Duyên Portfolio",
+    title: "Hazel Ho's Portfolio",
     description: "Associate Manager, Media Planning @ WPP Media",
     url: "https://duyenho.com",
     images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],

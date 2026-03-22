@@ -1,18 +1,16 @@
 import { DATA } from "@/data/resume";
 
 export default function Marquee() {
-    const items = DATA.marquee;
-
     return (
-        <section className="py-6 border-y border-border overflow-hidden bg-bg2 relative flex items-center">
-            <div className="flex gap-12 w-max animate-marquee-scroll hover:[animation-play-state:paused] transition-all" aria-hidden="true">
-                {[...items, ...items, ...items].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-[13px] font-semibold text-slate whitespace-nowrap tracking-wide uppercase">
-                        {item}
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple" />
+        <div className="py-2.5 border-b border-white/5 bg-bg/80 relative overflow-hidden flex items-center w-full">
+            <div className="flex gap-16 w-max animate-marquee-scroll hover:[animation-play-state:paused] transition-all" aria-hidden="true">
+                {[...DATA.brands, ...DATA.brands, ...DATA.brands].map((brand, idx) => (
+                    <div key={idx} className="flex items-center justify-center opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={brand} alt="Brand Logo" className="h-5 md:h-6 w-auto object-contain select-none" />
                     </div>
                 ))}
             </div>
-        </section>
+        </div>
     );
 }
