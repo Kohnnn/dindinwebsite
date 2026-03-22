@@ -21,7 +21,7 @@ const item: Variants = {
 
 export default function Hero() {
     return (
-        <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-40 md:pt-48 pb-24 relative overflow-hidden">
+        <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-40 md:pt-48 pb-16 md:pb-24 relative overflow-hidden">
             {/* Background Orbs */}
             <OrbBackground size={500} color="rgba(101,101,253,0.18)" className="-top-24 -right-10 md:right-24" />
             <OrbBackground size={400} color="rgba(150,110,161,0.14)" className="-bottom-10 -left-24" />

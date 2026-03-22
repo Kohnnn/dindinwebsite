@@ -5,7 +5,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Contact() {
     return (
-        <section id="contact" className="section py-[120px] px-6 md:px-16 max-w-[1200px] mx-auto text-center relative overflow-hidden flex flex-col items-center">
+        <section id="contact" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto text-center relative overflow-hidden flex flex-col items-center">
             <OrbBackground size={800} color="rgba(101,101,253,0.12)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
             <ScrollReveal className="relative z-10 w-full max-w-[600px]">
@@ -13,7 +13,7 @@ export default function Contact() {
                     Let&apos;s Build <em className="italic font-light text-gradient">Something Great.</em>
                 </h2>
                 <p className="text-[16px] text-slate mb-10 max-w-[480px] mx-auto leading-[1.8]">
-                    Ready to elevate your brand presence? Send me a message and let&apos;s discuss how we can work together.
+                    Send me a message and let&apos;s discuss how we can work together.
                 </p>
 
                 <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">

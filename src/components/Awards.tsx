@@ -3,7 +3,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Awards() {
     return (
-        <section className="section py-[60px] px-6 md:px-16 max-w-[1200px] mx-auto border-t border-border/50">
+        <section className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto border-t border-border/50">
             <ScrollReveal>
                 <h3 className="text-[20px] font-extrabold text-white mb-8">Honors & Awards</h3>
             </ScrollReveal>

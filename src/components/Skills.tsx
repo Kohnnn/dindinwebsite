@@ -3,7 +3,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Skills() {
     return (
-        <section id="skills" className="section py-[100px] px-6 md:px-16 max-w-[1200px] mx-auto">
+        <section id="skills" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Expertise
