@@ -1,315 +1,128 @@
-Duyen Ho — Advanced Portfolio: Developer Build Guide
+HoHaoDuyen Portfolio Design System
 
-🛠️ Duyen Ho — Portfolio: Advanced Developer Build Guide
-Purpose: This document provides a complete specification for another AI (or developer) to rebuild and extend this personal portfolio to production-grade quality using modern web technologies.
+1. Creative North Star: Lane-Inspired Organic Modernism
 
-📐 Tech Stack Recommendation
-Layer	Recommended	Alternative
-Framework	Next.js 14 (App Router)	React 18 (Vite)
-Styling	Tailwind CSS v3	Vanilla CSS (custom props)
-Animations	Framer Motion	GSAP + ScrollTrigger
-Font	Be Vietnam Pro (Google Fonts)	—
-Icons	Lucide React	Heroicons
-Deployment	Vercel	Netlify
-Form	Resend API	EmailJS
-🎨 Design System
-Color Palette (Lane-Inspired)
-css
-:root {
---bg:        #090507;   /* Deep near-black */
---bg-2:      #100d12;   /* Card surfaces */
---bg-3:      #16101a;   /* Elevated elements */
---purple:    #6565FD;   /* Primary accent */
---purple-lt: #9293FA;   /* Light accent / italic text */
---mauve:     #966EA1;   /* Warm secondary */
---dark-pur:  #453049;   /* Deep purple */
---muted:     #CCC8D3;   /* Body text */
---slate:     #738AB3;   /* Subdued text */
---mid-pur:   #59589A;   /* Mid tone */
---border:    rgba(255,255,255,0.07);
---card:      rgba(255,255,255,0.04);
-}
-Typography
-css
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+The interface should feel like a sophisticated gallery exhibition—calm, curated, and intentionally paced. It embraces asymmetric layouts, generous whitespace, and subtle motion while rejecting rigid grids, harsh contrasts, and visual clutter. The design conveys award-winning professionalism through restraint, using layered neutrals punctuated by regal purple accents and organic marble-like textures. Core principles: content-first clarity, tactile depth through atmospheric effects, and dynamic rhythm via marquee elements that echo traditional Vietnamese silk patterns.
 
-/* Font Scale */
---text-xs:   11px / letter-spacing: 2px / uppercase (eyebrows)
---text-sm:   13–14px (body small, chips)
---text-base: 16–17px (body)
---text-xl:   24px (card titles)
---text-2xl:  48px (section headings, weight 800, ls: -1.5px)
---text-3xl:  64–68px (hero H1, weight 800, ls: -2px)
-Gradient Utility
-css
-/* Text gradient (purple → mauve) */
-background: linear-gradient(135deg, #9293FA, #966EA1);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+2. Color & Atmospheric Tones
 
-/* Button glow effect */
-box-shadow: 0 8px 40px rgba(101,101,253,0.45);
-📁 Project Structure (Next.js)
-/app
-layout.tsx          ← Font import, metadata, global styles
-page.tsx            ← Home (all sections)
-/components
-  Nav.tsx
-  Hero.tsx
-  Marquee.tsx
-  Experience.tsx
-  Metrics.tsx
-  Skills.tsx
-  Awards.tsx
-  Education.tsx
-  Contact.tsx
-  Footer.tsx
-/ui
-  Button.tsx
-  Chip.tsx
-  OrbBackground.tsx
-  ScrollReveal.tsx
-  AnimatedCounter.tsx
-/styles
-globals.css         ← Tailwind directives + CSS variables
-/data
-resume.ts           ← All content as typed data
-/public
-/images
-  duyen-hero.jpg
-  og-image.jpg
-🧩 Section-by-Section Build Spec
+Inspired by twilight skies over Hanoi's West Lake and the layered textures of traditional Vietnamese silk (lụa), the palette uses deep neutrals punctuated by regal purple accents to create depth without hard lines. Structural boundaries emerge through background shifts rather than borders, creating a sense of floating layers.
 
-1. `<Nav />` — Sticky Glassmorphism Navbar
-   Behavior:
+The Background Field Rule: Structural sections are defined solely by background color transitions (bg → bg-2 → bg-3), with no borders or outlines. Content grouping relies on subtle elevation changes and spacing.
 
-Fixed top, backdrop-filter: blur(20px), background transitions from transparent → semi-opaque on scroll
-Logo: "Duyên." with gradient accent on the period
-Links: Work · Impact · Skills · Education · Contact
-CTA button: pill-shaped, solid purple, hover glow effect
-JavaScript:
+Surface Hierarchy & Nesting:
+- Base Layer: surface-base (#090507) - Deep near-black for page foundation
+- Secondary Containers: surface-overlay (#100d12) - Card surfaces and sidebars
+- Interactive/Floating Cards: surface-elevated (#16101a) - Elevated elements with purple undertone
+- Special Visual Treatments: 
+  - Glassmorphism: surface-overlay/60 backdrop-filter blur(20px)
+  - Gradient accents: purple-mauve (linear-gradient(135deg, #9293FA, #966EA1))
+  - Selection highlight: purple/30 (20% opacity #6565FD)
+  - Text gradients: Same purple-mauve gradient with -webkit-background-clip: text
 
-js
-window.addEventListener('scroll', () => {
-nav.style.background = window.scrollY > 50
-  ? 'rgba(9,5,7,0.85)'
-  : 'rgba(9,5,7,0.4)';
-});
-2. `<Hero />` — Full-Viewport Landing
-Layout: 2-column grid (text left, image card right)
+3. Typography: Hierarchical Serif-Sans Balance with Vietnamese Sensibility
 
-Left Column elements:
+Display & Headlines: 
+- Primary font: Be Vietnam Pro (variable weight from Google Fonts)
+- Display-3xl: 3.5rem (64-68px), weight 800, letter-spacing -0.02em (-2px)
+- Display-2xl: 2.25rem (48px), weight 800, letter-spacing -0.015em (-1.5px)
+- Display-xl: 1.5rem (24px), weight 600, letter-spacing 0
+- All headlines use tight letter-spacing for premium feel
 
-Eyebrow pill with animated pulsing green/purple dot
-H1: "Media That Moves Markets." — "Markets" in italic gradient
-Subheading: role + company context
-Two CTA buttons: primary pill (glow on hover) + ghost arrow link
-Stats row: 3 metrics separated by border-top
-Right Column — Image Card:
+Body Text: 
+- Base font: Be Vietnam Pro (same family for linguistic cohesion with Vietnamese text)
+- Body-base: 1rem (16-17px), line-height 1.7, weight 400
+- Body-sm: 0.875rem (13-14px), line-height 1.6, weight 400
+- Strict avoidance of all-caps in body copy except for specific eyebrow treatments
 
-Aspect ratio 4:5, border-radius 24px, dark border
-Portrait photo with gradient overlay (bottom fade to black)
-Floating badge (bottom): glassmorphism pill with role + location
-Floating award (top-right): rotated card with MMA Gold badge
-Framer Motion Animations:
+Metadata & Accents: 
+- Secondary font: Geist Mono (for technical details and timestamps)
+- Meta-xs: 0.75rem (11px), letter-spacing 0.02em (2px), uppercase (eyebrows)
+- Tags: 0.875rem (13-14px), weight 500, text-purple-lt (#9293FA)
+- Navigation: font-medium (500) for active states
 
-tsx
-// Hero text stagger
-const container = {
-hidden: { opacity: 0 },
-show: {
-  opacity: 1,
-  transition: { staggerChildren: 0.12 }
-}
-}
-const item = {
-hidden: { opacity: 0, y: 24 },
-show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
-}
-Background Orbs (CSS):
+4. Elevation & Depth
 
-3 radial gradient orbs, positioned absolutely with blur(100px)
-Subtle float animation using @keyframes translate
-3. `<Marquee />` — Infinite Skill Ticker
-Technique: Duplicate content array → CSS animation: marquee 18s linear infinite
+Depth is achieved through tonal layering, micro-shadows, and atmospheric blurring, avoiding harsh contrasts that would break the organic, luxurious feel.
 
-tsx
-const items = [
-'TikTok Commerce', 'Integrated Media Planning',
-'Omnichannel Campaigns', 'Performance Marketing',
-'FMCG · Beauty · Real Estate', 'MMA Gold Award',
-'Data & BI Reporting', 'WPP Open AI Tools'
-];
-// Render items twice for seamless loop
-Accessibility: aria-hidden="true" on duplicate set
+The Depth Principle: Overlapping elements separate through subtle background value shifts (surface-overlay to surface-elevated) combined with micro-shadows and glassmorphism, creating a sense of atmospheric perspective rather than physical stacking.
 
-4. `<Experience />` — Tab-Based Job Switcher
-   Layout: 2-column (sidebar tabs + content panel)
+Ambient Shadows / Light Sources:
+- Micro-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)
+- Elevated shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)
+- Glow effect: 0 8px 40px rgba(101,101,253,0.45) (purple/45)
+- Shadow color always uses muted neutral with blue undertone (never true black)
 
-Sidebar: Vertical list of role cards with date, title, company
+Border Fallbacks & Accessibility:
+- When borders required for accessibility: border/30 (rgba(255,255,255,0.07) at 30% opacity)
+- Focus rings: 2px solid purple-lt/80 with 2px offset
+- Divider lines: border/20 (rgba(255,255,255,0.07) at 20% opacity) - used sparingly
 
-Interaction (Framer Motion):
+Corner Radii: 
+- Sharp: 0px (for industrial elements like code blocks, rarely used)
+- Soft: 0.5rem (8px) - cards, containers, image elements
+- Pill: 9999px (buttons, chips, eyebrow elements)
+- Consistent application: containers use soft, interactive elements use pill or soft based on function, image borders use 1.5rem (24px) for premium feel
 
-tsx
-`<AnimatePresence mode="wait">`
-<motion.div
-  key={activeJob}
-  initial={{ opacity: 0, x: 20 }}
-  animate={{ opacity: 1, x: 0 }}
-  exit={{ opacity: 0, x: -20 }}
-  transition={{ duration: 0.3 }}
+5. Signature Components
 
-  {/* Job content */}
-</motion.div>
-`</AnimatePresence>`
-Data shape:
+Primary Buttons:
+- Background: gradient-radial (purple-lt to transparent) over surface-elevated
+- Radius: pill (9999px)
+- State: 
+  - Hover: scale(1.03) + gradient intensity increase 15% + glow effect
+  - Active: scale(0.98) + background shift to surface-overlay
+  - Disabled: opacity 0.5, cursor not-allowed, no hover/active states
 
-ts
-interface Job {
-id: string;
-date: string;
-title: string;
-company: string;
-client: string;
-bullets: string[];
-badges?: string[];
-}
-5. `<Metrics />` — Animated Counter Grid
-Layout: 3×2 grid on dark bg-2, separated by 1px border lines
+Standard Cards / Containers:
+- Construction: surface-overlay background, micro-shadow, soft radius (8px)
+- Spacing: p-6 (24px internal), mb-6 (24px external) base unit
+- Note: Content separation achieved through spacing and typographic weight, never divider lines
+- Image cards: border radius 1.5rem (24px) with dark overlay gradients
 
-Key effect — Animated Counter:
+Navigation Elements:
+- Tabs: text-sm (13-14px), font-medium, text-muted/60 hover text-purple
+- Active state: text-purple + underline (1px solid purple/40)
+- Background: transparent (no fill)
+- Vertical sidebar links: flex items, py-2, px-4, rounded-md, hover:bg-purple/10
 
-tsx
-function useCountUp(target: number, duration = 2000) {
-const [count, setCount] = useState(0);
-useEffect(() => {
-  let start = 0;
-  const step = target / (duration / 16);
-  const timer = setInterval(() => {
-    start += step;
-    if (start >= target) { setCount(target); clearInterval(timer); }
-    else setCount(Math.floor(start));
-  }, 16);
-  return () => clearInterval(timer);
-}, [target]);
-return count;
-}
-Trigger on scroll using IntersectionObserver
-Each card: emoji icon + large number + label + description
-Hover: slight background shift + gradient shimmer
-6. `<Skills />` — 4-Column Card Grid
-Hover effect:
+Inputs & Fields:
+- Background: surface-elevated
+- Border: 1px solid border/20 (invisible by default, rgba(255,255,255,0.07))
+- Focus: border-purple/60 + ring-2 ring-purple/30
+- Error: border-rose-500/60 + text-rose-500
+- Padding: py-3 px-4 (12px vertical, 16px horizontal)
+- Font: text-base (16-17px)
 
-Border color: transparent → purple (35% opacity)
-translateY(-4px)
-Pseudo-element gradient overlay fades in
-Cards: icon (emoji) + title + subtitle
+Orb Background (Custom Specialty Component):
+- Description: Floating, semi-transparent circular elements that create depth and movement, inspired by traditional Vietnamese water puppet shows and floating lantern festivals
+- Construction: 
+  - Size: w-20 h-20 to w-40 h-40 (5rem to 10rem, randomized per instance)
+  - Color: surface-overlay/30 or purple/10 (layered for depth)
+  - Animation: slow drift (keyframes: float 20s ease-in-out infinite) + gentle pulse
+  - Blur: backdrop-filter blur(40px) on larger orbs, blur(100px) for background layers
+  - Placement: absolute positioned with negative margins to allow edge bleeding (-25% to 25%)
+  - Count: Typically 3-5 layers with varying sizes, opacities, and animation delays
+- Purpose: Creates atmospheric depth without distracting from content, embodies the "organic" and "cultural" aspects of the north star
 
-7. `<Awards />` — 2-Column Recognition Cards
-   Layout: Horizontal card with icon wrap + text Hover: translateX(4px) + border highlight
-8. `<Education />` — Split Card
-   Layout: 2-column inside a bordered card
+6. Do’s and Don’ts
 
-Left: University name, degree, school, description text
-Right: Stacked badge rows (emoji + achievement text)
-9. `<Contact />` — CTA with Orb Background
-Background: Large radial gradient orb centered, filter: blur(60px)
+Do:
+- Embrace asymmetry in section layouts to create visual rhythm inspired by traditional Vietnamese composition
+- Use typographic weight and scale for hierarchy before color or decoration
+- Apply the marquee element sparingly as a rhythmic punctuation (max 2 per view), echoing silk patterns
+- Maintain minimum 8px spacing between interactive elements for touch accessibility
+- Let background color shifts define sections before considering borders
+- Use Be Vietnam Pro for all Vietnamese and English text for linguistic consistency
+- Apply glassmorphism with backdrop-filter blur(20px) for nav and modals
+- Use the purple-mauve gradient for highlights, CTA accents, and text treatments
 
-Elements:
-
-Large italic heading: "Let's Build Something Great"
-Primary CTA → opens mailto
-3 contact pills: phone, email, location
-Bonus: Add a minimal contact form using Resend API
-
-tsx
-// /app/api/contact/route.ts
-import { Resend } from 'resend';
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(req: Request) {
-const { name, email, message } = await req.json();
-await resend.emails.send({
-  from: 'portfolio@yourdomain.com',
-  to: 'duyenhoforwork@gmail.com',
-  subject: Portfolio contact from ${name},
-  html: `<p>`${message}`</p>`
-});
-return Response.json({ success: true });
-}
-✨ Advanced JavaScript Features
-Scroll Progress Bar
-js
-window.addEventListener('scroll', () => {
-const progress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-progressBar.style.width = progress + '%';
-});
-Custom Cursor (Desktop Only)
-js
-const cursor = document.querySelector('.cursor');
-document.addEventListener('mousemove', (e) => {
-cursor.style.transform = translate(${e.clientX - 8}px, ${e.clientY - 8}px);
-});
-document.querySelectorAll('a, button').forEach(el => {
-el.addEventListener('mouseenter', () => cursor.classList.add('cursor--hover'));
-el.addEventListener('mouseleave', () => cursor.classList.remove('cursor--hover'));
-});
-Scroll-Triggered Section Reveal (vanilla)
-js
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-  if (entry.isIntersecting) {
-    entry.target.classList.add('visible');
-  }
-});
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-📱 Responsive Breakpoints
-Breakpoint	Layout Changes
-< 1024px	Hero: stack vertically; hide image card
-< 768px	Nav: hamburger menu; skills: 2-col; metrics: 2-col
-< 480px	Hero H1: 44px; marquee speed ×1.5; contact pills: stacked
-🚀 Performance Checklist
- Use next/image with priority on hero photo
- Import Be Vietnam Pro only needed weights (300, 400, 600, 700, 800)
- Lazy load below-fold sections
- Add loading="lazy" to non-critical images
- Use will-change: transform only on animating elements
- Add prefers-reduced-motion media query to disable animations
- SEO: og:image, twitter:card, structured JSON-LD
-🌐 SEO & Metadata (Next.js)
-tsx
-// app/layout.tsx
-export const metadata: Metadata = {
-title: 'Hồ Hao Duyên — Media Planner & Strategist',
-description: 'Award-winning media strategist at WPP Media Vietnam. MMA Gold 2024. Specializing in FMCG, Beauty & Real Estate.',
-openGraph: {
-  title: 'Hồ Hao Duyên Portfolio',
-  description: 'Associate Manager, Media Planning @ WPP Media',
-  url: 'https://duyenho.com',
-  images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
-},
-twitter: { card: 'summary_large_image' },
-};
-✅ Final Delivery Checklist
- - [x] Be Vietnam Pro font loaded correctly across all weights
- - [x] Lane color palette applied (dark bg, purple accents, gradient text)
- - [x] Animated counters trigger on scroll
- - [x] Experience tab switcher with animated transitions
- - [x] Marquee ticker loops infinitely and smoothly
- - [x] Hero orb backgrounds render with no performance hit
- - [x] Glassmorphism navbar transitions on scroll
- - [x] Floating badges on hero image card
- - [x] All sections have scroll reveal animations
- - [x] Mobile responsive (tested at 375px, 768px, 1024px)
- - [x] Contact form functional via Resend
- - [ ] Deployed on Vercel with custom domain
- - [x] SEO metadata + OG image configured
-
----
-
-## 🚀 Implementation Complete (2026-03-22)
-The portfolio has been completely built using Next.js 14 App Router, Tailwind CSS, and Framer Motion. 
-Content from the latest CV has been incorporated into `src/data/resume.ts`.
-To run locally: `npm run dev`
+Don't:
+- Don't use pure black (#000) or pure white (#fff) - always use palette neutrals (surface-base, surface-overlay, etc.)
+- Don't apply drop shadows larger than 8px blur without explicit justification
+- Don't use divider lines or rules between content sections; use spacing and elevation instead
+- Don't animate more than 3 elements simultaneously in a viewport to maintain calmness
+- Don't set letter-spacing positive on body text (kerning must be tight or neutral for readability)
+- Don't use more than 2 font weights in any single paragraph
+- Don't apply gradients to large background areas; reserve for accents and text treatments
+- Don't hardcode colors; always use CSS variables from the palette

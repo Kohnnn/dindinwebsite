@@ -96,7 +96,7 @@ export const DATA = {
         { icon: "🤖", title: "AI & Automation", desc: "WPP Open AI, workflow streamlining" }
     ],
     awards: [
-        { icon: "🏆", title: "Gold Winner, APAC MMA Smarties 2024", desc: "Brand Purpose Category" },
+        { icon: "🏆", title: "Gold Winner, Vietnam MMA Smarties Awards 2024", desc: "BHuggies Skin Perfect – Cross Digital Media Marketing" },
         { icon: "⭐", title: "Employee of the Month", desc: "September 2024 @ WPP Media" },
         { icon: "🎯", title: "WPP Media Master Training 2023", desc: "Selected exclusive participant" }
     ],
@@ -105,7 +105,7 @@ export const DATA = {
         degree: "Bachelor of Business Administration",
         desc: "Active participant in elite academic programs and high-stakes national marketing competitions.",
         achievements: [
-            { text: "Top 30% of Students - ISB Leadership Program (2023)", icon: "🎓" },
+            { text: "Top 10% of Students - ISB Leadership Program (2023)", icon: "🎓" },
             { text: "2nd Runner Up - Company Insider Business Case (2021)", icon: "🥈" },
             { text: "Top 4 Finalist - The Colorful Mind by UEH-ISB (2021)", icon: "💡" },
             { text: "Top 8/742 teams - Marketing on Air by NEU (2021)", icon: "🚀" }
