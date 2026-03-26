@@ -62,7 +62,7 @@ export default function Hero() {
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
                                 10<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">Brands portfolio</p>
+                            <p className="text-xs text-slate uppercase tracking-wider">Brands managed</p>
                         </div>
                     </motion.div>
                 </motion.div>

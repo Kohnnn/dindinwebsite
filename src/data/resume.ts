@@ -82,11 +82,11 @@ export const DATA = {
         }
     ],
     metrics: [
-        { value: 287, unit: "%", label: "GMV Growth", desc: "For Huggies on TikTok Shop, reaching #1 best-selling status." },
+        { value: 287, unit: "%", label: "GMV Growth", desc: "REACHING #1 BEST-SELLING BRAND (official store)" },
         { value: 130, unit: "%", label: "Over Target", desc: "For Lancôme & Kiehl's D2C campaign on brand websites." },
         { value: 125, unit: "%", label: "ROAS vs KPI", desc: "During L'Oréal Mega Sale events (10.10)." },
         { value: 15, unit: "%", label: "Traffic Inc.", desc: "Increased qualified traffic to Masterise Homes projects." },
-        { value: "Gold", unit: "", label: "APAC MMA Smarties Awards 2024", desc: "Winner in Brand Purpose Category" },
+        { value: "Gold Winner", unit: "", label: "Vietnam MMA Smarties Awards 2024", desc: "Huggies Skin Perfect – Cross Digital Media Marketing" },
         { value: 30, unit: "%", label: "Exceeded Target", desc: "Trial rate for Kotex new product in 2024." }
     ],
     skills: [
@@ -96,7 +96,7 @@ export const DATA = {
         { icon: "🤖", title: "AI & Automation", desc: "WPP Open AI, workflow streamlining" }
     ],
     awards: [
-        { icon: "🏆", title: "Gold Winner, Vietnam MMA Smarties Awards 2024", desc: "BHuggies Skin Perfect – Cross Digital Media Marketing" },
+        { icon: "🏆", title: "Gold Winner, Vietnam MMA Smarties Awards 2024", desc: "Huggies Skin Perfect – Cross Digital Media Marketing" },
         { icon: "⭐", title: "Employee of the Month", desc: "September 2024 @ WPP Media" },
         { icon: "🎯", title: "WPP Media Master Training 2023", desc: "Selected exclusive participant" }
     ],
