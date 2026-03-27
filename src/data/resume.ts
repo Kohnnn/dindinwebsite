@@ -8,6 +8,28 @@ export interface Job {
     badges?: string[];
 }
 
+export interface AwardMetric {
+    value: string;
+    label: string;
+}
+
+export interface Award {
+    icon: string;
+    slug: string;
+    title: string;
+    desc: string;
+    metrics: AwardMetric[];
+    badges: string[];
+    image: string | null;
+}
+
+export interface Certification {
+    title: string;
+    event: string;
+    year: string;
+    image: string;
+}
+
 export const DATA = {
     name: "Duyen Ho",
     fullName: "Hồ Hào Duyên (Ms.)",
@@ -96,10 +118,79 @@ export const DATA = {
         { icon: "🤖", title: "AI & Automation", desc: "WPP Open AI, workflow streamlining" }
     ],
     awards: [
-        { icon: "🏆", title: "Gold Winner, Vietnam MMA Smarties Awards 2024", desc: "Huggies Skin Perfect – Cross Digital Media Marketing" },
-        { icon: "⭐", title: "Employee of the Month", desc: "September 2024 @ WPP Media" },
-        { icon: "🎯", title: "WPP Media Master Training 2023", desc: "Selected exclusive participant" }
-    ],
+        {
+            icon: "🏆",
+            slug: "mma-gold-2024",
+            title: "Gold Winner — MMA Smarties Awards 2024",
+            desc: "Huggies Skin Perfect – Growth in a Declining Market. Cross Digital Media Marketing category.",
+            metrics: [
+                { value: "+135%", label: "GMV Growth" },
+                { value: "No.1", label: "E-Commerce Brand" },
+                { value: "+58%", label: "ROAS YoY" },
+            ],
+            badges: ["E-Commerce", "TikTok Shop", "FMCG"],
+            image: "/GroupM_MMA_awards.jpeg",
+        },
+        {
+            icon: "⭐",
+            slug: "employee-of-the-month",
+            title: "Employee of the Month — Sept 2024",
+            desc: "WPP Media — Kimberly-Clark / Mindshare. Recognized for maintaining Huggies' #1 GMV on e-commerce for 8 consecutive months.",
+            metrics: [
+                { value: "No.1", label: "GMV since Jan'24" },
+                { value: "+29%", label: "GMV TikTokShop" },
+                { value: "23", label: "Campaigns Ran" },
+            ],
+            badges: ["Leadership", "E-Commerce", "Performance"],
+            image: "/GroupM_COTM_KC_Cert.jpeg",
+        },
+        {
+            icon: "🎯",
+            slug: "media-master-2023",
+            title: "WPP Media Master Training 2023",
+            desc: "Selected exclusive participant for the intensive 13-week fast-track program on cross-channel media planning.",
+            metrics: [
+                { value: "13", label: "Weeks Intensive" },
+                { value: "3", label: "Showcase Projects" },
+                { value: "+25%", label: "ROAS Increase" },
+            ],
+            badges: ["Programmatic", "Media Planning", "Analytics"],
+            image: "/GroupM_MediaMaster_cert.jpeg",
+        },
+        {
+            icon: "📱",
+            slug: "ux-funnel-optimization",
+            title: "Mobile UX Funnel Optimization",
+            desc: "Identified massive conversion leakage on brand.com — reduced 12-step checkout to 6 steps, eliminating 66% login drop-off.",
+            metrics: [
+                { value: "12→6", label: "Steps Reduced" },
+                { value: "-66%", label: "Drop-off Fixed" },
+                { value: "+85.6%", label: "Intent Recaptured" },
+            ],
+            badges: ["UX/UI", "Conversion", "Data Analytics"],
+            image: null,
+        },
+    ] as Award[],
+    certifications: [
+        {
+            title: "2nd Runner Up",
+            event: "Company Insider Business Case",
+            year: "2021",
+            image: "/Case_CIBizcase2021_Cert.jpeg",
+        },
+        {
+            title: "Top 4 Finalist",
+            event: "The Colorful Minds by UEH-ISB",
+            year: "2021",
+            image: "/Case_colourfulminds2021_Cert.jpeg",
+        },
+        {
+            title: "Top 8 / 742 Teams",
+            event: "Marketing Arena by NEU",
+            year: "2021",
+            image: "/Case_marketingarena2021_Cert.jpeg",
+        },
+    ] as Certification[],
     education: {
         school: "University of Economics Ho Chi Minh City (UEH-ISB)",
         degree: "Bachelor of Business Administration",
