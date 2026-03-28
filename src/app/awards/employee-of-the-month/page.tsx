@@ -63,20 +63,28 @@ export default function EmployeeOfTheMonthPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.7 }}
-                className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4"
+                className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4"
             >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-bg3">
                     <Image
                         src="/GroupM_COTM_KC_Cert.jpeg"
                         alt="Kimberly-Clark COTM Certificate"
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
+                    />
+                </div>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-bg3">
+                    <Image
+                        src="/GroupM_COTM_Huggies_Cert.jpeg"
+                        alt="Huggies COTM Certificate"
+                        fill
+                        className="object-contain p-3"
                     />
                 </div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
                     <Image
-                        src="/GroupM_COTM_Huggies_Cert.jpeg"
-                        alt="Huggies COTM Certificate"
+                        src="/GroupM_COTM_Groupphoto.jpeg"
+                        alt="Employee of the month group photo"
                         fill
                         className="object-cover"
                     />

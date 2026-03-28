@@ -4,6 +4,7 @@ import Marquee from "@/components/Marquee";
 import SkillMarquee from "@/components/SkillMarquee";
 import Experience from "@/components/Experience";
 import Metrics from "@/components/Metrics";
+import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Awards from "@/components/Awards";
 import Education from "@/components/Education";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <Experience />
+      <Projects />
       <Metrics />
       <Awards />
       <SkillMarquee />

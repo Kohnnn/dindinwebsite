@@ -45,8 +45,8 @@ export default function Hero() {
                         <a href="#contact" className="btn-glow bg-purple text-white px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold inline-block">
                             Get in Touch
                         </a>
-                        <a href="#work" className="text-muted text-[14px] md:text-[15px] font-medium flex items-center gap-2 hover:text-white transition-colors group">
-                            View Work <span className="group-hover:translate-x-1 transition-transform">→</span>
+                        <a href="#projects" className="text-muted text-[14px] md:text-[15px] font-medium flex items-center gap-2 hover:text-white transition-colors group">
+                            See Projects <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </a>
                     </motion.div>
 
@@ -84,16 +84,12 @@ export default function Hero() {
                                 👩‍💻
                             </div>
                             <div>
-                                <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">Digital marketing Enthusiast</h4>
+                                <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">{DATA.role}</h4>
                                 <p className="text-[11px] text-slate">WPP Media Vietnam</p>
                             </div>
                         </div>
 
-                        {/* Floating Top-Right Badge */}
-                        <div className="absolute -top-4 -right-4 bg-purple-mauve rounded-xl p-3 px-4 text-center shadow-[0_8px_32px_rgba(101,101,253,0.4)] rotate-3 hover:rotate-0 transition-transform cursor-default">
-                            <div className="text-[22px] leading-none mb-1">🏆</div>
-                            <p className="text-[10px] font-bold text-white/90 uppercase tracking-[0.5px]">MMA Gold</p>
-                        </div>
+
                     </div>
 
                     <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300">

@@ -45,10 +45,11 @@ export default function Nav() {
                     </div>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex gap-9 list-none font-medium text-[13px] tracking-wide text-muted">
-                        <li><a href="#work" className="hover:text-white transition-colors duration-300">Work</a></li>
-                        <li><a href="#impact" className="hover:text-white transition-colors duration-300">Impact</a></li>
-                        <li><a href="#skills" className="hover:text-white transition-colors duration-300">Skills</a></li>
+                    <ul className="hidden md:flex gap-6 lg:gap-8 list-none font-medium text-[13px] tracking-wide text-muted">
+                        <li><a href="#work" className="hover:text-white transition-colors duration-300">Experience</a></li>
+                        <li><a href="#projects" className="hover:text-white transition-colors duration-300">Projects</a></li>
+                        <li><a href="#impact" className="hover:text-white transition-colors duration-300">Results</a></li>
+                        <li><a href="#recognition" className="hover:text-white transition-colors duration-300">Recognition</a></li>
                         <li><a href="#education" className="hover:text-white transition-colors duration-300">Education</a></li>
                     </ul>
 
@@ -80,12 +81,13 @@ export default function Nav() {
                 )}
             >
                 <ul className="flex flex-col gap-6 list-none font-extrabold text-[32px] text-center">
-                    {[
-                        { href: "#work", label: "Work" },
-                        { href: "#impact", label: "Impact" },
-                        { href: "#skills", label: "Skills" },
-                        { href: "#education", label: "Education" },
-                    ].map(({ href, label }, i) => (
+                        {[
+                            { href: "#work", label: "Experience" },
+                            { href: "#projects", label: "Projects" },
+                            { href: "#impact", label: "Results" },
+                            { href: "#recognition", label: "Recognition" },
+                            { href: "#education", label: "Education" },
+                        ].map(({ href, label }, i) => (
                         <li
                             key={href}
                             className={cn(

@@ -18,8 +18,8 @@ export default function Awards() {
 
     return (
         <section
-            id="awards"
-            className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto border-t border-border/50"
+            id="recognition"
+            className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto"
         >
             {/* ── Section Header ── */}
             <ScrollReveal>
@@ -28,13 +28,13 @@ export default function Awards() {
                         <Award className="w-5 h-5 text-purple-lt" />
                     </div>
                     <h3 className="text-[20px] font-extrabold text-white">
-                        Honors & Awards
+                        Honors & Recognition
                     </h3>
                 </div>
             </ScrollReveal>
 
             {/* ── Award Cards Grid ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
                 {DATA.awards.map((award, i) => (
                     <ScrollReveal key={i} delay={0.08 * i} className="group">
                         <div
@@ -128,7 +128,7 @@ export default function Awards() {
                                         href={`/awards/${award.slug}`}
                                         className="flex items-center gap-1.5 text-[12px] font-semibold text-purple-lt hover:text-white transition-colors duration-300 group/link"
                                     >
-                                        View Full Story
+                                        View Recognition
                                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
                                     </Link>
                                 </div>
@@ -160,7 +160,7 @@ export default function Awards() {
                                                     ))}
                                                 </div>
                                                 <p className="text-[13px] text-muted/70 leading-relaxed text-center">
-                                                    Click &quot;View Full Story&quot; for the complete case study with strategic breakdown, execution details, and results.
+                                                    Open the full page for context, supporting proof, and the business impact behind this recognition.
                                                 </p>
                                             </div>
                                         </div>
@@ -171,42 +171,6 @@ export default function Awards() {
                     </ScrollReveal>
                 ))}
             </div>
-
-            {/* ── Certifications Showcase ── */}
-            <ScrollReveal delay={0.3}>
-                <div className="mt-12">
-                    <h4 className="text-[14px] font-semibold text-slate uppercase tracking-wider mb-5">
-                        Competition Certifications
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {DATA.certifications.map((cert, ci) => (
-                            <button
-                                key={ci}
-                                onClick={() => setLightboxImg(cert.image)}
-                                className="group/cert relative bg-card border border-border rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-purple/25 hover:shadow-[0_4px_24px_rgba(101,101,253,0.1)]"
-                            >
-                                <div className="relative w-full aspect-[4/3] overflow-hidden">
-                                    <Image
-                                        src={cert.image}
-                                        alt={cert.event}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover/cert:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#090507]/80 via-transparent to-transparent" />
-                                </div>
-                                <div className="p-4">
-                                    <div className="text-[13px] font-bold text-white mb-0.5">
-                                        {cert.title}
-                                    </div>
-                                    <div className="text-[11px] text-slate">
-                                        {cert.event} · {cert.year}
-                                    </div>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </ScrollReveal>
 
             {/* ── Lightbox Modal ── */}
             <AnimatePresence>

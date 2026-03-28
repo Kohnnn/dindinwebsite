@@ -17,7 +17,7 @@ export default function Experience() {
                     Experience
                 </div>
                 <h2 className="text-[48px] font-extrabold text-white tracking-tight leading-[1.1] mb-12">
-                    Career <em className="italic font-light text-purple-lt">Journey.</em>
+                    Work <em className="italic font-light text-purple-lt">Experience.</em>
                 </h2>
             </ScrollReveal>
 

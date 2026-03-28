@@ -30,19 +30,27 @@ export interface Certification {
     image: string;
 }
 
+export interface ImpactMetric {
+    value: number | string;
+    unit: string;
+    label: string;
+    desc: string;
+    details: string[];
+}
+
 export const DATA = {
     name: "Duyen Ho",
     fullName: "Hồ Hào Duyên (Ms.)",
-    role: "Media Planner & Strategist",
+    role: "Digital Marketing Enthusiast",
     contact: {
         email: "duyenhoforwork@gmail.com",
         phone: "(+84) 947 892 845",
     },
-    summary: "Results-driven marketer with a strong track record in developing and executing omnichannel campaigns; seeking a dynamic role to elevate brand presence and contribute to business growth as part of a high-performing marketing team.",
+    summary: "Project-led media planner turning commerce, brand, and conversion challenges into measurable growth across FMCG, beauty, and real estate.",
     marquee: [
         'TikTok Commerce', 'Integrated Media Planning',
         'Omnichannel Campaigns', 'Performance Marketing',
-        'FMCG · Beauty · Real Estate', 'MMA Gold Award',
+        'FMCG · Beauty · Real Estate', 'Project-Led Case Studies',
         'Data & BI Reporting', 'WPP Open AI Tools'
     ],
     brands: [
@@ -104,13 +112,29 @@ export const DATA = {
         }
     ],
     metrics: [
-        { value: 287, unit: "%", label: "GMV Growth", desc: "REACHING #1 BEST-SELLING BRAND (official store)" },
-        { value: 130, unit: "%", label: "Over Target", desc: "For Lancôme & Kiehl's D2C campaign on brand websites." },
-        { value: 125, unit: "%", label: "ROAS vs KPI", desc: "During L'Oréal Mega Sale events (10.10)." },
-        { value: 15, unit: "%", label: "Traffic Inc.", desc: "Increased qualified traffic to Masterise Homes projects." },
-        { value: "Gold Winner", unit: "", label: "Vietnam MMA Smarties Awards 2024", desc: "Huggies Skin Perfect – Cross Digital Media Marketing" },
-        { value: 30, unit: "%", label: "Exceeded Target", desc: "Trial rate for Kotex new product in 2024." }
-    ],
+        {
+            value: 287,
+            unit: "%",
+            label: "GMV Growth",
+            desc: "From Apr-Dec '2024, Huggies scaled to the #1 selling TikTok Shop official store.",
+            details: [
+                "287% GMV growth from Apr-Dec '2024.",
+                "Reached #1 selling brand on TikTok Shop official store.",
+                "Driven by sharper platform prioritization and conversion-led activation.",
+            ],
+        },
+        {
+            value: 125,
+            unit: "%",
+            label: "GMV Achieved",
+            desc: "Lancôme exceeded target at Lazada Mega Sale 10.10 with a stronger-than-plan commerce push.",
+            details: [
+                "125% GMV achieved at Lazada Mega Sale 10.10 for Lancôme.",
+                "Outperformed planned business target during a key peak-commerce moment.",
+                "Balanced sell-out pressure with premium brand presence.",
+            ],
+        },
+    ] as ImpactMetric[],
     skills: [
         { icon: "📊", title: "Media Planning & Buying", desc: "End-to-end strategic proposals and execution" },
         { icon: "🛍️", title: "Performance & Commerce", desc: "TikTok Shop, D2C conversions, Mega Sales" },
@@ -186,7 +210,7 @@ export const DATA = {
             { text: "Top 10% of Students - ISB Leadership Program (2023)", icon: "🎓" },
             { text: "2nd Runner Up - Company Insider Business Case (2021)", icon: "🥈" },
             { text: "Top 4 Finalist - The Colorful Mind by UEH-ISB (2021)", icon: "💡" },
-            { text: "Top 8/742 teams - Marketing on Air by NEU (2021)", icon: "🚀" }
+            { text: "Top 8/742 teams - Marketing Arena by NEU (2021)", icon: "🚀" }
         ]
     }
 };

@@ -11,15 +11,16 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hazelportfolio.vercel.app"),
   title: "Hazel Ho's Portfolio",
-  description: "Award-winning media strategist at WPP Media Vietnam. MMA Gold 2024. Specializing in FMCG, Beauty & Real Estate.",
+  description: "Project-led media planner portfolio focused on commerce growth, brand strategy, and conversion improvement across FMCG, beauty, and real estate.",
   icons: {
     icon: "/HoHaoDuyen_Portrait.jpeg",
   },
   openGraph: {
     title: "Hazel Ho's Portfolio",
-    description: "Associate Manager, Media Planning @ WPP Media",
-    url: "https://duyenho.com",
+    description: "Project-led media planner portfolio with case studies across commerce, brand, and UX performance.",
+    url: "https://hazelportfolio.vercel.app",
     images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: { card: "summary_large_image" },

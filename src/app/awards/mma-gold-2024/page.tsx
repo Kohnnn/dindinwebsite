@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ExternalLink, FileText } from "lucide-react";
 
 const results = [
     { value: "VND 608bn", label: "Paid GMV Achieved", sub: "+135% vs 2023" },
@@ -186,6 +187,58 @@ export default function MMAGoldPage() {
                     </div>
                 </div>
             </motion.div>
+
+            <div className="mt-14">
+                <h2 className="text-[14px] font-semibold text-slate uppercase tracking-wider mb-6">
+                    Supporting Assets
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a
+                        href="/MSExNEXUS_Huggies WOW Award 2025.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group bg-card border border-border rounded-2xl p-5 hover:border-purple/20 transition-all duration-300"
+                    >
+                        <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="w-11 h-11 rounded-2xl bg-purple/10 text-purple-lt flex items-center justify-center">
+                                    <FileText className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="text-[14px] font-bold text-white">Huggies WOW Award 2025</div>
+                                    <div className="text-[11px] uppercase tracking-[1.2px] text-purple-lt mt-1">PDF</div>
+                                </div>
+                            </div>
+                            <ExternalLink className="w-4 h-4 text-slate transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </div>
+                        <p className="text-[13px] text-slate leading-relaxed mt-4">
+                            Added as supporting proof for the extended Huggies impact story beyond the award itself.
+                        </p>
+                    </a>
+                    <a
+                        href="https://www.mmaglobal.com/smarties-2024/finalists/winners/region:10"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group bg-card border border-border rounded-2xl p-5 hover:border-purple/20 transition-all duration-300"
+                    >
+                        <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="w-11 h-11 rounded-2xl bg-purple/10 text-purple-lt flex items-center justify-center">
+                                    <ExternalLink className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="text-[14px] font-bold text-white">MMA Smarties Winners Page</div>
+                                    <div className="text-[11px] uppercase tracking-[1.2px] text-purple-lt mt-1">External</div>
+                                </div>
+                            </div>
+                            <ExternalLink className="w-4 h-4 text-slate transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </div>
+                        <p className="text-[13px] text-slate leading-relaxed mt-4">
+                            Public-facing confirmation of the Vietnam MMA Smarties 2024 result.
+                        </p>
+                    </a>
+                </div>
+            </div>
         </article>
     );
 }
