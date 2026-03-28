@@ -129,7 +129,7 @@ export const DATA = {
                 { value: "+58%", label: "ROAS YoY" },
             ],
             badges: ["E-Commerce", "TikTok Shop", "FMCG"],
-            image: "/GroupM_MMA_awards.jpeg",
+            image: "/MMA_Smarties.jpg",
         },
         {
             icon: "⭐",
@@ -156,19 +156,6 @@ export const DATA = {
             ],
             badges: ["Programmatic", "Media Planning", "Analytics"],
             image: "/GroupM_MediaMaster_cert.jpeg",
-        },
-        {
-            icon: "📱",
-            slug: "ux-funnel-optimization",
-            title: "Mobile UX Funnel Optimization",
-            desc: "Identified massive conversion leakage on brand.com — reduced 12-step checkout to 6 steps, eliminating 66% login drop-off.",
-            metrics: [
-                { value: "12→6", label: "Steps Reduced" },
-                { value: "-66%", label: "Drop-off Fixed" },
-                { value: "+85.6%", label: "Intent Recaptured" },
-            ],
-            badges: ["UX/UI", "Conversion", "Data Analytics"],
-            image: null,
         },
     ] as Award[],
     certifications: [
