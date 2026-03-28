@@ -6,6 +6,28 @@ import { notFound } from "next/navigation";
 
 import { PROJECTS, PROJECTS_BY_SLUG } from "@/data/projects";
 
+const getSurfaceClass = (surface?: "default" | "light" | "brand-red") => {
+    switch (surface) {
+        case "light":
+            return "bg-[linear-gradient(180deg,#f8f1e6,#ebe0cd)]";
+        case "brand-red":
+            return "bg-[linear-gradient(180deg,#77172a,#460c18)]";
+        default:
+            return "bg-[radial-gradient(circle_at_top,rgba(146,147,250,0.15),transparent_60%)]";
+    }
+};
+
+const getLogoSurfaceClass = (surface?: "dark" | "light" | "brand-red") => {
+    switch (surface) {
+        case "light":
+            return "bg-white/90 border-white/70";
+        case "brand-red":
+            return "bg-[#8f1f36] border-[#d56a84]/40";
+        default:
+            return "bg-bg3/90 border-border/60";
+    }
+};
+
 interface ProjectPageProps {
     params: {
         slug: string;
@@ -28,6 +50,17 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
     return {
         title: `${project.title} - Hazel Ho`,
         description: project.summary,
+        openGraph: {
+            title: `${project.title} - Hazel Ho`,
+            description: project.summary,
+            images: project.gallery?.length ? [project.gallery[0].src] : ["/HoHaoDuyen_Portrait.jpeg"],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${project.title} - Hazel Ho`,
+            description: project.summary,
+            images: project.gallery?.length ? [project.gallery[0].src] : ["/HoHaoDuyen_Portrait.jpeg"],
+        },
     };
 }
 
@@ -40,8 +73,21 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
     return (
         <article>
-            <div className="text-[11px] font-semibold text-purple-lt uppercase tracking-[2px] mb-4">
-                {project.eyebrow}
+            <div className="flex items-center gap-3 mb-4">
+                {project.logoSrc ? (
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[18px] border p-2.5 ${getLogoSurfaceClass(project.logoSurface)}`}>
+                        <Image
+                            src={project.logoSrc}
+                            alt={`${project.title} brand logo`}
+                            width={76}
+                            height={30}
+                            className="h-auto w-full object-contain"
+                        />
+                    </div>
+                ) : null}
+                <div className="text-[11px] font-semibold text-purple-lt uppercase tracking-[2px]">
+                    {project.eyebrow}
+                </div>
             </div>
 
             <div className="max-w-3xl">
@@ -71,7 +117,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 <div className={`mt-12 grid gap-5 ${project.gallery.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
                     {project.gallery.map((item) => (
                         <div key={item.src} className="overflow-hidden rounded-[28px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
-                            <div className="relative aspect-[16/10] bg-[radial-gradient(circle_at_top,rgba(146,147,250,0.15),transparent_60%)]">
+                            <div className={`relative aspect-[16/10] ${getSurfaceClass(item.surface)}`}>
                                 <Image
                                     src={item.src}
                                     alt={item.alt}

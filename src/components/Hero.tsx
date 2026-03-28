@@ -20,6 +20,8 @@ const item: Variants = {
 };
 
 export default function Hero() {
+    const currentRole = DATA.experience[0]?.title;
+
     return (
         <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-28 md:pt-48 pb-16 md:pb-24 relative overflow-hidden">
             {/* Background Orbs */}
@@ -60,7 +62,7 @@ export default function Hero() {
                         </div>
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                10<sup className="text-[20px] text-purple align-super">+</sup>
+                                {DATA.brands.length}<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
                             <p className="text-xs text-slate uppercase tracking-wider">Brands managed</p>
                         </div>
@@ -74,6 +76,8 @@ export default function Hero() {
                             src="/HoHaoDuyen_Portrait.jpeg"
                             alt="Hồ Hao Duyên"
                             fill
+                            priority
+                            sizes="(max-width: 1024px) 90vw, 420px"
                             className="object-cover object-top block"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(9,5,7,0.7)] to-[transparent_60%]" />
@@ -85,7 +89,7 @@ export default function Hero() {
                             </div>
                             <div>
                                 <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">{DATA.role}</h4>
-                                <p className="text-[11px] text-slate">WPP Media Vietnam</p>
+                                <p className="text-[11px] text-slate">{currentRole} · WPP Media Vietnam</p>
                             </div>
                         </div>
 
@@ -94,7 +98,7 @@ export default function Hero() {
 
                     <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-                        Download Full Resume
+                        Download Full Resume · PDF · 708 KB
                     </a>
                 </ScrollReveal>
             </div>

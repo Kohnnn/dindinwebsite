@@ -1,14 +1,104 @@
 "use client";
 
-import { DATA } from "@/data/resume";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { DATA, type Job } from "@/data/resume";
 import { cn } from "@/lib/utils";
+
 import { ScrollReveal } from "./ui/scroll-reveal";
+
+type ExperienceSidebarItem =
+    | {
+        type: "job";
+        job: Job;
+    }
+    | {
+        type: "group";
+        id: string;
+        label: string;
+        note?: string;
+        jobs: Job[];
+    };
+
+const buildSidebarItems = (jobs: Job[]): ExperienceSidebarItem[] => {
+    return jobs.reduce<ExperienceSidebarItem[]>((items, job) => {
+        if (!job.groupId) {
+            items.push({ type: "job", job });
+            return items;
+        }
+
+        const previousItem = items[items.length - 1];
+
+        if (previousItem?.type === "group" && previousItem.id === job.groupId) {
+            previousItem.jobs.push(job);
+            previousItem.note = previousItem.note ?? job.groupNote;
+            return items;
+        }
+
+        items.push({
+            type: "group",
+            id: job.groupId,
+            label: job.groupLabel ?? job.company,
+            note: job.groupNote,
+            jobs: [job],
+        });
+
+        return items;
+    }, []);
+};
 
 export default function Experience() {
     const [activeJobId, setActiveJobId] = useState(DATA.experience[0].id);
-    const activeJob = DATA.experience.find(j => j.id === activeJobId) || DATA.experience[0];
+    const activeJob = DATA.experience.find((job) => job.id === activeJobId) || DATA.experience[0];
+    const sidebarItems = buildSidebarItems(DATA.experience);
+
+    const renderJobButton = (job: Job, variant: "default" | "grouped" = "default") => {
+        const isActive = activeJobId === job.id;
+
+        if (variant === "grouped") {
+            return (
+                <button
+                    key={job.id}
+                    onClick={() => setActiveJobId(job.id)}
+                    className={cn(
+                        "relative rounded-xl border pl-8 pr-3 py-3 text-left transition-colors duration-300",
+                        isActive
+                            ? "border-purple/30 bg-purple/12"
+                            : "border-transparent bg-white/[0.02] hover:bg-purple/5"
+                    )}
+                >
+                    <span
+                        className={cn(
+                            "absolute left-3 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border",
+                            isActive ? "border-purple bg-purple shadow-[0_0_0_4px_rgba(150,110,161,0.14)]" : "border-purple/50 bg-bg3"
+                        )}
+                    />
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.8px] text-purple">{job.date}</div>
+                    <div className={cn("mt-1 text-[13px] font-bold transition-colors", isActive ? "text-white" : "text-muted")}>
+                        {job.title}
+                    </div>
+                </button>
+            );
+        }
+
+        return (
+            <button
+                key={job.id}
+                onClick={() => setActiveJobId(job.id)}
+                className={cn(
+                    "text-left p-4 md:p-5 rounded-2xl transition-colors duration-300 min-w-[240px] md:min-w-0 snap-start shrink-0 flex flex-col justify-center",
+                    isActive ? "bg-purple/10" : "hover:bg-purple/5"
+                )}
+            >
+                <div className="text-[11px] font-semibold text-purple uppercase tracking-[0.8px] mb-1">{job.date}</div>
+                <div className={cn("text-[14px] font-bold mb-0.5 transition-colors", isActive ? "text-white" : "text-muted")}>
+                    {job.title}
+                </div>
+                <div className="text-[12px] text-slate">{job.company}</div>
+            </button>
+        );
+    };
 
     return (
         <section id="work" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto">
@@ -24,22 +114,35 @@ export default function Experience() {
             <ScrollReveal delay={0.2} className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-border rounded-3xl overflow-hidden bg-bg3">
                 {/* Sidebar */}
                 <div className="border-b md:border-b-0 md:border-r border-border p-2 bg-bg3 flex flex-row overflow-x-auto md:flex-col gap-2 md:gap-0.5 no-scrollbar snap-x relative z-10 w-full">
-                    {DATA.experience.map((job) => (
-                        <button
-                            key={job.id}
-                            onClick={() => setActiveJobId(job.id)}
-                            className={cn(
-                                "text-left p-4 md:p-5 rounded-2xl transition-colors duration-300 min-w-[240px] md:min-w-0 snap-start shrink-0 flex flex-col justify-center",
-                                activeJobId === job.id ? "bg-purple/10" : "hover:bg-purple/5"
-                            )}
-                        >
-                            <div className="text-[11px] font-semibold text-purple uppercase tracking-[0.8px] mb-1">{job.date}</div>
-                            <div className={cn("text-[14px] font-bold mb-0.5 transition-colors", activeJobId === job.id ? "text-white" : "text-muted")}>
-                                {job.title}
+                    {sidebarItems.map((item) => {
+                        if (item.type === "job") {
+                            return renderJobButton(item.job);
+                        }
+
+                        const isGroupActive = item.jobs.some((job) => job.id === activeJobId);
+
+                        return (
+                            <div
+                                key={item.id}
+                                className={cn(
+                                    "min-w-[240px] md:min-w-0 snap-start shrink-0 rounded-2xl border p-2.5 md:p-3",
+                                    isGroupActive
+                                        ? "border-purple/25 bg-[linear-gradient(180deg,rgba(150,110,161,0.12),rgba(150,110,161,0.04))]"
+                                        : "border-border bg-white/[0.02]"
+                                )}
+                            >
+                                <div className="px-2 pb-2">
+                                    <div className="text-[10px] font-bold uppercase tracking-[1.1px] text-purple-lt">Career Path</div>
+                                    <div className="mt-1 text-[13px] font-bold text-white">{item.label}</div>
+                                    {item.note && <div className="mt-1 text-[11px] leading-relaxed text-slate">{item.note}</div>}
+                                </div>
+
+                                <div className="relative flex flex-col gap-1.5 before:absolute before:bottom-4 before:left-4 before:top-4 before:w-px before:bg-border/80 before:content-['']">
+                                    {item.jobs.map((job) => renderJobButton(job, "grouped"))}
+                                </div>
                             </div>
-                            <div className="text-[12px] text-slate">{job.company}</div>
-                        </button>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* Content */}

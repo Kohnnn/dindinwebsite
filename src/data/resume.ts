@@ -6,6 +6,9 @@ export interface Job {
     client: string;
     bullets: string[];
     badges?: string[];
+    groupId?: string;
+    groupLabel?: string;
+    groupNote?: string;
 }
 
 export interface AwardMetric {
@@ -90,7 +93,7 @@ export const DATA = {
             company: "WPP Media",
             client: "Masterise Homes, Kimberly Clark Vietnam (Kotex, Huggies)",
             bullets: [
-                "Developed strategic proposals for So-commerce AOP, project launchings and business reviews (quarterly and half-yearly), through competitor analysis, market landscape analysis, and tailored media recommendations across Real Estate and FMCG sectors.",
+                "Developed strategic proposals for social commerce AOP, project launchings and business reviews (quarterly and half-yearly), through competitor analysis, market landscape analysis, and tailored media recommendations across Real Estate and FMCG sectors.",
                 "Conducted in-depth post-buy evaluation & actionable recommendations for delivering campaign effectively and efficiently with tangible results.",
                 "Collaborated with client's brand teams, media teams, and WPP regional buying team (India) to deliver holistic media-led campaigns across traditional (TV, OOH) and digital channels for Kotex new product launching campaigns in 2024.",
                 "Built data collection and reporting processes by developing interactive Google reports for daily client updates and Excel/BI dashboards for in-depth campaign optimization."
@@ -99,16 +102,32 @@ export const DATA = {
         },
         {
             id: "publicis-exec",
-            date: "Sep '2022 - Apr '2023",
+            date: "Nov '2022 - Apr '2023",
             title: "Performance Executive",
             company: "Publicis Media Vietnam",
             client: "L'oreal Groupe Vietnam (Lancôme, Kiehl's, Shu Uemura, YSL)",
+            groupId: "publicis-growth",
+            groupLabel: "Publicis Media Vietnam",
+            groupNote: "Promoted from intern to executive on the same luxury beauty account.",
             bullets: [
                 "Surpassed GMV targets during Mega Sale events (10.10) with 115% target achieved & ROAS 125% vs KPI.",
                 "Launched Lancôme & Kiehl's D2C campaign on brand-owned websites, exceeding business targets by 130% within 5 months.",
                 "Conducted user journey analysis to improve UX and conversion rate of brand-owned websites, delivered insights that helped optimize checkout flow and enhanced digital performance."
             ],
             badges: ["Performance Marketing", "D2C", "UX/UI Analysis"]
+        },
+        {
+            id: "publicis-intern",
+            date: "Jun '2022 - Nov '2022",
+            title: "Performance Intern",
+            company: "Publicis Media Vietnam",
+            client: "L'oreal Groupe Vietnam (Lancôme, Kiehl's, Shu Uemura, YSL)",
+            groupId: "publicis-growth",
+            groupLabel: "Publicis Media Vietnam",
+            groupNote: "Promoted from intern to executive on the same luxury beauty account.",
+            bullets: [
+                "Joined the Publicis performance team on the L'oreal luxury portfolio and transitioned into the Performance Executive role on the same business."
+            ]
         }
     ],
     metrics: [

@@ -21,9 +21,14 @@ export const metadata: Metadata = {
     title: "Hazel Ho's Portfolio",
     description: "Project-led media planner portfolio with case studies across commerce, brand, and UX performance.",
     url: "https://hazelportfolio.vercel.app",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/HoHaoDuyen_Portrait.jpeg", width: 1200, height: 1200 }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hazel Ho's Portfolio",
+    description: "Project-led media planner portfolio with case studies across commerce, brand, and UX performance.",
+    images: ["/HoHaoDuyen_Portrait.jpeg"],
+  },
 };
 
 export default function RootLayout({

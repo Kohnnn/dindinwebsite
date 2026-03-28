@@ -1,39 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { useInView } from "framer-motion";
 
 import { DATA } from "@/data/resume";
 
 import { ScrollReveal } from "./ui/scroll-reveal";
-
-function AnimatedCounter({ target, duration = 2000 }: { target: number; duration?: number }) {
-    const [count, setCount] = useState(0);
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-10%" });
-
-    useEffect(() => {
-        if (!isInView) return;
-
-        let start = 0;
-        const step = target / (duration / 16);
-        const timer = setInterval(() => {
-            start += step;
-
-            if (start >= target) {
-                setCount(target);
-                clearInterval(timer);
-            } else {
-                setCount(Math.floor(start));
-            }
-        }, 16);
-
-        return () => clearInterval(timer);
-    }, [duration, isInView, target]);
-
-    return <span ref={ref}>{count}</span>;
-}
 
 export default function Metrics() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -51,7 +23,7 @@ export default function Metrics() {
                                 Results That <em className="italic font-light text-gradient">Speak.</em>
                             </h2>
                             <p className="text-[15px] text-slate leading-[1.8] mt-4 max-w-2xl">
-                                Hover to expand each result on desktop. On mobile, tap each card to reveal the supporting detail behind the number.
+                                Hover or tap to expand each result and reveal the business context behind the metric.
                             </p>
                         </div>
                     </div>
@@ -66,6 +38,7 @@ export default function Metrics() {
                                 <button
                                     key={metric.label}
                                     type="button"
+                                    aria-expanded={isActive}
                                     onClick={() => setActiveIndex(isActive ? null : index)}
                                     onMouseEnter={() => setActiveIndex(index)}
                                     onMouseLeave={() => setActiveIndex(null)}
@@ -81,7 +54,7 @@ export default function Metrics() {
 
                                         <div className="mt-8 text-[60px] md:text-[72px] font-black text-white tracking-[-3px] leading-none">
                                             <span className="text-gradient">
-                                                {typeof metric.value === "number" ? <AnimatedCounter target={metric.value} /> : metric.value}
+                                                {metric.value}
                                             </span>
                                             {metric.unit ? <span className="ml-1 text-[34px] text-purple-lt">{metric.unit}</span> : null}
                                         </div>
