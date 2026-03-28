@@ -28,13 +28,13 @@ export default function Awards() {
                         <Award className="w-5 h-5 text-purple-lt" />
                     </div>
                     <h3 className="text-[20px] font-extrabold text-white">
-                        Honors & Recognition
+                        Recognition & Professional Development
                     </h3>
                 </div>
             </ScrollReveal>
 
             {/* ── Award Cards Grid ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 max-w-[420px] gap-5 mx-auto">
                 {DATA.awards.map((award, i) => (
                     <ScrollReveal key={i} delay={0.08 * i} className="group">
                         <div

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -48,17 +50,27 @@ export default function Nav() {
                     <ul className="hidden md:flex gap-6 lg:gap-8 list-none font-medium text-[13px] tracking-wide text-muted">
                         <li><a href="#work" className="hover:text-white transition-colors duration-300">Experience</a></li>
                         <li><a href="#projects" className="hover:text-white transition-colors duration-300">Projects</a></li>
-                        <li><a href="#impact" className="hover:text-white transition-colors duration-300">Results</a></li>
                         <li><a href="#recognition" className="hover:text-white transition-colors duration-300">Recognition</a></li>
                         <li><a href="#education" className="hover:text-white transition-colors duration-300">Education</a></li>
                     </ul>
 
-                    <a
-                        href="#contact"
-                        className="hidden md:inline-flex bg-purple hover:bg-purple-lt hover:-translate-y-[1px] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-none hover:shadow-[0_8px_30px_rgba(101,101,253,0.35)] text-sm"
-                    >
-                        Contact
-                    </a>
+                    <div className="hidden md:flex items-center gap-3">
+                        <Link
+                            href="https://www.linkedin.com/in/duyen-ho-0640b11a1/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all duration-300 hover:border-purple/30 hover:text-white"
+                            aria-label="Hazel Ho LinkedIn"
+                        >
+                            <Linkedin className="w-4 h-4" />
+                        </Link>
+                        <a
+                            href="#contact"
+                            className="inline-flex bg-purple hover:bg-purple-lt hover:-translate-y-[1px] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-none hover:shadow-[0_8px_30px_rgba(101,101,253,0.35)] text-sm"
+                        >
+                            Contact
+                        </a>
+                    </div>
 
                     {/* Mobile Hamburger Toggle */}
                     <button
@@ -84,7 +96,6 @@ export default function Nav() {
                         {[
                             { href: "#work", label: "Experience" },
                             { href: "#projects", label: "Projects" },
-                            { href: "#impact", label: "Results" },
                             { href: "#recognition", label: "Recognition" },
                             { href: "#education", label: "Education" },
                         ].map(({ href, label }, i) => (
@@ -116,13 +127,24 @@ export default function Nav() {
                     )}
                     style={{ transitionDelay: isMobileMenuOpen ? "340ms" : "0ms" }}
                 >
-                    <a
-                        href="#contact"
-                        onClick={closeMobileMenu}
-                        className="bg-purple text-white px-10 py-4 rounded-full font-bold text-lg block"
-                    >
-                        Get in Touch
-                    </a>
+                    <div className="flex flex-col items-center gap-4">
+                        <a
+                            href="#contact"
+                            onClick={closeMobileMenu}
+                            className="bg-purple text-white px-10 py-4 rounded-full font-bold text-lg block"
+                        >
+                            Get in Touch
+                        </a>
+                        <Link
+                            href="https://www.linkedin.com/in/duyen-ho-0640b11a1/"
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={closeMobileMenu}
+                            className="text-sm font-medium text-slate hover:text-white transition-colors"
+                        >
+                            LinkedIn
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

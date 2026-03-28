@@ -38,10 +38,10 @@ export default function Projects() {
                 <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-12">
                     <div className="max-w-2xl">
                         <h2 className="text-[42px] md:text-[48px] font-extrabold text-white tracking-tight leading-[1.08]">
-                            Selected <em className="italic font-light text-gradient">Projects.</em>
+                            Featured <em className="italic font-light text-gradient">Projects & Campaigns.</em>
                         </h2>
                         <p className="text-[15px] text-slate leading-[1.8] mt-4 max-w-xl">
-                            Launch campaigns, always-on commerce acceleration, cultural brand work, and conversion diagnostics - all framed as project outcomes instead of generic role descriptions.
+                            Launch work, year-long commerce acceleration, culture-led brand campaigns, and website-performance improvement - all documented as business cases instead of generic job bullets.
                         </p>
                     </div>
                     <div className="inline-flex items-center gap-3 rounded-full bg-[rgba(255,255,255,0.03)] border border-border/60 px-4 py-2.5 text-[12px] text-muted backdrop-blur-xl w-fit">

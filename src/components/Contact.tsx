@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 
 import { DATA } from "@/data/resume";
 
@@ -119,6 +119,15 @@ export default function Contact() {
                                     <Phone className="w-4 h-4 text-purple-lt" />
                                     {DATA.contact.phone}
                                 </a>
+                                <a
+                                    href="https://www.linkedin.com/in/duyen-ho-0640b11a1/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center gap-3 rounded-2xl border border-border/40 bg-bg3/70 px-4 py-4 text-[14px] text-white transition-colors hover:border-purple/30"
+                                >
+                                    <Linkedin className="w-4 h-4 text-purple-lt" />
+                                    LinkedIn Profile
+                                </a>
                                 <div className="flex items-center gap-3 rounded-2xl border border-border/40 bg-bg3/70 px-4 py-4 text-[14px] text-white">
                                     <MapPin className="w-4 h-4 text-purple-lt" />
                                     Ho Chi Minh City, Vietnam
@@ -131,7 +140,7 @@ export default function Contact() {
                                 Quick Note
                             </div>
                             <p className="text-[14px] text-slate leading-[1.8]">
-                                If you are hiring for media planning, commerce growth, brand strategy, or cross-channel optimization, this form gives the fastest way to reach me without leaving the portfolio context.
+                                If you are hiring for media planning, commerce growth, brand strategy, or cross-channel optimization, this form gives the fastest way to reach me without leaving the portfolio context. LinkedIn is also available for quick profile validation.
                             </p>
                         </div>
                     </div>

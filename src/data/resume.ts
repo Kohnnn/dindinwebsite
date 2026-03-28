@@ -33,14 +33,6 @@ export interface Certification {
     image: string;
 }
 
-export interface ImpactMetric {
-    value: number | string;
-    unit: string;
-    label: string;
-    desc: string;
-    details: string[];
-}
-
 export const DATA = {
     name: "Duyen Ho",
     fullName: "Hồ Hào Duyên (Ms.)",
@@ -130,30 +122,6 @@ export const DATA = {
             ]
         }
     ],
-    metrics: [
-        {
-            value: 287,
-            unit: "%",
-            label: "GMV Growth",
-            desc: "From Apr-Dec '2024, Huggies scaled to the #1 selling TikTok Shop official store.",
-            details: [
-                "287% GMV growth from Apr-Dec '2024.",
-                "Reached #1 selling brand on TikTok Shop official store.",
-                "Driven by sharper platform prioritization and conversion-led activation.",
-            ],
-        },
-        {
-            value: 125,
-            unit: "%",
-            label: "GMV Achieved",
-            desc: "Lancôme exceeded target at Lazada Mega Sale 10.10 with a stronger-than-plan commerce push.",
-            details: [
-                "125% GMV achieved at Lazada Mega Sale 10.10 for Lancôme.",
-                "Outperformed planned business target during a key peak-commerce moment.",
-                "Balanced sell-out pressure with premium brand presence.",
-            ],
-        },
-    ] as ImpactMetric[],
     skills: [
         { icon: "📊", title: "Media Planning & Buying", desc: "End-to-end strategic proposals and execution" },
         { icon: "🛍️", title: "Performance & Commerce", desc: "TikTok Shop, D2C conversions, Mega Sales" },
@@ -162,40 +130,14 @@ export const DATA = {
     ],
     awards: [
         {
-            icon: "🏆",
-            slug: "mma-gold-2024",
-            title: "Gold Winner — MMA Smarties Awards 2024",
-            desc: "Huggies Skin Perfect – Growth in a Declining Market. Cross Digital Media Marketing category.",
-            metrics: [
-                { value: "+135%", label: "GMV Growth" },
-                { value: "No.1", label: "E-Commerce Brand" },
-                { value: "+58%", label: "ROAS YoY" },
-            ],
-            badges: ["E-Commerce", "TikTok Shop", "FMCG"],
-            image: "/MMA_Smarties.jpg",
-        },
-        {
-            icon: "⭐",
-            slug: "employee-of-the-month",
-            title: "Employee of the Month — Sept 2024",
-            desc: "WPP Media — Kimberly-Clark / Mindshare. Recognized for maintaining Huggies' #1 GMV on e-commerce for 8 consecutive months.",
-            metrics: [
-                { value: "No.1", label: "GMV since Jan'24" },
-                { value: "+29%", label: "GMV TikTokShop" },
-                { value: "23", label: "Campaigns Ran" },
-            ],
-            badges: ["Leadership", "E-Commerce", "Performance"],
-            image: "/GroupM_COTM_KC_Cert.jpeg",
-        },
-        {
             icon: "🎯",
             slug: "media-master-2023",
             title: "WPP Media Master Training 2023",
-            desc: "Selected exclusive participant for the intensive 13-week fast-track program on cross-channel media planning.",
+            desc: "Selected exclusive participant in GroupM's 13-week fast-track program on cross-channel media planning, programmatic trading, and data-led budget allocation.",
             metrics: [
                 { value: "13", label: "Weeks Intensive" },
+                { value: "Top 10%", label: "Program Rank" },
                 { value: "3", label: "Showcase Projects" },
-                { value: "+25%", label: "ROAS Increase" },
             ],
             badges: ["Programmatic", "Media Planning", "Analytics"],
             image: "/GroupM_MediaMaster_cert.jpeg",

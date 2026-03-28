@@ -17,11 +17,11 @@ export default function ProjectsLayout({
             <nav className="sticky top-0 z-50 border-b border-border/30 bg-bg/70 backdrop-blur-xl">
                 <div className="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between">
                     <Link
-                        href="/#projects"
+                        href="/"
                         className="group flex items-center gap-2 text-[13px] font-medium text-slate transition-colors duration-300 hover:text-purple-lt"
                     >
                         <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-                        Back to Projects
+                        Back to Portfolio
                     </Link>
                     <span className="text-[13px] font-semibold text-white/60">Hazel Ho</span>
                 </div>

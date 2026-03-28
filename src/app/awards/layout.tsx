@@ -18,7 +18,7 @@ export default function AwardsLayout({
             <nav className="sticky top-0 z-50 backdrop-blur-xl bg-bg/70 border-b border-border/30">
                 <div className="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between">
                     <Link
-                        href="/#recognition"
+                        href="/"
                         className="flex items-center gap-2 text-[13px] font-medium text-slate hover:text-purple-lt transition-colors duration-300 group"
                     >
                         <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
@@ -42,7 +42,7 @@ export default function AwardsLayout({
                         © {new Date().getFullYear()} Hồ Hào Duyên. All Rights Reserved.
                     </p>
                     <Link
-                        href="/#recognition"
+                        href="/"
                         className="text-[12px] text-slate hover:text-purple-lt transition-colors duration-300"
                     >
                         ← Back to Portfolio

@@ -113,11 +113,43 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 ))}
             </div>
 
+            <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-5">
+                <div className="rounded-[24px] border border-border/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+                    <div className="text-[12px] font-semibold text-purple-lt uppercase tracking-[1.8px] mb-4">
+                        Executive Summary
+                    </div>
+                    <div className="space-y-4">
+                        {project.executiveSummary.map((paragraph) => (
+                            <p key={paragraph} className="text-[14px] text-muted/85 leading-[1.85]">
+                                {paragraph}
+                            </p>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="rounded-[24px] border border-border/50 bg-card p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+                    <div className="text-[12px] font-semibold text-purple-lt uppercase tracking-[1.8px] mb-4">
+                        Scope & Achievements
+                    </div>
+                    <p className="text-[13px] text-slate leading-[1.8] mb-5">
+                        {project.scopeLabel}
+                    </p>
+                    <ul className="space-y-3">
+                        {project.achievements.map((achievement) => (
+                            <li key={achievement} className="flex items-start gap-3 text-[13px] text-muted/85 leading-[1.75]">
+                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-lt/70" />
+                                <span>{achievement}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
             {project.gallery?.length ? (
                 <div className={`mt-12 grid gap-5 ${project.gallery.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
                     {project.gallery.map((item) => (
                         <div key={item.src} className="overflow-hidden rounded-[28px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
-                            <div className={`relative aspect-[16/10] ${getSurfaceClass(item.surface)}`}>
+                            <div className={`relative ${item.fit === "contain" ? "aspect-[16/7] max-h-[320px]" : "aspect-[16/10]"} ${getSurfaceClass(item.surface)}`}>
                                 <Image
                                     src={item.src}
                                     alt={item.alt}
@@ -136,7 +168,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
             <div className="mt-14">
                 <h2 className="text-[14px] font-semibold text-slate uppercase tracking-[1.6px] mb-6">
-                    Measurable Outcomes
+                    Key Outcomes
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                     {project.results.map((result) => (
@@ -160,7 +192,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
             <div className="mt-14">
                 <h2 className="text-[14px] font-semibold text-slate uppercase tracking-[1.6px] mb-6">
-                    Project Breakdown
+                    How It Was Solved
                 </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {project.sections.map((section) => (
@@ -194,7 +226,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             {project.assets?.length ? (
                 <div className="mt-14">
                     <h2 className="text-[14px] font-semibold text-slate uppercase tracking-[1.6px] mb-6">
-                        Supporting Assets
+                        Recognition & Supporting Proof
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {project.assets.map((asset) => {

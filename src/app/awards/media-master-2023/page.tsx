@@ -3,24 +3,25 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Activity, BarChart3, LineChart, LucideIcon } from "lucide-react";
 
 const modules = [
     {
-        icon: "📊",
+        icon: BarChart3,
         title: "Media Planning & Strategy",
         desc: "Formulated comprehensive media flowcharts and forecasted reach, frequency, and CPA. Modeled optimal budget allocations across traditional (TV, OOH) and digital ecosystems.",
     },
     {
-        icon: "⚡",
+        icon: Activity,
         title: "Programmatic & Performance Trading",
         desc: "Executed real-time bidding (RTB) strategies via DSPs. Continuously monitored and optimized bid prices to reduce CPC and CPM.",
     },
     {
-        icon: "📈",
+        icon: LineChart,
         title: "Data Analytics & Market Intelligence",
         desc: "Extracted raw campaign data to build performance dashboards. Analyzed audience behavior and conversion metrics to provide actionable, data-backed recommendations.",
     },
-];
+] as { icon: LucideIcon; title: string; desc: string }[];
 
 const showcases = [
     {
@@ -85,12 +86,12 @@ export default function MediaMasterPage() {
                 transition={{ delay: 0.15, duration: 0.7 }}
                 className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-bg3">
                     <Image
                         src="/GroupM_MediaMaster_cert.jpeg"
                         alt="Media Master Certificate"
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
                     />
                 </div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
@@ -117,7 +118,9 @@ export default function MediaMasterPage() {
                             transition={{ delay: 0.3 + i * 0.1, duration: 0.6, ease: "easeOut" }}
                             className="bg-card border border-border rounded-2xl p-5 hover:border-purple/20 transition-all duration-300"
                         >
-                            <div className="text-[24px] mb-3">{m.icon}</div>
+                            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-purple/10 text-purple-lt">
+                                <m.icon className="w-5 h-5" />
+                            </div>
                             <h3 className="text-[14px] font-bold text-white mb-2">
                                 {m.title}
                             </h3>
