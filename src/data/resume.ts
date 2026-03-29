@@ -11,18 +11,12 @@ export interface Job {
     groupNote?: string;
 }
 
-export interface AwardMetric {
-    value: string;
-    label: string;
-}
-
 export interface Award {
     icon: string;
     slug: string;
     title: string;
     desc: string;
-    metrics: AwardMetric[];
-    badges: string[];
+    href: string;
     image: string | null;
 }
 
@@ -130,16 +124,27 @@ export const DATA = {
     ],
     awards: [
         {
+            icon: "🏅",
+            slug: "huggies-campaign-of-the-month",
+            title: "Huggies Skin Perfect Campaign",
+            desc: "Campaign of the Month - Jun 2024 - Mindshare. Recognition tied to the Growth in a Declining Market launch campaign.",
+            href: "/projects/accelerating-growth-in-a-declining-market",
+            image: "/GroupM_COTM_Huggies_Cert.jpeg",
+        },
+        {
+            icon: "🌸",
+            slug: "kotex-campaign-of-the-month",
+            title: "Kotex - Blood is our Mark",
+            desc: "Campaign of the Month - Apr 2024 - Mindshare. Recognition linked to the culture-led Kotex campaign.",
+            href: "/projects/blood-is-our-mark",
+            image: "/GroupM_COTM_KC_Cert.jpeg",
+        },
+        {
             icon: "🎯",
             slug: "media-master-2023",
             title: "WPP Media Master Training 2023",
             desc: "Selected exclusive participant in GroupM's 13-week fast-track program on cross-channel media planning, programmatic trading, and data-led budget allocation.",
-            metrics: [
-                { value: "13", label: "Weeks Intensive" },
-                { value: "Top 10%", label: "Program Rank" },
-                { value: "3", label: "Showcase Projects" },
-            ],
-            badges: ["Programmatic", "Media Planning", "Analytics"],
+            href: "/awards/media-master-2023",
             image: "/GroupM_MediaMaster_cert.jpeg",
         },
     ] as Award[],

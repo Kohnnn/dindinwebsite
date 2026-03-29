@@ -57,13 +57,13 @@ export default function Hero() {
                     <motion.div variants={item} className="flex items-end gap-8 md:gap-12 pt-7 md:pt-9 border-t border-border/70">
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                4<sup className="text-[20px] text-purple align-super">+</sup>
+                                3.5<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
                             <p className="text-xs text-slate uppercase tracking-[0.08em]">Years of experience</p>
                         </div>
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                {DATA.brands.length}<sup className="text-[20px] text-purple align-super">+</sup>
+                                10<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
                             <p className="text-xs text-slate uppercase tracking-[0.08em]">Brands managed</p>
                         </div>

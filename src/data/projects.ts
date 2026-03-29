@@ -220,7 +220,7 @@ export const PROJECTS: Project[] = [
                 fit: "cover",
             },
             {
-                src: "/GroupM_COTM_Huggies_Cert.jpeg",
+                src: "/WPP_COTM_huggies_tiktok.jpg",
                 alt: "Huggies recognition certificate",
                 caption: "Supporting recognition tied to the Huggies ecommerce and TikTok Shop business result.",
                 fit: "contain",
