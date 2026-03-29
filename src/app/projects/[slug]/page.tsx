@@ -103,10 +103,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2.5">
-                {project.badges.map((badge) => (
+                {project.badges.map((badge, index) => (
                     <span
                         key={badge}
-                        className="rounded-full border border-purple/20 bg-purple/10 px-3.5 py-1.5 text-[12px] font-medium text-purple-lt"
+                        className={`rounded-full border border-purple/20 bg-purple/10 px-3 py-1.5 text-[11px] sm:text-[12px] font-medium text-purple-lt ${index > 1 ? "hidden sm:inline-flex" : "inline-flex"}`}
                     >
                         {badge}
                     </span>

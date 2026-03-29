@@ -56,9 +56,9 @@ export const PROJECTS: Project[] = [
     {
         slug: "accelerating-growth-in-a-declining-market",
         eyebrow: "Featured Project / Launch Campaign",
-        cardEyebrow: "Huggies Launch Campaign",
+        cardEyebrow: "Huggies Launch Case",
         title: "Huggies Skin Perfect - Growth in a Declining Market",
-        summary: "A premium launch campaign for Huggies Skin Perfect that turned category decline, value-tier pressure, and mom pain points into a talkable innovation story with measurable market-share impact.",
+        summary: "An award-winning Skin Perfect launch case focused on premiumization, talkability, and share growth in a declining market.",
         intro: "Hazel supported the strategic communications and media rollout for Huggies Skin Perfect, helping position the launch as a premium growth response to a declining and downtrading market rather than a price-led reaction.",
         scopeLabel: "This page covers the Skin Perfect launch campaign and its recognition footprint, not the full-year always-on ecommerce program.",
         executiveSummary: [
@@ -147,9 +147,9 @@ export const PROJECTS: Project[] = [
     {
         slug: "huggies-ecommerce-social-commerce-acceleration",
         eyebrow: "Featured Project / Always-On Growth",
-        cardEyebrow: "Year-Long Growth Engine",
+        cardEyebrow: "Huggies 2024 Growth Engine",
         title: "Huggies Ecommerce & Social Commerce Acceleration in 2024",
-        summary: "A year-long commerce program that scaled Huggies across ecommerce and TikTok Shop through sustained optimization, platform ownership, and monthly performance discipline.",
+        summary: "A full-year 2024 commerce program covering ecommerce leadership, TikTok Shop acceleration, and sustained operating discipline.",
         intro: "This is the always-on Huggies growth engine in 2024, separate from the Skin Perfect launch case. It covers sustained ecommerce and social commerce acceleration across the year, including rank leadership, team recognition, and operating rhythm.",
         scopeLabel: "This page covers the always-on 2024 growth program across ecommerce and social commerce, not the specific Skin Perfect launch campaign.",
         executiveSummary: [

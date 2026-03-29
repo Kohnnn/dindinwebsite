@@ -7,7 +7,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Contact() {
     return (
-        <section id="contact" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto relative overflow-hidden">
+        <section id="contact" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto relative overflow-hidden">
             <OrbBackground size={700} color="rgba(101,101,253,0.12)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
             <ScrollReveal className="relative z-10">

@@ -8,7 +8,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Awards() {
     return (
-        <section id="recognition" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
+        <section id="recognition" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="mb-10 text-center">
                     <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
