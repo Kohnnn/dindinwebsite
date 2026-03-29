@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ExternalLink, FileText } from "lucide-react";
+import { Check, ExternalLink, FileImage, FileText, Play } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { PROJECTS, PROJECTS_BY_SLUG } from "@/data/projects";
@@ -262,6 +262,52 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                         {project.assets.map((asset) => {
                             const isExternal = asset.href.startsWith("http");
 
+                            if (asset.kind === "Video") {
+                                return (
+                                    <div
+                                        key={asset.href}
+                                        className="rounded-[16px] border border-border/50 bg-card p-5 transition-all duration-300 hover:border-purple/25 hover:shadow-[0_10px_34px_rgba(101,101,253,0.12)]"
+                                    >
+                                        <div className="overflow-hidden rounded-[12px] border border-border/40 bg-bg3/80">
+                                            <video
+                                                controls
+                                                preload="metadata"
+                                                poster={asset.poster}
+                                                className="w-full h-auto max-h-[320px] object-cover"
+                                            >
+                                                <source src={asset.href} type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div className="mt-4 flex items-center justify-between gap-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="flex h-12 w-12 items-center justify-center rounded-[18px] bg-purple/10 text-purple-lt">
+                                                    <Play className="w-5 h-5" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-[14px] font-bold text-white">
+                                                        {asset.title}
+                                                    </div>
+                                                    <div className="text-[11px] uppercase tracking-[1.3px] text-purple-lt mt-1">
+                                                        {asset.kind}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <Link
+                                                href={asset.href}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="text-[12px] font-semibold text-purple-lt hover:text-white transition-colors"
+                                            >
+                                                Open file
+                                            </Link>
+                                        </div>
+                                        <p className="mt-4 text-[13px] text-slate leading-[1.7]">
+                                            {asset.note}
+                                        </p>
+                                    </div>
+                                );
+                            }
+
                             return (
                                 <Link
                                     key={asset.href}
@@ -273,7 +319,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                     <div className="flex items-center justify-between gap-4">
                                         <div className="flex items-center gap-3">
                                             <div className="flex h-12 w-12 items-center justify-center rounded-[18px] bg-purple/10 text-purple-lt">
-                                                {isExternal ? <ExternalLink className="w-5 h-5" /> : <FileText className="w-5 h-5" />}
+                                                {isExternal ? <ExternalLink className="w-5 h-5" /> : asset.kind === "Image" ? <FileImage className="w-5 h-5" /> : <FileText className="w-5 h-5" />}
                                             </div>
                                             <div>
                                                 <div className="text-[14px] font-bold text-white">

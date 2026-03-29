@@ -28,6 +28,7 @@ export interface ProjectAsset {
     href: string;
     kind: string;
     note: string;
+    poster?: string;
 }
 
 export interface Project {
@@ -57,17 +58,16 @@ export const PROJECTS: Project[] = [
         eyebrow: "Featured Project / Launch Campaign",
         cardEyebrow: "Huggies Launch Campaign",
         title: "Huggies Skin Perfect - Growth in a Declining Market",
-        summary: "A launch campaign built to help Huggies Skin Perfect outperform category pressure, accelerate premium growth, and turn commercial results into award-winning recognition.",
-        intro: "Hazel helped shape the digital channel planning, budget prioritization, and commerce-led rollout for the Huggies Skin Perfect launch, making this a launch case rather than the always-on growth story that ran across the full year.",
+        summary: "A premium launch campaign for Huggies Skin Perfect that turned category decline, value-tier pressure, and mom pain points into a talkable innovation story with measurable market-share impact.",
+        intro: "Hazel supported the strategic communications and media rollout for Huggies Skin Perfect, helping position the launch as a premium growth response to a declining and downtrading market rather than a price-led reaction.",
         scopeLabel: "This page covers the Skin Perfect launch campaign and its recognition footprint, not the full-year always-on ecommerce program.",
         executiveSummary: [
-            "Huggies needed to launch Skin Perfect in a market where category growth existed, but the brand itself was not keeping pace strongly enough and premium momentum needed sharper commercial support.",
-            "The response was to build a more digital-first launch structure: prioritizing commerce channels, strengthening conversion-led platform planning, and using cross-digital media to move audiences from discovery into purchase more efficiently.",
-            "The result was a launch that helped turn Skin Perfect into a stronger premium growth driver, strengthened Huggies' commercial position, and earned both local and regional MMA Smarties recognition.",
+            "Vietnam's mom-and-baby market was already under pressure from economic downturn, more conscious household spending, and declining birth rates, while low-price entrants were forcing market leaders into a damaging value race.",
+            "Huggies responded by premiumizing with real innovation: Skin Perfect introduced dual zones for pee and poo to address irritation more effectively, and the campaign made that functional story talkable through the #StopMixingUp idea rooted in moms' daily confusion and overload.",
+            "By combining a stronger product story, high-reach entertainment integration, and platform-tailored social content, the launch built both cultural conversation and business momentum, helping Huggies gain share and earn top-tier recognition in 2024.",
         ],
         achievements: [
             "Gold Winner - MMA Smarties Award Vietnam 2024 - Cross Digital Marketing Category",
-            "Bronze Winner - MMA Smarties Award APAC 2024",
             "Campaign of the Month - June 2024 - Mindshare",
         ],
         icon: "🏆",
@@ -77,63 +77,65 @@ export const PROJECTS: Project[] = [
         highlights: [
             { value: "Gold", label: "MMA Vietnam 2024" },
             { value: "Jun 2024", label: "Campaign of month" },
-            { value: "+135%", label: "Paid GMV vs 2023" },
+            { value: "+360 bps", label: "Share growth" },
         ],
         results: [
-            { value: "VND 608bn", label: "Paid GMV achieved", note: "+135% versus 2023" },
-            { value: "No.1", label: "E-commerce rank", note: "Across Shopee, Lazada, and Tiki" },
-            { value: "+58%", label: "Pure e-com ROAS", note: "Year-on-year improvement" },
-            { value: "30%", label: "Premium contribution", note: "Up from 14% in 2023" },
+            { value: "No.1", label: "Share of voice", note: "250,000 discussions across platforms" },
+            { value: "3:1", label: "Earned on paid", note: "Discussion efficiency ratio" },
+            { value: "+360 bps", label: "Share growth", note: "Within three months of launch" },
+            { value: "+45%", label: "Sales value uplift", note: "Versus first month launch for active baby pants" },
         ],
         sections: [
             {
-                title: "Business Challenge",
-                intro: "The launch needed to prove growth in a market that was not automatically working in Huggies' favor.",
+                title: "Market Context & Challenges",
+                intro: "The launch had to work against both macro pressure and category downtrading.",
                 bullets: [
-                    "Huggies entered the period with slower momentum than the broader category despite already holding meaningful market share.",
-                    "Skin Perfect needed to launch as a premium growth driver, not just as another SKU inside the portfolio.",
-                    "Competitors had already built earlier traction in social commerce, so Huggies could not rely on traditional launch habits alone.",
+                    "Economic downturn and shrinking birth rates were reducing category headroom in the Vietnamese mom-and-baby market.",
+                    "Low-price entrants were forcing leaders to cut prices and risk profitability, pushing the market toward value instead of premiumization.",
+                    "Huggies needed to protect the business and resist the downward consumption trend without sounding generic or overly technical.",
                 ],
             },
             {
-                title: "How the Problem Was Solved",
+                title: "Product Strategy & Innovation",
                 bullets: [
-                    "Rebalance the launch around digital commerce and conversion-ready media instead of treating awareness and sell-out as separate tracks.",
-                    "Use platform prioritization to sharpen where budget, visibility, and audience targeting worked hardest for launch impact.",
-                    "Position Skin Perfect more clearly as the hero product inside the premiumization story.",
+                    "Use Huggies Skin Perfect as a disruptive premium innovation built around a clear functional claim: separate pee and poo to reduce irritation more effectively.",
+                    "Translate the product function into the #StopMixingUp idea, connecting directly to one of moms' biggest everyday frustrations and making the story more relatable and memorable.",
+                    "Keep the brand in premium territory by making functional superiority emotionally and socially talkable, not just clinically explained.",
                 ],
             },
             {
-                title: "Execution",
+                title: "Campaign Execution & Media",
                 bullets: [
-                    "Cross-digital planning supported the launch from visibility into commerce action across key channels and retailers.",
-                    "Audience and budget decisions were tied closely to purchase behavior rather than broad reach alone.",
-                    "The campaign created enough business impact to become the basis for both Vietnam and APAC MMA Smarties recognition.",
+                    "Launch the campaign across multiple platforms with real stories, entertainment integration, and high-fit family voices to scale awareness quickly.",
+                    "Sponsor The Return of Superman and work with the popular Hat Nhai family to anchor the product story in real parent-and-baby situations.",
+                    "Extend the idea through short jingles, KOL duplication, and more than 80 celebrities, creators, and communities across TikTok and Facebook with platform-tailored content.",
                 ],
             },
             {
-                title: "Why This Case Matters",
+                title: "Business Results & Impact",
                 bullets: [
-                    "It shows Hazel can support launch planning with a business lens, not just a media-delivery lens.",
-                    "It also anchors the portfolio with a clear case where strategy, execution, and recognition all connect on one page.",
+                    "The campaign reached No.1 share of voice and generated 250,000 discussions with a 3:1 earned-on-paid discussion ratio.",
+                    "Within three months of launch, Huggies increased share by +360 basis points and active baby pants sales value rose +45% versus the first launch month.",
+                    "Lower-funnel activation contributed an additional +20%, proving the campaign delivered not just talkability but commercial impact.",
                 ],
             },
         ],
         gallery: [
             {
-                src: "/Huggies_Cam_skinPerfect_cover.jpeg",
-                alt: "Huggies Skin Perfect campaign cover",
-                caption: "The launch campaign cover gives the case a cleaner visual anchor than the older award-page screenshot treatment.",
-                fit: "cover",
-            },
-            {
-                src: "/Huggies_Cam_skinPerfect_result.jpeg",
-                alt: "Huggies Skin Perfect campaign result board",
-                caption: "A result-focused support visual tied to the Skin Perfect launch campaign outcome and recognition footprint.",
+                src: "/GroupM_MMA_awards.png",
+                alt: "Huggies Skin Perfect MMA award board",
+                caption: "The updated MMA visual anchors the Skin Perfect launch case around the award-winning work rather than the year-long commerce deck.",
                 fit: "cover",
             },
         ],
         assets: [
+            {
+                title: "MMA Campaign Case Video",
+                href: "/MMA_accelarate_in_decline_market.mp4",
+                kind: "Video",
+                note: "Campaign video source used to shape the project narrative, including market context, product story, media rollout, and business impact.",
+                poster: "/GroupM_MMA_awards.png",
+            },
             {
                 title: "MMA Smarties Winners Page",
                 href: "https://www.mmaglobal.com/smarties-2024/finalists/winners/region:10",
@@ -214,17 +216,16 @@ export const PROJECTS: Project[] = [
         ],
         gallery: [
             {
-                src: "/WPP_Employeeofthemonth_Result.jpeg",
-                alt: "Huggies ecommerce recognition result board",
-                caption: "A support visual highlighting the business outcome behind the year-long Huggies commerce acceleration work.",
+                src: "/Huggies_Cam_2024_cover.jpeg",
+                alt: "Huggies ecommerce 2024 campaign cover",
+                caption: "The 2024 commerce cover now sits with the always-on growth case where it belongs.",
                 fit: "cover",
             },
             {
-                src: "/WPP_COTM_huggies_tiktok.jpg",
-                alt: "Huggies recognition certificate",
-                caption: "Supporting recognition tied to the Huggies ecommerce and TikTok Shop business result.",
-                fit: "contain",
-                surface: "light",
+                src: "/Huggies_Cam_2024_result.jpeg",
+                alt: "Huggies ecommerce 2024 result board",
+                caption: "The result board supports the full-year ecommerce and social commerce acceleration story in 2024.",
+                fit: "cover",
             },
         ],
         assets: [
@@ -233,6 +234,18 @@ export const PROJECTS: Project[] = [
                 href: "/MSExNEXUS_Huggies WOW Award 2025.pdf",
                 kind: "PDF",
                 note: "The source deck used to shape the always-on Huggies ecommerce and social commerce case in 2024.",
+            },
+            {
+                title: "Huggies TikTok Recognition",
+                href: "/WPP_COTM_huggies_tiktok.jpg",
+                kind: "Image",
+                note: "A supporting recognition image tied to the Huggies TikTok Shop performance story.",
+            },
+            {
+                title: "Employee of the Month Result",
+                href: "/WPP_Employeeofthemonth_Result.jpeg",
+                kind: "Image",
+                note: "A supporting recognition visual tied to the team's Huggies ecommerce performance in 2024.",
             },
         ],
     },
