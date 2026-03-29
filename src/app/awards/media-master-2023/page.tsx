@@ -94,12 +94,12 @@ export default function MediaMasterPage() {
                         className="object-contain p-3"
                     />
                 </div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-bg3">
                     <Image
                         src="/GroupM_MediaMaster_Groupphoto.jpeg"
                         alt="Media Master Group Photo"
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
                     />
                 </div>
             </motion.div>
