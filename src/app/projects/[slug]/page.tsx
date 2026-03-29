@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, FileText } from "lucide-react";
+import { Check, ExternalLink, FileText } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { PROJECTS, PROJECTS_BY_SLUG } from "@/data/projects";
@@ -113,8 +113,37 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 ))}
             </div>
 
-            <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-5">
-                <div className="rounded-[24px] border border-border/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+            {project.gallery?.[0] ? (
+                <div className="mt-10 overflow-hidden rounded-[16px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
+                    <div className={`relative aspect-[16/7] ${getSurfaceClass(project.gallery[0].surface)}`}>
+                        {project.gallery[0].fit === "contain" ? (
+                            <div className="absolute inset-0 flex items-center justify-center px-10 py-12 md:px-16">
+                                <div className="relative w-full max-w-[240px] aspect-[3/1.4]">
+                                    <Image
+                                        src={project.gallery[0].src}
+                                        alt={project.gallery[0].alt}
+                                        fill
+                                        className="object-contain"
+                                        loading="eager"
+                                    />
+                                </div>
+                            </div>
+                        ) : (
+                            <Image
+                                src={project.gallery[0].src}
+                                alt={project.gallery[0].alt}
+                                fill
+                                className="object-cover"
+                                loading="eager"
+                            />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#090507]/50 via-transparent to-transparent" />
+                    </div>
+                </div>
+            ) : null}
+
+            <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+                <div className="rounded-[16px] border border-border/50 border-t-2 border-t-purple/40 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)] min-h-[260px]">
                     <div className="text-[12px] font-semibold text-purple-lt uppercase tracking-[1.8px] mb-4">
                         Executive Summary
                     </div>
@@ -127,7 +156,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     </div>
                 </div>
 
-                <div className="rounded-[24px] border border-border/50 bg-card p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+                <div className="rounded-[16px] border border-border/50 border-t-2 border-t-purple/40 bg-card p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)] min-h-[260px]">
                     <div className="text-[12px] font-semibold text-purple-lt uppercase tracking-[1.8px] mb-4">
                         Scope & Achievements
                     </div>
@@ -137,7 +166,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     <ul className="space-y-3">
                         {project.achievements.map((achievement) => (
                             <li key={achievement} className="flex items-start gap-3 text-[13px] text-muted/85 leading-[1.75]">
-                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-lt/70" />
+                                <Check className="mt-0.5 h-4 w-4 shrink-0 text-purple-lt" />
                                 <span>{achievement}</span>
                             </li>
                         ))}
@@ -145,16 +174,17 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 </div>
             </div>
 
-            {project.gallery?.length ? (
-                <div className={`mt-12 grid gap-5 ${project.gallery.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
-                    {project.gallery.map((item) => (
-                        <div key={item.src} className="overflow-hidden rounded-[28px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
-                            <div className={`relative ${item.fit === "contain" ? "aspect-[16/7] max-h-[320px]" : "aspect-[16/10]"} ${getSurfaceClass(item.surface)}`}>
+            {project.gallery && project.gallery.length > 1 ? (
+                <div className={`mt-12 grid gap-5 ${project.gallery.slice(1).length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
+                    {project.gallery.slice(1).map((item) => (
+                        <div key={item.src} className="overflow-hidden rounded-[12px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
+                            <div className={`relative aspect-[16/9] ${getSurfaceClass(item.surface)}`}>
                                 <Image
                                     src={item.src}
                                     alt={item.alt}
                                     fill
                                     className={item.fit === "contain" ? "object-contain p-10" : "object-cover"}
+                                    loading="lazy"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#090507]/58 via-transparent to-transparent" />
                             </div>
@@ -170,11 +200,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 <h2 className="text-[14px] font-semibold text-slate uppercase tracking-[1.6px] mb-6">
                     Key Outcomes
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                     {project.results.map((result) => (
                         <div
                             key={result.label}
-                            className="rounded-[24px] border border-border/50 bg-card p-5 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
+                            className="rounded-[16px] border border-border/50 bg-card p-5 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
                         >
                             <div className="text-[28px] font-extrabold text-gradient leading-none mb-2">
                                 {result.value}
@@ -198,7 +228,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     {project.sections.map((section) => (
                         <div
                             key={section.title}
-                            className="rounded-[24px] border border-border/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
+                            className="rounded-[16px] border border-border/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
                         >
                             <h3 className="text-[18px] font-bold text-white tracking-tight mb-3">
                                 {section.title}
@@ -238,7 +268,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                     href={asset.href}
                                     target={isExternal ? "_blank" : undefined}
                                     rel={isExternal ? "noreferrer" : undefined}
-                                    className="group rounded-[24px] border border-border/50 bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_34px_rgba(101,101,253,0.12)]"
+                                    className="group rounded-[16px] border border-border/50 bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_34px_rgba(101,101,253,0.12)]"
                                 >
                                     <div className="flex items-center justify-between gap-4">
                                         <div className="flex items-center gap-3">

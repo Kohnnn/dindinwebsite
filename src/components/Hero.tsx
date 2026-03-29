@@ -5,6 +5,7 @@ import { OrbBackground } from "./ui/orb-background";
 import { motion, Variants } from "framer-motion";
 import { ScrollReveal } from "./ui/scroll-reveal";
 import Image from "next/image";
+import { BriefcaseBusiness } from "lucide-react";
 
 const container: Variants = {
     hidden: { opacity: 0 },
@@ -23,13 +24,13 @@ export default function Hero() {
     const currentRole = DATA.experience[0]?.title;
 
     return (
-        <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-28 md:pt-48 pb-16 md:pb-24 relative overflow-hidden">
+        <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-24 md:pt-36 pb-24 md:pb-24 relative overflow-hidden">
             {/* Background Orbs */}
             <OrbBackground size={500} color="rgba(101,101,253,0.18)" className="-top-24 -right-10 md:right-24" />
             <OrbBackground size={400} color="rgba(150,110,161,0.14)" className="-bottom-10 -left-24" />
             <OrbBackground size={300} color="rgba(89,88,154,0.1)" className="top-1/2 left-[40%]" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-center max-w-[1100px] mx-auto relative z-10 w-full">
+            <div className="site-shell grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 lg:gap-16 lg:items-start relative z-10 w-full">
 
                 {/* Left Content */}
                 <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col">
@@ -44,37 +45,37 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div variants={item} className="flex items-center gap-4 mb-10 md:mb-14">
-                        <a href="#contact" className="btn-glow bg-purple text-white px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold inline-block">
+                        <a href="#contact" className="btn-glow inline-flex min-h-[50px] items-center justify-center bg-purple px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold leading-none text-white">
                             Get in Touch
                         </a>
-                        <a href="#projects" className="text-muted text-[14px] md:text-[15px] font-medium flex items-center gap-2 hover:text-white transition-colors group">
+                        <a href="#projects" className="inline-flex min-h-[50px] items-center text-muted text-[14px] md:text-[15px] font-medium leading-none gap-2 hover:text-white transition-colors group">
                             See Projects <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </a>
                     </motion.div>
 
                     {/* Stats Row */}
-                    <motion.div variants={item} className="flex gap-8 md:gap-10 pt-7 md:pt-9 border-t border-border">
+                    <motion.div variants={item} className="flex items-end gap-8 md:gap-12 pt-7 md:pt-9 border-t border-border/70">
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
-                                3.5<sup className="text-[20px] text-purple align-super">+</sup>
+                                4<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">Years of experience</p>
+                            <p className="text-xs text-slate uppercase tracking-[0.08em]">Years of experience</p>
                         </div>
                         <div className="stat-item">
                             <h3 className="text-[38px] font-extrabold text-white tracking-tight leading-none mb-1">
                                 {DATA.brands.length}<sup className="text-[20px] text-purple align-super">+</sup>
                             </h3>
-                            <p className="text-xs text-slate uppercase tracking-wider">Brands managed</p>
+                            <p className="text-xs text-slate uppercase tracking-[0.08em]">Brands managed</p>
                         </div>
                     </motion.div>
                 </motion.div>
 
                 {/* Right Image Card */}
-                <ScrollReveal yOffset={40} delay={0.4} className="flex flex-col gap-5 relative mt-8 lg:mt-0 w-full max-w-[420px] mx-auto lg:max-w-none">
-                    <div className="rounded-[24px] overflow-hidden relative aspect-square md:aspect-[4/5] bg-bg3 border border-border">
+                <ScrollReveal yOffset={40} delay={0.4} className="flex flex-col gap-5 relative mt-2 md:mt-4 lg:mt-0 w-full max-w-[400px] mx-auto lg:max-w-none">
+                    <div className="rounded-[20px] overflow-hidden relative aspect-[3/4] bg-bg3 border border-border/70 shadow-[0_10px_32px_rgba(0,0,0,0.2)]">
                         <Image
                             src="/HoHaoDuyen_Portrait.jpeg"
-                            alt="Hồ Hao Duyên"
+                            alt="Hồ Hào Duyên"
                             fill
                             priority
                             sizes="(max-width: 1024px) 90vw, 420px"
@@ -83,9 +84,9 @@ export default function Hero() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(9,5,7,0.7)] to-[transparent_60%]" />
 
                         {/* Floating Bottom Badge */}
-                        <div className="absolute bottom-6 left-6 right-6 bg-[#090507]/85 backdrop-blur-md border border-border rounded-2xl p-4 flex items-center gap-3.5">
-                            <div className="w-[42px] h-[42px] rounded-xl bg-gradient-to-br from-purple to-dark-pur flex items-center justify-center text-xl shrink-0">
-                                👩‍💻
+                        <div className="absolute bottom-5 left-5 right-5 bg-[#090507]/85 backdrop-blur-md border border-border/80 rounded-[16px] p-4 flex items-center gap-3.5">
+                            <div className="w-[42px] h-[42px] rounded-xl bg-gradient-to-br from-purple to-dark-pur flex items-center justify-center text-xl shrink-0 text-white">
+                                <BriefcaseBusiness className="w-5 h-5" />
                             </div>
                             <div>
                                 <h4 className="text-[13px] font-bold text-white leading-tight mb-0.5">{DATA.role}</h4>
@@ -96,9 +97,9 @@ export default function Hero() {
 
                     </div>
 
-                    <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300">
+                    <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border/70 text-white px-6 py-4 rounded-[16px] font-bold transition-all duration-300">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-                        Download Full Resume · PDF · 708 KB
+                        Download Full Resume · PDF
                     </a>
                 </ScrollReveal>
             </div>

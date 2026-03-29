@@ -30,7 +30,7 @@ const getLogoSurfaceClass = (surface?: "dark" | "light" | "brand-red"): string =
 
 export default function Projects() {
     return (
-        <section id="projects" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto">
+        <section id="projects" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Projects
@@ -59,10 +59,21 @@ export default function Projects() {
                         <ScrollReveal key={project.slug} delay={0.07 * index}>
                             <Link
                                 href={`/projects/${project.slug}`}
-                                className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] shadow-[0_6px_28px_rgba(0,0,0,0.14)] transition-all duration-500 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_14px_42px_rgba(101,101,253,0.14)]"
+                                className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] shadow-[0_6px_28px_rgba(0,0,0,0.14)] transition-all duration-500 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_14px_42px_rgba(101,101,253,0.14)]"
                             >
                                 {preview ? (
-                                    <div className={`relative aspect-[16/10] overflow-hidden ${getSurfaceClass(preview)}`}>
+                                    <div className={`relative aspect-[16/9] overflow-hidden ${getSurfaceClass(preview)}`}>
+                                        {project.logoSrc ? (
+                                            <div className={`absolute left-4 top-4 z-10 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[14px] border p-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.2)] ${getLogoSurfaceClass(project.logoSurface)}`}>
+                                                <Image
+                                                    src={project.logoSrc}
+                                                    alt={`${project.title} logo`}
+                                                    width={76}
+                                                    height={30}
+                                                    className="h-auto w-full object-contain"
+                                                />
+                                            </div>
+                                        ) : null}
                                         <Image
                                             src={preview.src}
                                             alt={preview.alt}
@@ -77,28 +88,8 @@ export default function Projects() {
                                 ) : null}
 
                                 <div className="flex h-full flex-col p-7 md:p-8">
-                                    <div className="flex items-center gap-3 mb-5">
-                                        {project.logoSrc ? (
-                                            <div className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[18px] border p-2.5 shadow-[0_6px_22px_rgba(0,0,0,0.08)] ${getLogoSurfaceClass(project.logoSurface)}`}>
-                                                <Image
-                                                    src={project.logoSrc}
-                                                    alt={`${project.title} brand logo`}
-                                                    width={76}
-                                                    height={30}
-                                                    className="h-auto w-full object-contain"
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[18px] border border-border/60 bg-bg3/90 text-[22px]">
-                                                {project.icon}
-                                            </div>
-                                        )}
-
-                                        <div>
-                                            <div className="text-[11px] font-semibold text-purple-lt uppercase tracking-[2px]">
-                                                {project.cardEyebrow}
-                                            </div>
-                                        </div>
+                                    <div className="text-[11px] font-semibold text-purple-lt uppercase tracking-[2px] mb-5">
+                                        {project.cardEyebrow}
                                     </div>
 
                                     <h3 className="text-[28px] font-extrabold text-white tracking-tight leading-[1.08]">
@@ -124,7 +115,7 @@ export default function Projects() {
                                         {project.highlights.map((highlight) => (
                                             <div
                                                 key={highlight.label}
-                                                className="rounded-[20px] border border-border/50 bg-[rgba(9,5,7,0.52)] px-4 py-4 backdrop-blur-xl"
+                                                className="rounded-[16px] border border-border/50 bg-[rgba(9,5,7,0.52)] px-4 py-4 backdrop-blur-xl min-h-[96px]"
                                             >
                                                 <div className="text-[22px] font-extrabold text-gradient leading-none mb-1.5">
                                                     {highlight.value}

@@ -101,7 +101,7 @@ export default function Experience() {
     };
 
     return (
-        <section id="work" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto">
+        <section id="work" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Experience
@@ -111,9 +111,9 @@ export default function Experience() {
                 </h2>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2} className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-border rounded-3xl overflow-hidden bg-bg3">
+            <ScrollReveal delay={0.2} className="grid grid-cols-1 md:grid-cols-[300px_1fr] border border-border rounded-[20px] overflow-hidden bg-bg3">
                 {/* Sidebar */}
-                <div className="border-b md:border-b-0 md:border-r border-border p-2 bg-bg3 flex flex-row overflow-x-auto md:flex-col gap-2 md:gap-0.5 no-scrollbar snap-x relative z-10 w-full">
+                <div className="border-b md:border-b-0 md:border-r border-border p-4 bg-bg3 flex flex-row overflow-x-auto md:flex-col gap-2 md:gap-2 no-scrollbar snap-x relative z-10 w-full">
                     {sidebarItems.map((item) => {
                         if (item.type === "job") {
                             return renderJobButton(item.job);
@@ -132,7 +132,7 @@ export default function Experience() {
                                 )}
                             >
                                 <div className="px-2 pb-2">
-                                    <div className="text-[10px] font-bold uppercase tracking-[1.1px] text-purple-lt">Career Path</div>
+                                    <div className="text-[10px] font-medium uppercase tracking-[1.1px] text-purple-lt">Career Path</div>
                                     <div className="mt-1 text-[13px] font-bold text-white">{item.label}</div>
                                     {item.note && <div className="mt-1 text-[11px] leading-relaxed text-slate">{item.note}</div>}
                                 </div>
@@ -146,7 +146,7 @@ export default function Experience() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 md:p-10 relative overflow-hidden min-h-[400px]">
+                <div className="p-8 md:p-10 relative overflow-visible min-h-[420px]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeJob.id}
@@ -174,7 +174,7 @@ export default function Experience() {
                             </ul>
 
                             {activeJob.badges && (
-                                <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-border mt-8">
+                                <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-border mt-10 pb-2">
                                     {activeJob.badges.map((badge, i) => (
                                         <span key={i} className="inline-flex items-center gap-1.5 bg-purple/10 border border-purple/20 text-purple-lt px-3.5 py-1.5 rounded-full text-[12px] font-semibold">
                                             {badge}

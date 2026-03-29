@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Award } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { ScrollReveal } from "./ui/scroll-reveal";
 
@@ -19,22 +19,22 @@ export default function Awards() {
     return (
         <section
             id="recognition"
-            className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto"
+            className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto"
         >
             {/* ── Section Header ── */}
             <ScrollReveal>
-                <div className="flex items-center gap-3 mb-10">
-                    <div className="w-10 h-10 rounded-xl bg-purple/10 flex items-center justify-center">
-                        <Award className="w-5 h-5 text-purple-lt" />
+                <div className="mb-10 text-center">
+                    <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
+                        Recognition
                     </div>
-                    <h3 className="text-[20px] font-extrabold text-white">
-                        Recognition & Professional Development
-                    </h3>
+                    <h2 className="text-[42px] md:text-[48px] font-extrabold text-white tracking-tight leading-[1.08]">
+                        Recognition & <em className="italic font-light text-gradient">Professional Development.</em>
+                    </h2>
                 </div>
             </ScrollReveal>
 
             {/* ── Award Cards Grid ── */}
-            <div className="grid grid-cols-1 max-w-[420px] gap-5 mx-auto">
+            <div className="grid grid-cols-1 max-w-[560px] gap-5 mx-auto">
                 {DATA.awards.map((award, i) => (
                     <ScrollReveal key={i} delay={0.08 * i} className="group">
                         <div
@@ -47,65 +47,53 @@ export default function Awards() {
                                 }
                             `}
                         >
+                            {award.image ? (
+                                <button
+                                    onClick={() => setLightboxImg(award.image)}
+                                    className="relative block w-full aspect-[16/9] overflow-hidden"
+                                >
+                                    <Image
+                                        src={award.image}
+                                        alt={award.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#090507]/60 via-transparent to-transparent" />
+                                </button>
+                            ) : null}
+
                             {/* ── Card Main Content ── */}
                             <div className="p-6">
-                                <div className="flex items-start gap-4">
-                                    {/* Thumbnail Image or Icon */}
-                                    {award.image ? (
-                                        <button
-                                            onClick={() => setLightboxImg(award.image)}
-                                            className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 group/thumb cursor-pointer"
-                                        >
-                                            <Image
-                                                src={award.image}
-                                                alt={award.title}
-                                                fill
-                                                className="object-cover transition-transform duration-500 group-hover/thumb:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300" />
-                                        </button>
-                                    ) : (
-                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-bg2 flex items-center justify-center text-[28px] shrink-0 shadow-inner">
-                                            {award.icon}
-                                        </div>
-                                    )}
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="text-[18px] font-bold text-white mb-1.5 leading-tight">
+                                        {award.title}
+                                    </h4>
+                                    <p className="text-[13px] text-slate leading-[1.6] mb-4">
+                                        {award.desc}
+                                    </p>
 
-                                    <div className="flex-1 min-w-0">
-                                        <h4 className="text-[15px] font-bold text-white mb-1.5 leading-tight">
-                                            {award.title}
-                                        </h4>
-                                        <p className="text-[13px] text-slate leading-[1.6] mb-3">
-                                            {award.desc}
-                                        </p>
-
-                                        {/* ── Metric Pills ── */}
-                                        <div className="flex flex-wrap gap-2 mb-3">
-                                            {award.metrics.map((m, mi) => (
-                                                <div
-                                                    key={mi}
-                                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple/8 border border-purple/15"
-                                                >
-                                                    <span className="text-[14px] font-bold text-gradient">
-                                                        {m.value}
-                                                    </span>
-                                                    <span className="text-[11px] text-slate font-medium uppercase tracking-wider">
-                                                        {m.label}
-                                                    </span>
+                                    <div className="grid grid-cols-3 gap-3 mb-4">
+                                        {award.metrics.map((m, mi) => (
+                                            <div key={mi} className="rounded-[16px] border border-purple/15 bg-purple/8 px-3 py-3 text-center">
+                                                <div className="text-[22px] font-extrabold text-gradient leading-none mb-1.5">
+                                                    {m.value}
                                                 </div>
-                                            ))}
-                                        </div>
+                                                <div className="text-[11px] text-slate font-medium uppercase tracking-[1.1px] leading-[1.4]">
+                                                    {m.label}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                        {/* ── Badge Tags ── */}
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {award.badges.map((badge, bi) => (
-                                                <span
-                                                    key={bi}
-                                                    className="text-[11px] font-medium text-purple-lt bg-purple/10 px-2.5 py-1 rounded-full"
-                                                >
-                                                    {badge}
-                                                </span>
-                                            ))}
-                                        </div>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {award.badges.map((badge, bi) => (
+                                            <span
+                                                key={bi}
+                                                className="text-[11px] font-medium text-purple-lt bg-purple/10 px-2.5 py-1 rounded-full"
+                                            >
+                                                {badge}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -180,7 +168,7 @@ export default function Awards() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80 backdrop-blur-md cursor-pointer p-6"
+                        className="fixed inset-0 z-[10000] flex items-center justify-center bg-[rgba(9,5,7,0.74)] backdrop-blur-md cursor-pointer p-6"
                         onClick={() => setLightboxImg(null)}
                     >
                         <motion.div

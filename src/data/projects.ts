@@ -251,6 +251,7 @@ export const PROJECTS: Project[] = [
         ],
         achievements: [
             "Campaign of the Month - Apr 2024 - Mindshare",
+            "+17% brand value with Gen Z versus pre-campaign",
         ],
         icon: "🩸",
         logoSrc: "/brands/kotex.png",
@@ -340,6 +341,7 @@ export const PROJECTS: Project[] = [
         achievements: [
             "Improved checkout flow and enhanced digital performance on Kiehl's brand.com website",
             "Supported the eBoutique campaign in reaching target after the first 3 months of launch in 2022",
+            "Customer-journey analysis identified the highest-friction mobile steps before payment completion",
         ],
         icon: "📱",
         logoSrc: "/brands/kiehls.svg",
@@ -393,7 +395,7 @@ export const PROJECTS: Project[] = [
         gallery: [
             {
                 src: "/brands/kiehls.svg",
-                alt: "Kiehl's brand mark",
+                alt: "Kiehl's logo",
                 caption: "The Kiehl's eBoutique mark anchors the case without overpowering the page with a giant logo treatment.",
                 fit: "contain",
                 surface: "light",

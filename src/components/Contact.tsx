@@ -45,7 +45,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto relative overflow-hidden">
+        <section id="contact" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto relative overflow-hidden">
             <OrbBackground size={800} color="rgba(101,101,253,0.12)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
             <ScrollReveal className="relative z-10">
@@ -58,8 +58,8 @@ export default function Contact() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-6 items-stretch">
-                    <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[28px] p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 items-stretch">
+                    <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[20px] p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
                         <div className="w-14 h-14 rounded-2xl bg-purple/15 border border-purple/20 flex items-center justify-center mb-6 mx-auto lg:mx-0">
                             <Mail className="w-6 h-6 text-purple-lt" />
                         </div>
@@ -68,32 +68,32 @@ export default function Contact() {
                             I currently use an email-first workflow, so this form prepares a clean message draft and copies your note as backup.
                         </p>
 
-                        <form className="space-y-4" onSubmit={handleSubmit}>
+                        <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                             <input
                                 type="text"
                                 placeholder="Your name"
                                 value={form.name}
                                 onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                                className="w-full rounded-2xl border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
+                                className="input-shell w-full border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
                             />
                             <input
                                 type="email"
                                 placeholder="Your email"
                                 value={form.email}
                                 onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                                className="w-full rounded-2xl border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
+                                className="input-shell w-full border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
                             />
                             <textarea
                                 placeholder="Tell me about the role, project, or challenge"
                                 value={form.message}
                                 onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
                                 rows={6}
-                                className="w-full resize-none rounded-2xl border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
+                                className="input-shell w-full resize-none border border-border/40 bg-bg3/80 px-4 py-3.5 text-[15px] text-white placeholder:text-slate/70 outline-none transition-colors focus:border-purple/40"
                             />
 
                             <button
                                 type="submit"
-                                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-extrabold text-bg transition-all duration-300 hover:bg-slate hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)]"
+                                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[16px] bg-white px-6 py-4 text-[15px] font-extrabold text-bg transition-all duration-300 hover:bg-slate hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)]"
                             >
                                 <Send className="w-4 h-4" />
                                 Draft Email Message
@@ -106,7 +106,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[28px] p-7 shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
+                        <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[20px] p-7 shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
                             <div className="text-[12px] uppercase tracking-[2px] text-purple-lt font-semibold mb-4">
                                 Direct Contact
                             </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[28px] p-7 shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
+                        <div className="bg-[rgba(255,255,255,0.03)] border border-border rounded-[20px] p-7 shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
                             <div className="text-[12px] uppercase tracking-[2px] text-purple-lt font-semibold mb-4">
                                 Quick Note
                             </div>

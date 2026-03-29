@@ -15,6 +15,14 @@
   --mid-pur: #59589A;
   --border: rgba(255, 255, 255, 0.07);
   --card: rgba(255, 255, 255, 0.04);
+  --radius-image: 12px;
+  --radius-card: 16px;
+  --radius-chip: 999px;
+  --radius-input: 8px;
+  --space-32: 32px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
 }
 
 html {
@@ -78,4 +86,40 @@ body::before {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.site-shell {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.ticker-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.section-kicker {
+  letter-spacing: 0.1em;
+}
+
+.surface-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+}
+
+.surface-soft {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.image-frame {
+  overflow: hidden;
+  border-radius: var(--radius-image);
+}
+
+.input-shell {
+  border-radius: var(--radius-input);
 }

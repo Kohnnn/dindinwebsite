@@ -16,7 +16,7 @@ export default function AwardsLayout({
         <div className="min-h-screen">
             {/* ── Top Nav ── */}
             <nav className="sticky top-0 z-50 backdrop-blur-xl bg-bg/70 border-b border-border/30">
-                <div className="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between">
+                <div className="max-w-[1000px] mx-auto min-h-[56px] px-6 md:px-8 py-4 flex items-center justify-between">
                     <Link
                         href="/"
                         className="flex items-center gap-2 text-[13px] font-medium text-slate hover:text-purple-lt transition-colors duration-300 group"

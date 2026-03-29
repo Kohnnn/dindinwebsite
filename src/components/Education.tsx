@@ -13,7 +13,7 @@ export default function Education() {
     const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
     return (
-        <section id="education" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1200px] mx-auto">
+        <section id="education" className="section py-16 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Education
@@ -24,7 +24,7 @@ export default function Education() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-                <div className="relative overflow-hidden rounded-[28px] border border-border/50 bg-card p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
+                <div className="relative overflow-hidden rounded-[20px] border border-border/50 bg-card p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
                     <div className="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none blur-[120px] bg-[radial-gradient(circle,rgba(89,88,154,0.1)_0%,transparent_60%)] -mr-20 -mt-20" />
 
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
@@ -63,13 +63,13 @@ export default function Education() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
                             {certifications.map((certification, index) => (
                                 <button
                                     key={index}
                                     type="button"
                                     onClick={() => setLightboxImg(certification.image)}
-                                    className="group overflow-hidden rounded-[24px] border border-border/50 bg-[rgba(255,255,255,0.025)] text-left shadow-[0_4px_24px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_32px_rgba(101,101,253,0.12)]"
+                                    className="group h-full overflow-hidden rounded-[20px] border border-border/50 bg-[rgba(255,255,255,0.025)] text-left shadow-[0_4px_24px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_32px_rgba(101,101,253,0.12)]"
                                 >
                                     <div className="relative aspect-[4/3] bg-[radial-gradient(circle_at_top,rgba(146,147,250,0.14),transparent_62%)] p-4">
                                         <div className="relative h-full w-full overflow-hidden rounded-[18px] bg-bg3">
@@ -81,11 +81,11 @@ export default function Education() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="px-4 pb-5 pt-1">
-                                        <div className="text-[14px] font-bold text-white mb-1">
+                                    <div className="px-4 pb-5 pt-1 min-h-[104px] flex flex-col justify-start">
+                                        <div className="text-[18px] font-extrabold text-white mb-1.5 leading-tight">
                                             {certification.title}
                                         </div>
-                                        <div className="text-[12px] text-slate leading-[1.6]">
+                                        <div className="text-[12px] text-slate leading-[1.6] font-medium">
                                             {certification.event} · {certification.year}
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@ export default function Education() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25 }}
-                        className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80 backdrop-blur-md p-6"
+                        className="fixed inset-0 z-[10000] flex items-center justify-center bg-[rgba(9,5,7,0.74)] backdrop-blur-md p-6"
                         onClick={() => setLightboxImg(null)}
                     >
                         <motion.div
