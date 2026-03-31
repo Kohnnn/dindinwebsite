@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
         ],
         gallery: [
             {
-                src: "/GroupM_MMA_awards.png",
+                src: "/GroupM_GroupPhoto.jpeg",
                 alt: "Huggies Skin Perfect MMA award board",
                 caption: "The updated MMA visual anchors the Skin Perfect launch case around the award-winning work rather than the year-long commerce deck.",
                 fit: "cover",
