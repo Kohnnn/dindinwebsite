@@ -143,7 +143,7 @@ export const DATA = {
             icon: "🎯",
             slug: "media-master-2023",
             title: "WPP Media Master Training 2023",
-            desc: "Selected exclusive participant in GroupM's 13-week fast-track program on cross-channel media planning, programmatic trading, and data-led budget allocation.",
+            desc: "Selected exclusive participant in GroupM's 10-week fast-track program on cross-channel media planning, programmatic trading, and data-led budget allocation.",
             href: "/awards/media-master-2023",
             image: "/GroupM_MediaMaster_cert.jpeg",
         },
@@ -163,9 +163,9 @@ export const DATA = {
         },
         {
             title: "Top 8 / 742 Teams",
-            event: "Marketing Arena by NEU",
+            event: "Marketing On Air by NEU",
             year: "2021",
-            image: "/Case_marketingarena2021_Cert.jpeg",
+            image: "/MOA_Top8.jpeg",
         },
     ] as Certification[],
     education: {
@@ -176,7 +176,7 @@ export const DATA = {
             { text: "Top 10% of Students - ISB Leadership Program (2023)", icon: "🎓" },
             { text: "2nd Runner Up - Company Insider Business Case (2021)", icon: "🥈" },
             { text: "Top 4 Finalist - The Colorful Mind by UEH-ISB (2021)", icon: "💡" },
-            { text: "Top 8/742 teams - Marketing Arena by NEU (2021)", icon: "🚀" }
+            { text: "Top 8/742 teams - Marketing On Air by NEU (2021)", icon: "🚀" }
         ]
     }
 };

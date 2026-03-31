@@ -23,35 +23,14 @@ const modules = [
     },
 ] as { icon: LucideIcon; title: string; desc: string }[];
 
-const showcases = [
-    {
-        title: "Portfolio Reallocation & ROAS Enhancement",
-        quote: "Analyzed daily performance metrics for a major FMCG client to identify underperforming ad placements. Strategically reallocated a VND 15bn quarterly budget away from static display toward high-yield programmatic video and retail media.",
-        result: "+25% ROAS",
-        budget: "VND 15bn",
-    },
-    {
-        title: "Data-Driven Performance Optimization",
-        quote: "Designed and executed an A/B testing framework across Meta and TikTok for a localized product launch. Managed a VND 5bn digital-only budget, successfully reducing the average CPC.",
-        result: "-18% CPC, +15% CVR",
-        budget: "VND 5bn",
-    },
-    {
-        title: "Cross-Channel Integration & Execution",
-        quote: "Constructed a synchronized media flowchart combining traditional OOH advertising with digital programmatic retargeting. Monitored delivery across a combined campaign.",
-        result: "+30% Brand Awareness",
-        budget: "USD 1mn",
-    },
-];
-
 const tools = [
     {
         category: "Analytics & Visualization",
-        items: ["WPP Open", "Google Analytics", "Looker Studio", "Excel (Advanced Modeling)"],
+        items: ["Google Analytics", "Looker Studio"],
     },
     {
         category: "Media Buying Platforms",
-        items: ["Google Ads", "Meta Ads Manager", "TikTok Ads", "The Trade Desk", "Xaxis"],
+        items: ["Google Ads", "Meta Ads Manager", "TikTok Ads"],
     },
 ];
 
@@ -72,7 +51,7 @@ export default function MediaMasterPage() {
                     WPP Media Master Training 2023
                 </h1>
                 <p className="text-[16px] text-muted/80 leading-relaxed max-w-2xl mb-2">
-                    <strong className="text-white">Selected exclusive participant</strong> for GroupM&apos;s intensive 13-week fast-track program.
+                    <strong className="text-white">Selected exclusive participant</strong> for GroupM&apos;s intensive 10-week fast-track program.
                 </p>
                 <p className="text-[15px] text-slate leading-relaxed max-w-2xl">
                     Focused on cross-channel media planning, programmatic trading, and data-driven budget allocation for managing and optimizing large-scale media investments for enterprise clients.
@@ -132,40 +111,6 @@ export default function MediaMasterPage() {
                 </div>
             </div>
 
-            {/* ── Project Showcases ── */}
-            <div className="mt-14">
-                <h2 className="text-[14px] font-semibold text-slate uppercase tracking-wider mb-6">
-                    Quantified Project Showcases
-                </h2>
-                <div className="space-y-4">
-                    {showcases.map((s, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 + i * 0.1, duration: 0.6, ease: "easeOut" }}
-                            className="bg-card border border-border rounded-2xl p-6 hover:border-purple/20 transition-all duration-300"
-                        >
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
-                                <h3 className="text-[14px] font-bold text-white">
-                                    {s.title}
-                                </h3>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-[11px] font-medium text-purple-lt bg-purple/10 px-2.5 py-1 rounded-full">
-                                        {s.budget}
-                                    </span>
-                                    <span className="text-[11px] font-bold text-gradient bg-purple/8 px-2.5 py-1 rounded-full border border-purple/20">
-                                        {s.result}
-                                    </span>
-                                </div>
-                            </div>
-                            <p className="text-[13px] text-slate leading-relaxed italic">
-                                &ldquo;{s.quote}&rdquo;
-                            </p>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
 
             {/* ── Technical Toolkit ── */}
             <motion.div

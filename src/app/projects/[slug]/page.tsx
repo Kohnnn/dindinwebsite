@@ -47,19 +47,21 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
         };
     }
 
+    const metaImage = project.gallery?.find((item) => !item.homepageOnly)?.src ?? project.gallery?.[0]?.src ?? "/HoHaoDuyen_Portrait.jpeg";
+
     return {
         title: `${project.title} - Hazel Ho`,
         description: project.summary,
         openGraph: {
             title: `${project.title} - Hazel Ho`,
             description: project.summary,
-            images: project.gallery?.length ? [project.gallery[0].src] : ["/HoHaoDuyen_Portrait.jpeg"],
+            images: [metaImage],
         },
         twitter: {
             card: "summary_large_image",
             title: `${project.title} - Hazel Ho`,
             description: project.summary,
-            images: project.gallery?.length ? [project.gallery[0].src] : ["/HoHaoDuyen_Portrait.jpeg"],
+            images: [metaImage],
         },
     };
 }
@@ -70,6 +72,9 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
     if (!project) {
         notFound();
     }
+
+    const heroMedia = project.gallery?.find((item) => !item.homepageOnly) ?? project.gallery?.[0];
+    const supportingGallery = project.gallery?.filter((item) => item !== heroMedia) ?? [];
 
     return (
         <article>
@@ -113,15 +118,15 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 ))}
             </div>
 
-            {project.gallery?.[0] ? (
+            {heroMedia ? (
                 <div className="mt-10 overflow-hidden rounded-[16px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
-                    <div className={`relative aspect-[16/7] ${getSurfaceClass(project.gallery[0].surface)}`}>
-                        {project.gallery[0].fit === "contain" ? (
+                    <div className={`relative aspect-[16/7] ${getSurfaceClass(heroMedia.surface)}`}>
+                        {heroMedia.fit === "contain" ? (
                             <div className="absolute inset-0 flex items-center justify-center px-10 py-12 md:px-16">
                                 <div className="relative w-full max-w-[240px] aspect-[3/1.4]">
                                     <Image
-                                        src={project.gallery[0].src}
-                                        alt={project.gallery[0].alt}
+                                        src={heroMedia.src}
+                                        alt={heroMedia.alt}
                                         fill
                                         className="object-contain"
                                         loading="eager"
@@ -130,8 +135,8 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                             </div>
                         ) : (
                             <Image
-                                src={project.gallery[0].src}
-                                alt={project.gallery[0].alt}
+                                src={heroMedia.src}
+                                alt={heroMedia.alt}
                                 fill
                                 className="object-cover"
                                 loading="eager"
@@ -174,9 +179,9 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 </div>
             </div>
 
-            {project.gallery && project.gallery.length > 1 ? (
-                <div className={`mt-12 grid gap-5 ${project.gallery.slice(1).length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
-                    {project.gallery.slice(1).map((item) => (
+            {supportingGallery.length ? (
+                <div className={`mt-12 grid gap-5 ${supportingGallery.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
+                    {supportingGallery.map((item) => (
                         <div key={item.src} className="overflow-hidden rounded-[12px] border border-border/50 bg-card shadow-[0_8px_30px_rgba(0,0,0,0.14)]">
                             <div className={`relative aspect-[16/9] ${getSurfaceClass(item.surface)}`}>
                                 <Image
@@ -269,14 +274,26 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                         className="rounded-[16px] border border-border/50 bg-card p-5 transition-all duration-300 hover:border-purple/25 hover:shadow-[0_10px_34px_rgba(101,101,253,0.12)]"
                                     >
                                         <div className="overflow-hidden rounded-[12px] border border-border/40 bg-bg3/80">
-                                            <video
-                                                controls
-                                                preload="metadata"
-                                                poster={asset.poster}
-                                                className="w-full h-auto max-h-[320px] object-cover"
-                                            >
-                                                <source src={asset.href} type="video/mp4" />
-                                            </video>
+                                            {asset.embedUrl ? (
+                                                <div className="relative pt-[56.25%]">
+                                                    <iframe
+                                                        src={asset.embedUrl}
+                                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                                        referrerPolicy="strict-origin-when-cross-origin"
+                                                        className="absolute inset-0 h-full w-full"
+                                                        title={asset.title}
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <video
+                                                    controls
+                                                    preload="metadata"
+                                                    poster={asset.poster}
+                                                    className="w-full h-auto max-h-[320px] object-cover"
+                                                >
+                                                    <source src={asset.href} type="video/mp4" />
+                                                </video>
+                                            )}
                                         </div>
                                         <div className="mt-4 flex items-center justify-between gap-4">
                                             <div className="flex items-center gap-3">
@@ -293,17 +310,22 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                                 </div>
                                             </div>
                                             <Link
-                                                href={asset.href}
+                                                href={asset.embedUrl ?? asset.href}
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="text-[12px] font-semibold text-purple-lt hover:text-white transition-colors"
                                             >
-                                                Open file
+                                                Open source
                                             </Link>
                                         </div>
                                         <p className="mt-4 text-[13px] text-slate leading-[1.7]">
                                             {asset.note}
                                         </p>
+                                        {asset.embedUrl ? (
+                                            <p className="mt-2 text-[12px] text-slate/80 leading-[1.6]">
+                                                Local fallback: <Link href={asset.href} target="_blank" rel="noreferrer" className="text-purple-lt hover:text-white transition-colors">open MP4</Link>
+                                            </p>
+                                        ) : null}
                                     </div>
                                 );
                             }

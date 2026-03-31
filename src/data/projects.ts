@@ -21,6 +21,7 @@ export interface ProjectGalleryItem {
     caption: string;
     fit?: "cover" | "contain";
     surface?: "default" | "light" | "brand-red";
+    homepageOnly?: boolean;
 }
 
 export interface ProjectAsset {
@@ -29,6 +30,7 @@ export interface ProjectAsset {
     kind: string;
     note: string;
     poster?: string;
+    embedUrl?: string;
 }
 
 export interface Project {
@@ -59,8 +61,8 @@ export const PROJECTS: Project[] = [
         cardEyebrow: "Huggies Launch Case",
         title: "Huggies Skin Perfect - Growth in a Declining Market",
         summary: "An award-winning Skin Perfect launch case focused on premiumization, talkability, and share growth in a declining market.",
-        intro: "Hazel supported the strategic communications and media rollout for Huggies Skin Perfect, helping position the launch as a premium growth response to a declining and downtrading market rather than a price-led reaction.",
-        scopeLabel: "This page covers the Skin Perfect launch campaign and its recognition footprint, not the full-year always-on ecommerce program.",
+        intro: "I supported the strategic communications and media rollout for Huggies Skin Perfect, helping position the launch as a premium growth response to a declining and downtrading market rather than a price-led reaction.",
+        scopeLabel: "On this page, I focus on the Skin Perfect launch campaign and its recognition footprint, not the full-year always-on ecommerce program.",
         executiveSummary: [
             "Vietnam's mom-and-baby market was already under pressure from economic downturn, more conscious household spending, and declining birth rates, while low-price entrants were forcing market leaders into a damaging value race.",
             "Huggies responded by premiumizing with real innovation: Skin Perfect introduced dual zones for pee and poo to address irritation more effectively, and the campaign made that functional story talkable through the #StopMixingUp idea rooted in moms' daily confusion and overload.",
@@ -122,9 +124,16 @@ export const PROJECTS: Project[] = [
         ],
         gallery: [
             {
-                src: "/GroupM_GroupPhoto.jpeg",
+                src: "/GroupM_MMA_awards.png",
                 alt: "Huggies Skin Perfect MMA award board",
                 caption: "The updated MMA visual anchors the Skin Perfect launch case around the award-winning work rather than the year-long commerce deck.",
+                fit: "cover",
+                homepageOnly: true,
+            },
+            {
+                src: "/GroupM_GroupPhoto.jpeg",
+                alt: "Huggies Skin Perfect group photo",
+                caption: "The project page opens with the team-side campaign visual while keeping the MMA board for homepage recognition.",
                 fit: "cover",
             },
         ],
@@ -135,6 +144,7 @@ export const PROJECTS: Project[] = [
                 kind: "Video",
                 note: "Campaign video source used to shape the project narrative, including market context, product story, media rollout, and business impact.",
                 poster: "/GroupM_MMA_awards.png",
+                embedUrl: "https://player.vimeo.com/video/1178875238?badge=0&autopause=0&player_id=0&app_id=58479",
             },
             {
                 title: "MMA Smarties Winners Page",
@@ -150,8 +160,8 @@ export const PROJECTS: Project[] = [
         cardEyebrow: "Huggies 2024 Growth Engine",
         title: "Huggies Ecommerce & Social Commerce Acceleration in 2024",
         summary: "A full-year 2024 commerce program covering ecommerce leadership, TikTok Shop acceleration, and sustained operating discipline.",
-        intro: "This is the always-on Huggies growth engine in 2024, separate from the Skin Perfect launch case. It covers sustained ecommerce and social commerce acceleration across the year, including rank leadership, team recognition, and operating rhythm.",
-        scopeLabel: "This page covers the always-on 2024 growth program across ecommerce and social commerce, not the specific Skin Perfect launch campaign.",
+        intro: "This is my always-on Huggies growth engine in 2024, separate from the Skin Perfect launch case. It covers sustained ecommerce and social commerce acceleration across the year, including rank leadership, team recognition, and operating rhythm.",
+        scopeLabel: "On this page, I focus on the always-on 2024 growth program across ecommerce and social commerce, not the specific Skin Perfect launch campaign.",
         executiveSummary: [
             "The brief for 2024 was to make Huggies grow faster than category growth while preserving stronger ROAS, and at the same time build a top-tier TikTok Shop presence from the ground up.",
             "The response was a year-long ecommerce and social commerce acceleration program: prioritize digital commerce investment, create more sale occasions, scale TikTok Shop with a growth-hacking mindset, and build a tighter traffic-to-conversion pipeline across stores, livestreams, affiliates, and paid media.",
@@ -209,7 +219,7 @@ export const PROJECTS: Project[] = [
             {
                 title: "Why This Case Matters",
                 bullets: [
-                    "It proves Hazel can support sustained commercial systems, not just launch moments.",
+                    "This case shows how I support sustained commercial systems, not just launch moments.",
                     "It also explains how the Huggies business scaled across both ecommerce and social commerce in 2024 without collapsing everything into one vague growth claim.",
                 ],
             },
@@ -255,8 +265,8 @@ export const PROJECTS: Project[] = [
         cardEyebrow: "Culture-Led Campaign",
         title: "Kotex - Blood is our Mark",
         summary: "A culture-led Kotex campaign that reframed period blood from stigma into strength and translated bold social conversation into measurable community and brand response.",
-        intro: "Hazel supported a Kotex campaign built around social context as much as media execution. The work shows how a brand can challenge a taboo in Vietnam without losing strategic clarity or measurable impact.",
-        scopeLabel: "This page covers the Blood is our Mark campaign and its recognition, not the separate Kotex TikTok Shop acceleration work that will be added later.",
+        intro: "I supported a Kotex campaign built around social context as much as media execution. This work shows how a brand can challenge a taboo in Vietnam without losing strategic clarity or measurable impact.",
+        scopeLabel: "On this page, I focus on the Blood is our Mark campaign and its recognition, not the separate Kotex TikTok Shop acceleration work that will be added later.",
         executiveSummary: [
             "The campaign started from a social tension: menstruation in Vietnam is still surrounded by silence, stigma, and outdated gender assumptions, which makes even basic conversation difficult.",
             "Kotex responded by reframing blood from something hidden or shameful into a symbol of resilience and identity, using social-first storytelling, artists, and emotionally resonant content to open the conversation in a culturally relevant way.",
@@ -310,8 +320,8 @@ export const PROJECTS: Project[] = [
             {
                 title: "Why This Case Matters",
                 bullets: [
-                    "It shows Hazel can contribute to work where strategic impact comes from culture, not only commerce.",
-                    "It also broadens the portfolio beyond ecommerce into brand-building with real social meaning.",
+                    "This case shows how I contribute to work where strategic impact comes from culture, not only commerce.",
+                    "It also broadens my portfolio beyond ecommerce into brand-building with real social meaning.",
                 ],
             },
         ],
@@ -344,11 +354,11 @@ export const PROJECTS: Project[] = [
         cardEyebrow: "Kiehl's eBoutique Case",
         title: "Mobile UI/UX Improvement",
         summary: "A Kiehl's brand.com optimization case that improved the mobile checkout journey and supported stronger digital performance during the first three months of the 2022 eBoutique campaign launch.",
-        intro: "Hazel used customer-journey analysis to identify mobile checkout friction on the Kiehl's eBoutique website and turn that into clearer improvement priorities for conversion performance.",
-        scopeLabel: "This page covers the Kiehl's brand.com mobile UI/UX improvement case tied to the 2022 eBoutique launch period.",
+        intro: "I used customer-journey analysis to identify mobile checkout friction on the Kiehl's eBoutique website and turn that into clearer improvement priorities for conversion performance.",
+        scopeLabel: "On this page, I focus on the Kiehl's brand.com mobile UI/UX improvement case tied to the 2022 eBoutique launch period.",
         executiveSummary: [
             "The Kiehl's eBoutique campaign needed stronger conversion performance shortly after launch, but the mobile purchase journey was carrying too much friction for high-intent users.",
-            "Hazel analyzed the checkout flow, identified key leakage points, and translated the findings into clearer UX and routing improvements that simplified the path to purchase.",
+            "I analyzed the checkout flow, identified key leakage points, and translated the findings into clearer UX and routing improvements that simplified the path to purchase.",
             "Those improvements helped enhance digital performance on the brand.com website and supported target achievement within the first three months of the 2022 launch period.",
         ],
         achievements: [
@@ -400,8 +410,8 @@ export const PROJECTS: Project[] = [
             {
                 title: "Why This Case Matters",
                 bullets: [
-                    "It shows Hazel can translate analytics into clear UX priorities with commercial logic behind them.",
-                    "It also gives the portfolio a stronger example of website-performance thinking, not just media-channel thinking.",
+                    "This case shows how I translate analytics into clear UX priorities with commercial logic behind them.",
+                    "It also gives my portfolio a stronger example of website-performance thinking, not just media-channel thinking.",
                 ],
             },
         ],

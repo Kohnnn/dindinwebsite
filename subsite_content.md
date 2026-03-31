@@ -187,7 +187,7 @@ Selected exclusive participant
 
 
 
-**GroupM (WPP) Media Master** *An intensive 13-week fast-track program focused on cross-channel media planning, programmatic trading, and data-driven budget allocation.*
+**GroupM (WPP) Media Master** *An intensive 10-week fast-track program focused on cross-channel media planning, programmatic trading, and data-driven budget allocation.*
 
 -   **Objective:** Managed and optimized large-scale media investments for enterprise clients, ensuring maximum Return on Ad Spend (ROAS) and strategic alignment with overall business goals.
 
