@@ -240,12 +240,6 @@ export const PROJECTS: Project[] = [
         ],
         assets: [
             {
-                title: "Little Wonders, Big Impact - WOW Award Deck",
-                href: "/MSExNEXUS_Huggies WOW Award 2025.pdf",
-                kind: "PDF",
-                note: "The source deck used to shape the always-on Huggies ecommerce and social commerce case in 2024.",
-            },
-            {
                 title: "Huggies TikTok Recognition",
                 href: "/WPP_COTM_huggies_tiktok.jpg",
                 kind: "Image",
