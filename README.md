@@ -32,10 +32,15 @@ If the PostHog key is missing, telemetry stays disabled.
 
 - `$pageview` on route changes
 - `section_viewed` for homepage sections as visitors scroll
+- `scroll_depth_reached`
+- `time_on_page_reached`
+- `return_visit`
 - `nav_click` and `nav_cta_click`
 - `hero_cta_click`
 - `project_card_click`
 - `recognition_card_click`
+- `project_detail_viewed`
+- `recognition_detail_viewed`
 - `experience_role_selected`
 - `certification_opened`
 - `contact_click`
@@ -43,8 +48,16 @@ If the PostHog key is missing, telemetry stays disabled.
 - `project_asset_open`
 - `back_to_portfolio_click`
 - `mobile_menu_toggle`
+- `rage_click_detected`
 
 Each event is enriched with page path, full URL, referrer, and any `utm_*` params present in the URL.
+
+Passive engagement tracking also captures:
+
+- scroll milestones at 25%, 50%, 75%, and 90%
+- time-on-page milestones at 30s, 60s, and 120s
+- return visits after 30 minutes away from the site in the same browser
+- rage clicks when the same target is clicked repeatedly in a short burst
 
 ### Notes
 

@@ -7,6 +7,12 @@ import posthog from "posthog-js";
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 const POSTHOG_ENABLED = Boolean(POSTHOG_KEY);
+const SCROLL_DEPTH_MILESTONES = [25, 50, 75, 90] as const;
+const TIME_ON_PAGE_MILESTONES = [30, 60, 120] as const;
+const RETURN_VISITOR_WINDOW_MS = 30 * 60 * 1000;
+const RAGE_CLICK_WINDOW_MS = 1500;
+const RAGE_CLICK_DISTANCE_PX = 24;
+const RAGE_CLICK_THRESHOLD = 3;
 
 type TelemetryElement = HTMLElement & {
     dataset: DOMStringMap & {
@@ -19,6 +25,13 @@ type TelemetryElement = HTMLElement & {
         telemetrySectionView?: string;
     };
 };
+
+interface ClickSample {
+    label: string | null;
+    timestamp: number;
+    x: number;
+    y: number;
+}
 
 const getPageProperties = () => {
     const params = new URLSearchParams(window.location.search);
@@ -34,6 +47,51 @@ const getPageProperties = () => {
         utm_content: params.get("utm_content"),
         utm_term: params.get("utm_term"),
     };
+};
+
+const getPageCategory = (pathname: string): string => {
+    if (pathname === "/") {
+        return "homepage";
+    }
+
+    if (pathname.startsWith("/projects/")) {
+        return "project_detail";
+    }
+
+    if (pathname.startsWith("/awards/")) {
+        return "recognition_detail";
+    }
+
+    return "content";
+};
+
+const getPathContext = (pathname: string) => {
+    if (pathname.startsWith("/projects/")) {
+        return {
+            page_category: "project_detail",
+            page_slug: pathname.replace("/projects/", ""),
+        };
+    }
+
+    if (pathname.startsWith("/awards/")) {
+        return {
+            page_category: "recognition_detail",
+            page_slug: pathname.replace("/awards/", ""),
+        };
+    }
+
+    return {
+        page_category: getPageCategory(pathname),
+        page_slug: null,
+    };
+};
+
+const isSameRoute = (pathname: string, search: string): boolean => {
+    const currentSearch = window.location.search.startsWith("?")
+        ? window.location.search.slice(1)
+        : window.location.search;
+
+    return window.location.pathname === pathname && currentSearch === search;
 };
 
 const getTextLabel = (element: TelemetryElement): string | null => {
@@ -144,6 +202,8 @@ export default function TelemetryProvider() {
     const search = searchParams.toString();
     const initializedRef = useRef(false);
     const lastPageviewRef = useRef<string | null>(null);
+    const rageClicksRef = useRef<ClickSample[]>([]);
+    const lastRageClickRouteRef = useRef<string | null>(null);
 
     useEffect(() => {
         if (!POSTHOG_ENABLED || initializedRef.current) {
@@ -159,7 +219,7 @@ export default function TelemetryProvider() {
         });
 
         initializedRef.current = true;
-    }, []);
+    }, [pathname, search]);
 
     useEffect(() => {
         if (!POSTHOG_ENABLED) {
@@ -176,8 +236,105 @@ export default function TelemetryProvider() {
 
         posthog.capture("$pageview", {
             ...getPageProperties(),
+            ...getPathContext(pathname),
             route_path: pathname,
         });
+
+        if (pathname.startsWith("/projects/")) {
+            posthog.capture("project_detail_viewed", {
+                ...getPageProperties(),
+                ...getPathContext(pathname),
+            });
+        }
+
+        if (pathname.startsWith("/awards/")) {
+            posthog.capture("recognition_detail_viewed", {
+                ...getPageProperties(),
+                ...getPathContext(pathname),
+            });
+        }
+
+        try {
+            const lastSeenAt = window.localStorage.getItem("telemetry_last_seen_at");
+            const now = Date.now();
+
+            if (lastSeenAt) {
+                const lastSeenMs = Number(lastSeenAt);
+
+                if (Number.isFinite(lastSeenMs) && now - lastSeenMs > RETURN_VISITOR_WINDOW_MS) {
+                    posthog.capture("return_visit", {
+                        ...getPageProperties(),
+                        ...getPathContext(pathname),
+                        seconds_since_last_visit: Math.round((now - lastSeenMs) / 1000),
+                    });
+                }
+            }
+
+            window.localStorage.setItem("telemetry_last_seen_at", String(now));
+        } catch {
+            // Ignore storage access issues in restricted browsing contexts.
+        }
+    }, [pathname, search]);
+
+    useEffect(() => {
+        if (!POSTHOG_ENABLED) {
+            return;
+        }
+
+        const completedMilestones = new Set<number>();
+
+        const handleScrollDepth = () => {
+            const scrollTop = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollableHeight = Math.max(documentHeight - viewportHeight, 1);
+            const depthPercent = Math.min(100, Math.round(((scrollTop + viewportHeight) / Math.max(documentHeight, 1)) * 100));
+            const relativeDepthPercent = Math.min(100, Math.round((scrollTop / scrollableHeight) * 100));
+
+            SCROLL_DEPTH_MILESTONES.forEach((milestone) => {
+                if (completedMilestones.has(milestone) || relativeDepthPercent < milestone) {
+                    return;
+                }
+
+                completedMilestones.add(milestone);
+
+                posthog.capture("scroll_depth_reached", {
+                    ...getPageProperties(),
+                    ...getPathContext(pathname),
+                    scroll_depth_percent: milestone,
+                    viewport_depth_percent: depthPercent,
+                });
+            });
+        };
+
+        handleScrollDepth();
+        window.addEventListener("scroll", handleScrollDepth, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollDepth);
+        };
+    }, [pathname, search]);
+
+    useEffect(() => {
+        if (!POSTHOG_ENABLED) {
+            return;
+        }
+
+        const timers = TIME_ON_PAGE_MILESTONES.map((seconds) => window.setTimeout(() => {
+            if (!isSameRoute(pathname, search)) {
+                return;
+            }
+
+            posthog.capture("time_on_page_reached", {
+                ...getPageProperties(),
+                ...getPathContext(pathname),
+                seconds_on_page: seconds,
+            });
+        }, seconds * 1000));
+
+        return () => {
+            timers.forEach((timer) => window.clearTimeout(timer));
+        };
     }, [pathname, search]);
 
     useEffect(() => {
@@ -193,16 +350,50 @@ export default function TelemetryProvider() {
             }
 
             const destination = getDestination(target);
+            const label = getTextLabel(target);
+            const routeKey = search ? `${pathname}?${search}` : pathname;
 
             posthog.capture(getDefaultEventName(target, destination), {
                 ...getPageProperties(),
+                ...getPathContext(pathname),
                 interaction_context: target.dataset.telemetryContext ?? null,
                 interaction_destination: destination,
-                interaction_label: getTextLabel(target),
+                interaction_label: label,
                 interaction_section: target.dataset.telemetrySection ?? null,
                 interaction_tag: target.tagName.toLowerCase(),
                 is_external: isExternalDestination(target),
             });
+
+            const now = Date.now();
+            const clickSample: ClickSample = {
+                label,
+                timestamp: now,
+                x: event.clientX,
+                y: event.clientY,
+            };
+
+            rageClicksRef.current = [...rageClicksRef.current, clickSample].filter((sample) => {
+                const withinWindow = now - sample.timestamp <= RAGE_CLICK_WINDOW_MS;
+                const sameArea = Math.abs(sample.x - clickSample.x) <= RAGE_CLICK_DISTANCE_PX
+                    && Math.abs(sample.y - clickSample.y) <= RAGE_CLICK_DISTANCE_PX;
+                const sameLabel = sample.label === clickSample.label;
+
+                return withinWindow && sameArea && sameLabel;
+            });
+
+            if (rageClicksRef.current.length >= RAGE_CLICK_THRESHOLD && lastRageClickRouteRef.current !== routeKey) {
+                lastRageClickRouteRef.current = routeKey;
+
+                posthog.capture("rage_click_detected", {
+                    ...getPageProperties(),
+                    ...getPathContext(pathname),
+                    interaction_destination: destination,
+                    interaction_label: label,
+                    interaction_section: target.dataset.telemetrySection ?? null,
+                    clicks_in_burst: rageClicksRef.current.length,
+                    burst_window_ms: RAGE_CLICK_WINDOW_MS,
+                });
+            }
         };
 
         document.addEventListener("click", handleClick, true);
@@ -210,7 +401,7 @@ export default function TelemetryProvider() {
         return () => {
             document.removeEventListener("click", handleClick, true);
         };
-    }, []);
+    }, [pathname, search]);
 
     useEffect(() => {
         if (!POSTHOG_ENABLED) {
@@ -242,6 +433,7 @@ export default function TelemetryProvider() {
 
                     posthog.capture("section_viewed", {
                         ...getPageProperties(),
+                        ...getPathContext(pathname),
                         section_name: sectionName,
                     });
 
