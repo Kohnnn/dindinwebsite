@@ -13,7 +13,7 @@ export default function Education() {
     const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
     return (
-        <section id="education" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
+        <section id="education" data-telemetry-section-view="education" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Education
@@ -69,6 +69,10 @@ export default function Education() {
                                     key={index}
                                     type="button"
                                     onClick={() => setLightboxImg(certification.image)}
+                                    data-telemetry-event="certification_opened"
+                                    data-telemetry-label={certification.event}
+                                    data-telemetry-context={certification.year}
+                                    data-telemetry-section="education"
                                     className="group h-full overflow-hidden rounded-[20px] border border-border/50 bg-[rgba(255,255,255,0.025)] text-left shadow-[0_4px_24px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_32px_rgba(101,101,253,0.12)]"
                                 >
                                     <div className="relative aspect-[4/3] bg-[radial-gradient(circle_at_top,rgba(146,147,250,0.14),transparent_62%)] p-4">

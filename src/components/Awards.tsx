@@ -8,7 +8,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Awards() {
     return (
-        <section id="recognition" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
+        <section id="recognition" data-telemetry-section-view="recognition" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="mb-10 text-center">
                     <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
@@ -25,6 +25,10 @@ export default function Awards() {
                     <ScrollReveal key={award.slug} delay={0.08 * index} className="group h-full">
                         <Link
                             href={award.href}
+                            data-telemetry-event="recognition_card_click"
+                            data-telemetry-label={award.title}
+                            data-telemetry-context={award.slug}
+                            data-telemetry-section="homepage_recognition"
                             className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-border/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] shadow-[0_6px_28px_rgba(0,0,0,0.14)] transition-all duration-500 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_14px_42px_rgba(101,101,253,0.14)]"
                         >
                             <div className="relative aspect-[4/3] overflow-hidden bg-bg3 p-4">

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { Suspense } from "react";
+
+import TelemetryProvider from "@/components/TelemetryProvider";
+
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -36,11 +40,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${beVietnamPro.variable} font-sans antialiased text-muted bg-bg selection:bg-purple/30`}>
-        {children}
-      </body>
-    </html>
+    return (
+        <html lang="en">
+            <body className={`${beVietnamPro.variable} font-sans antialiased text-muted bg-bg selection:bg-purple/30`}>
+                <Suspense fallback={null}>
+                    <TelemetryProvider />
+                </Suspense>
+                {children}
+            </body>
+        </html>
   );
 }

@@ -61,6 +61,10 @@ export default function Experience() {
                 <button
                     key={job.id}
                     onClick={() => setActiveJobId(job.id)}
+                    data-telemetry-event="experience_role_selected"
+                    data-telemetry-label={job.title}
+                    data-telemetry-context={job.id}
+                    data-telemetry-section="experience"
                     className={cn(
                         "relative rounded-xl border pl-8 pr-3 py-3 text-left transition-colors duration-300",
                         isActive
@@ -86,6 +90,10 @@ export default function Experience() {
                 <button
                     key={job.id}
                     onClick={() => setActiveJobId(job.id)}
+                    data-telemetry-event="experience_role_selected"
+                    data-telemetry-label={job.title}
+                    data-telemetry-context={job.id}
+                    data-telemetry-section="experience"
                     className={cn(
                         "w-full text-left p-4 md:p-5 rounded-2xl transition-colors duration-300 flex flex-col justify-center",
                         isActive ? "bg-purple/10" : "hover:bg-purple/5"
@@ -101,7 +109,7 @@ export default function Experience() {
     };
 
     return (
-        <section id="work" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
+        <section id="work" data-telemetry-section-view="experience" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto">
             <ScrollReveal>
                 <div className="inline-flex items-center gap-2.5 text-[11px] font-bold text-purple-lt tracking-[2px] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-0.5 before:bg-purple before:rounded-sm">
                     Experience

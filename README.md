@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hazel Ho Portfolio
 
-## Getting Started
+Next.js 14 portfolio site for Hazel Ho, focused on case studies, recognition, and direct contact pathways.
 
-First, run the development server:
+## Local Setup
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Telemetry
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site includes a lightweight PostHog integration for anonymous visitor telemetry.
 
-## Learn More
+1. Create a PostHog project.
+2. Copy `.env.example` to `.env.local`.
+3. Fill in your project values:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+NEXT_PUBLIC_POSTHOG_KEY=phc_your_project_key
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If the PostHog key is missing, telemetry stays disabled.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Events Captured
 
-## Deploy on Vercel
+- `$pageview` on route changes
+- `section_viewed` for homepage sections as visitors scroll
+- `nav_click` and `nav_cta_click`
+- `hero_cta_click`
+- `project_card_click`
+- `recognition_card_click`
+- `experience_role_selected`
+- `certification_opened`
+- `contact_click`
+- `resume_download`
+- `project_asset_open`
+- `back_to_portfolio_click`
+- `mobile_menu_toggle`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Each event is enriched with page path, full URL, referrer, and any `utm_*` params present in the URL.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Notes
+
+- Tracking is anonymous by default. There is no logged-in identity flow in this project.
+- `mailto:` and `tel:` targets are sanitized before sending so the analytics payload does not include the raw email address or phone number.
+- If you need consent-gated analytics for EU traffic, gate `TelemetryProvider` behind your cookie consent flow before initializing PostHog.
+
+## Scripts
+
+- `npm run dev`
+- `npm run build`
+- `npm run start`
+- `npm run lint`

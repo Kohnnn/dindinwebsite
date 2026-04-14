@@ -48,10 +48,10 @@ export default function Nav() {
 
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex gap-6 lg:gap-8 list-none font-medium text-[13px] tracking-wide text-muted">
-                        <li><a href="#work" className="hover:text-white transition-colors duration-300">Experience</a></li>
-                        <li><a href="#projects" className="hover:text-white transition-colors duration-300">Projects</a></li>
-                        <li><a href="#recognition" className="hover:text-white transition-colors duration-300">Recognition</a></li>
-                        <li><a href="#education" className="hover:text-white transition-colors duration-300">Education</a></li>
+                        <li><a href="#work" data-telemetry-event="nav_click" data-telemetry-label="experience" data-telemetry-section="desktop_header" className="hover:text-white transition-colors duration-300">Experience</a></li>
+                        <li><a href="#projects" data-telemetry-event="nav_click" data-telemetry-label="projects" data-telemetry-section="desktop_header" className="hover:text-white transition-colors duration-300">Projects</a></li>
+                        <li><a href="#recognition" data-telemetry-event="nav_click" data-telemetry-label="recognition" data-telemetry-section="desktop_header" className="hover:text-white transition-colors duration-300">Recognition</a></li>
+                        <li><a href="#education" data-telemetry-event="nav_click" data-telemetry-label="education" data-telemetry-section="desktop_header" className="hover:text-white transition-colors duration-300">Education</a></li>
                     </ul>
 
                     <div className="hidden md:flex items-center gap-3">
@@ -59,6 +59,9 @@ export default function Nav() {
                             href="https://www.linkedin.com/in/duyen-ho-0640b11a1/"
                             target="_blank"
                             rel="noreferrer"
+                            data-telemetry-event="social_click"
+                            data-telemetry-label="linkedin"
+                            data-telemetry-section="desktop_header"
                             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all duration-300 hover:border-purple/30 hover:text-white"
                             aria-label="Hazel Ho LinkedIn"
                         >
@@ -66,6 +69,9 @@ export default function Nav() {
                         </Link>
                         <a
                             href="#contact"
+                            data-telemetry-event="nav_cta_click"
+                            data-telemetry-label="contact"
+                            data-telemetry-section="desktop_header"
                             className="inline-flex bg-purple hover:bg-purple-lt hover:-translate-y-[1px] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-none hover:shadow-[0_8px_30px_rgba(101,101,253,0.35)] text-sm"
                         >
                             Contact
@@ -76,6 +82,9 @@ export default function Nav() {
                     <button
                         className="md:hidden flex flex-col justify-center items-center w-8 h-8 z-[60] relative"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        data-telemetry-event="mobile_menu_toggle"
+                        data-telemetry-label={isMobileMenuOpen ? "close_menu" : "open_menu"}
+                        data-telemetry-section="mobile_header"
                         aria-label="Toggle Navigation"
                     >
                         <span className={cn("block w-6 h-[2px] bg-white transition-all duration-300 origin-center", isMobileMenuOpen ? "rotate-45 translate-y-[4px]" : "mb-1.5")} />
@@ -112,6 +121,9 @@ export default function Nav() {
                             <a
                                 href={href}
                                 onClick={closeMobileMenu}
+                                data-telemetry-event="nav_click"
+                                data-telemetry-label={label.toLowerCase()}
+                                data-telemetry-section="mobile_menu"
                                 className="text-muted hover:text-white transition-colors block py-1"
                             >
                                 {label}
@@ -131,6 +143,9 @@ export default function Nav() {
                         <a
                             href="#contact"
                             onClick={closeMobileMenu}
+                            data-telemetry-event="nav_cta_click"
+                            data-telemetry-label="get_in_touch"
+                            data-telemetry-section="mobile_menu"
                             className="bg-purple text-white px-10 py-4 rounded-full font-bold text-lg block"
                         >
                             Get in Touch
@@ -140,6 +155,9 @@ export default function Nav() {
                             target="_blank"
                             rel="noreferrer"
                             onClick={closeMobileMenu}
+                            data-telemetry-event="social_click"
+                            data-telemetry-label="linkedin"
+                            data-telemetry-section="mobile_menu"
                             className="text-sm font-medium text-slate hover:text-white transition-colors"
                         >
                             LinkedIn

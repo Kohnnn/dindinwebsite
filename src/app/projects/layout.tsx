@@ -18,6 +18,9 @@ export default function ProjectsLayout({
                 <div className="max-w-[1100px] mx-auto min-h-[56px] px-6 md:px-8 py-4 flex items-center justify-between">
                     <Link
                         href="/"
+                        data-telemetry-event="back_to_portfolio_click"
+                        data-telemetry-label="project_nav"
+                        data-telemetry-section="project_header"
                         className="group flex items-center gap-2 text-[13px] font-medium text-slate transition-colors duration-300 hover:text-purple-lt"
                     >
                         <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />

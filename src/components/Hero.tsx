@@ -24,7 +24,7 @@ export default function Hero() {
     const currentRole = DATA.experience[0]?.title;
 
     return (
-        <section className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-24 md:pt-36 pb-24 md:pb-24 relative overflow-hidden">
+        <section data-telemetry-section-view="hero" className="min-h-[95vh] flex flex-col justify-center px-6 md:px-16 pt-24 md:pt-36 pb-24 md:pb-24 relative overflow-hidden">
             {/* Background Orbs */}
             <OrbBackground size={500} color="rgba(101,101,253,0.18)" className="-top-24 -right-10 md:right-24" />
             <OrbBackground size={400} color="rgba(150,110,161,0.14)" className="-bottom-10 -left-24" />
@@ -45,10 +45,10 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div variants={item} className="flex items-center gap-4 mb-10 md:mb-14">
-                        <a href="#contact" className="btn-glow inline-flex min-h-[50px] items-center justify-center bg-purple px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold leading-none text-white">
+                        <a href="#contact" data-telemetry-event="hero_cta_click" data-telemetry-label="get_in_touch" data-telemetry-section="hero" className="btn-glow inline-flex min-h-[50px] items-center justify-center bg-purple px-7 py-3.5 md:px-9 md:py-4 rounded-full text-[14px] md:text-[15px] font-bold leading-none text-white">
                             Get in Touch
                         </a>
-                        <a href="#projects" className="inline-flex min-h-[50px] items-center text-muted text-[14px] md:text-[15px] font-medium leading-none gap-2 hover:text-white transition-colors group">
+                        <a href="#projects" data-telemetry-event="hero_cta_click" data-telemetry-label="see_projects" data-telemetry-section="hero" className="inline-flex min-h-[50px] items-center text-muted text-[14px] md:text-[15px] font-medium leading-none gap-2 hover:text-white transition-colors group">
                             See Projects <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </a>
                     </motion.div>
@@ -97,7 +97,7 @@ export default function Hero() {
 
                     </div>
 
-                    <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border/70 text-white px-6 py-4 rounded-[16px] font-bold transition-all duration-300">
+                    <a href="/HoHaoDuyen_CV.pdf" target="_blank" rel="noopener noreferrer" data-telemetry-event="resume_download" data-telemetry-label="full_resume_pdf" data-telemetry-section="hero" className="w-full inline-flex items-center justify-center gap-3 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] border border-border/70 text-white px-6 py-4 rounded-[16px] font-bold transition-all duration-300">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                         Download Full Resume · PDF
                     </a>

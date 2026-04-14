@@ -313,6 +313,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                                 href={asset.embedUrl ?? asset.href}
                                                 target="_blank"
                                                 rel="noreferrer"
+                                                data-telemetry-event="project_asset_open"
+                                                data-telemetry-label={asset.title}
+                                                data-telemetry-context={project.slug}
+                                                data-telemetry-section="project_assets"
                                                 className="text-[12px] font-semibold text-purple-lt hover:text-white transition-colors"
                                             >
                                                 Open source
@@ -323,7 +327,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                         </p>
                                         {asset.embedUrl ? (
                                             <p className="mt-2 text-[12px] text-slate/80 leading-[1.6]">
-                                                Local fallback: <Link href={asset.href} target="_blank" rel="noreferrer" className="text-purple-lt hover:text-white transition-colors">open MP4</Link>
+                                                Local fallback: <Link href={asset.href} target="_blank" rel="noreferrer" data-telemetry-event="project_asset_open" data-telemetry-label={`${asset.title} mp4`} data-telemetry-context={project.slug} data-telemetry-section="project_assets" className="text-purple-lt hover:text-white transition-colors">open MP4</Link>
                                             </p>
                                         ) : null}
                                     </div>
@@ -336,6 +340,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                                     href={asset.href}
                                     target={isExternal ? "_blank" : undefined}
                                     rel={isExternal ? "noreferrer" : undefined}
+                                    data-telemetry-event="project_asset_open"
+                                    data-telemetry-label={asset.title}
+                                    data-telemetry-context={project.slug}
+                                    data-telemetry-section="project_assets"
                                     className="group rounded-[16px] border border-border/50 bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple/25 hover:shadow-[0_10px_34px_rgba(101,101,253,0.12)]"
                                 >
                                     <div className="flex items-center justify-between gap-4">

@@ -7,7 +7,7 @@ import { ScrollReveal } from "./ui/scroll-reveal";
 
 export default function Contact() {
     return (
-        <section id="contact" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto relative overflow-hidden">
+        <section id="contact" data-telemetry-section-view="contact" className="section py-12 md:py-24 px-6 md:px-16 max-w-[1100px] mx-auto relative overflow-hidden">
             <OrbBackground size={700} color="rgba(101,101,253,0.12)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
             <ScrollReveal className="relative z-10">
@@ -24,6 +24,9 @@ export default function Contact() {
                     <div className="space-y-3">
                         <a
                             href={`mailto:${DATA.contact.email}`}
+                            data-telemetry-event="contact_click"
+                            data-telemetry-label="email"
+                            data-telemetry-section="contact"
                             className="flex items-center gap-3 rounded-[16px] border border-border/40 bg-bg3/70 px-4 py-4 text-[14px] text-white transition-colors hover:border-purple/30"
                         >
                             <Mail className="w-4 h-4 text-purple-lt" />
@@ -31,6 +34,9 @@ export default function Contact() {
                         </a>
                         <a
                             href={`tel:${DATA.contact.phone.replace(/[^\d+]/g, "")}`}
+                            data-telemetry-event="contact_click"
+                            data-telemetry-label="phone"
+                            data-telemetry-section="contact"
                             className="flex items-center gap-3 rounded-[16px] border border-border/40 bg-bg3/70 px-4 py-4 text-[14px] text-white transition-colors hover:border-purple/30"
                         >
                             <Phone className="w-4 h-4 text-purple-lt" />
@@ -40,6 +46,9 @@ export default function Contact() {
                             href="https://www.linkedin.com/in/duyen-ho-0640b11a1/"
                             target="_blank"
                             rel="noreferrer"
+                            data-telemetry-event="contact_click"
+                            data-telemetry-label="linkedin"
+                            data-telemetry-section="contact"
                             className="flex items-center gap-3 rounded-[16px] border border-border/40 bg-bg3/70 px-4 py-4 text-[14px] text-white transition-colors hover:border-purple/30"
                         >
                             <Linkedin className="w-4 h-4 text-purple-lt" />

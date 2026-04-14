@@ -19,6 +19,9 @@ export default function AwardsLayout({
                 <div className="max-w-[1000px] mx-auto min-h-[56px] px-6 md:px-8 py-4 flex items-center justify-between">
                     <Link
                         href="/"
+                        data-telemetry-event="back_to_portfolio_click"
+                        data-telemetry-label="awards_header"
+                        data-telemetry-section="awards_header"
                         className="flex items-center gap-2 text-[13px] font-medium text-slate hover:text-purple-lt transition-colors duration-300 group"
                     >
                         <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
@@ -43,6 +46,9 @@ export default function AwardsLayout({
                     </p>
                     <Link
                         href="/"
+                        data-telemetry-event="back_to_portfolio_click"
+                        data-telemetry-label="awards_footer"
+                        data-telemetry-section="awards_footer"
                         className="text-[12px] text-slate hover:text-purple-lt transition-colors duration-300"
                     >
                         ← Back to Portfolio
